@@ -1,0 +1,51 @@
+*{
+    font-family: defaultFont;
+}
+.main{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--lightBrown);
+}
+.main h2{
+    font-size: 3rem;
+    color: var(--cream);
+}
+.card-list{
+    flex-direction: row;
+    display: flex;
+    gap: 8rem;
+}
+.card{
+    background-color: var(--chocolate);
+    width: 20rem;
+    height: 10rem;
+    color: var(--cream);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 15px;
+}
+.card h3{
+    font-size: 1.7rem;    
+    text-align: center;
+}
+.img-team-container{
+    position: relative;
+    text-align: center;
+    color: white;
+}
+.img-team-container img{
+    width: 100vw;
+    height: 100vh;
+}
+.img-team-container p{
+    font-size: 10rem;
+    color: var(--carmel);  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

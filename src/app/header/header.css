@@ -1,0 +1,13 @@
+.main{
+    display: flex;
+    width: 100vw;
+    height: 10rem;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--chocolate);
+}
+.main h1{
+    font-size: 5rem;
+    color: var(--cream);
+    font-family: defaultFont;
+}

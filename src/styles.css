@@ -1,0 +1,15 @@
+@font-face {
+    font-family: defaultFont;
+    src: url(assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf) format('truetype');
+}
+:root{
+    --lightBrown: #713600;
+    --carmel: #C05800;
+    --cream: #FDFBD4;
+    --chocolate: #38240D;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
