@@ -1,13 +1,27 @@
 .main{
-    display: flex;
+    display: grid;
     width: 100vw;
     height: 10rem;
+    grid-template-columns: 15rem 15rem 15rem 15rem 15rem 15rem 15rem;
+    column-gap: 5rem;
+    background-color: var(--chocolate);
     align-items: center;
     justify-content: center;
-    background-color: var(--chocolate);
 }
-.main h1{
-    font-size: 5rem;
+.main .logo{
+    text-align: center;
+}
+p{
     color: var(--cream);
+    font-size: 2rem;
     font-family: defaultFont;
+    font-weight: 300;
+    text-align: center;
+    border-bottom: 2px solid transparent;
+    transition: border 0.5s ease;
+    padding: 0.8rem;
+}
+p:hover{
+    border-bottom: 2px solid var(--cream);
+    cursor: pointer;
 }

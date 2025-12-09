@@ -1,51 +1,33 @@
 *{
     font-family: defaultFont;
 }
-.main{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: var(--lightBrown);
-}
-.main h2{
-    font-size: 3rem;
-    color: var(--cream);
-}
-.card-list{
-    flex-direction: row;
-    display: flex;
-    gap: 8rem;
-}
-.card{
-    background-color: var(--chocolate);
-    width: 20rem;
-    height: 10rem;
-    color: var(--cream);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    border-radius: 15px;
-}
-.card h3{
-    font-size: 1.7rem;    
-    text-align: center;
-}
-.img-team-container{
+.image-team-container{
     position: relative;
-    text-align: center;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.img-team-container img{
-    width: 100vw;
-    height: 100vh;
+.image-team-container img{
+    width: 100%;
+    height: auto;
+    background-size: cover;
 }
-.img-team-container p{
-    font-size: 10rem;
-    color: var(--carmel);  
+.reservation{
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.5); 
+    padding: 1.2rem;
+    border-radius: 8px;
+}
+.reservation h2{
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--cream);
+    font-weight: 300;
+    font-size: 2rem;
+}
+.reservation .input-item{
+    padding: 1.2rem;
+}
+.reservation button{
+    padding: 1.3rem;
 }
