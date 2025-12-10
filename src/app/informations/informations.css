@@ -46,7 +46,7 @@
 }
 .opinions{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
     width: 100%;
@@ -59,7 +59,8 @@
     border-radius: 10px;
     border: 2px solid var(--cream);
     width: 25rem;
-    padding: 2rem;
+    padding: 3rem;
+    height: 13rem;
 }
 .card-opinion p{
     text-align: center;
@@ -86,4 +87,30 @@
 .text-container h1{
     font-size: 3rem;
     font-weight: 500;
+}
+.company-info-container{
+    padding-top: 8rem;
+    width: 100%;
+    background-color: var(--cream);
+    display: flex;
+    align-items: center;
+}
+
+.image-container img{
+    width: 65vw;
+}
+.text-company-container h1{
+    font-size: 3.3rem;
+    color: var(--lightBrown);
+    text-align: center;
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+.text-company-container p{
+    font-size: 1.7rem;
+    line-height: 3rem;
+    text-align: left;
+    padding-left: 1rem;
+    color: var(--carmel);
 }
