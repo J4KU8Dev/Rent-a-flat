@@ -14,7 +14,7 @@
 }
 .reservation{
     position: absolute;
-    background: rgba(0,0,0,0.5); 
+    background: rgba(0,0,0,0.8); 
     padding: 1.2rem;
     border-radius: 8px;
 }
@@ -27,7 +27,63 @@
 }
 .reservation .input-item{
     padding: 1.2rem;
+    border: none;
+    outline: none;
+    margin-left: 1rem;
 }
 .reservation button{
-    padding: 1.3rem;
+    padding: 1.2rem;
+    margin-left: 1rem;
+    color: var(--cream);
+    font-size: 1.3rem;
+    font-weight: 300;
+}
+.opinions-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.opinions{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+    background-color: var(--chocolate);
+    height: 20rem;
+}
+.card-opinion{
+    background-color: var(--lightBrown);
+    color: var(--cream);
+    border-radius: 10px;
+    border: 2px solid var(--cream);
+    width: 25rem;
+    padding: 2rem;
+}
+.card-opinion p{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+    font-style: italic;
+    flex-wrap: wrap;
+}
+.card-opinion h2{
+    font-size: 2rem;
+    margin-top: 0.8rem;
+    text-align: center;
+}
+
+.text-container{
+    background-color: var(--cream);
+    color: var(--lightBrown);
+    width: 100%;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.text-container h1{
+    font-size: 3rem;
+    font-weight: 500;
 }
