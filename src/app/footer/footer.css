@@ -1,0 +1,50 @@
+.block{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--chocolate);
+    color: var(--cream);
+    height: 12rem;
+}
+.cards-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+.card{
+    margin: 0 2rem 0 2rem;
+    text-align: center;
+}
+.card h2{
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin-bottom: 0.9rem;
+}
+.card p{
+    font-size: 1rem;
+}
+a{
+    color: var(--cream);
+    text-decoration: none;
+}
+.endline{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5rem;
+    border-top: 3px solid var(--cream);
+    margin-top: 2rem;
+    padding-top: 1rem;
+
+}
+.wrap-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    gap: 3rem;
+}

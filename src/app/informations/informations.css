@@ -1,6 +1,13 @@
 *{
     font-family: defaultFont;
 }
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100vw;
+}
 .image-team-container{
     position: relative;
     display: flex;
@@ -8,7 +15,7 @@
     align-items: center;
 }
 .image-team-container img{
-    width: 100%;
+    width: 100vw;
     height: auto;
     background-size: cover;
 }
@@ -43,6 +50,7 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    width: 100vw;
 }
 .opinions{
     display: flex;
@@ -61,6 +69,7 @@
     width: 25rem;
     padding: 3rem;
     height: 13rem;
+    margin-left: 2rem;
 }
 .card-opinion p{
     text-align: center;
@@ -89,7 +98,7 @@
     font-weight: 500;
 }
 .company-info-container{
-    padding-top: 8rem;
+    padding: 8rem 0;
     width: 100%;
     background-color: var(--cream);
     display: flex;
@@ -111,6 +120,22 @@
     font-size: 1.7rem;
     line-height: 3rem;
     text-align: left;
-    padding-left: 1rem;
+    padding: 1rem;
+    margin: 2rem;
     color: var(--carmel);
+    flex-wrap: wrap;
+
+}
+.facilities{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    background-color: var(--carmel);
+    padding: 2rem 0 2rem;
+}
+.element{
+    padding: 2rem;
+    text-align: center;
 }
