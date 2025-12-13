@@ -1,0 +1,14 @@
+<div class="container">
+    <!-- maybe add interface model with all images and then bind it here in for loop ? -->
+    <h2>Apartaments Gallery</h2>
+    <div class="gallery">
+        @for (image of images(); track image.id) {
+            <div class="gallery-card">
+                <a target="_blank" [href]="image.img_Path">
+                    <img [src]="image.img_Path" class="image" width="600" height="400">
+                    <div class="description">{{ image.description }}</div>
+                </a>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,13 @@
+.gallery{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 2rem;
+}
+.gallery-card{
+    border: 2px solid grey;
+    border-radius: 10px;
+}
+.gallery-card:hover{
+    border: 2px solid black;
+}
