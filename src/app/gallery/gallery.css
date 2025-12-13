@@ -1,13 +1,38 @@
+.container{
+    margin-bottom: 2rem;
+}
+.container h2{
+    text-align: center;
+    font-size: 2rem;
+    margin: 2rem 0 ;
+}
 .gallery{
     display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
-    gap: 2rem;
+    justify-content: center;
+    gap: 1rem;
 }
 .gallery-card{
-    border: 2px solid grey;
+    border: 3px solid grey;
     border-radius: 10px;
 }
 .gallery-card:hover{
-    border: 2px solid black;
+    border: 3px solid black;
+}
+.description{
+    text-align: center;
+    color: black;
+}
+a{
+    text-decoration: none;
+}
+.message{
+    font-size: 2rem;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 1.5rem;
+}
+.message a{
+    color: black;
+    
 }

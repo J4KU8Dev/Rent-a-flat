@@ -2,7 +2,7 @@
     display: grid;
     width: 100vw;
     height: 10rem;
-    grid-template-columns: 15rem 15rem 15rem 15rem 15rem 15rem 15rem;
+    grid-template-columns: 15rem 15rem 15rem 15rem 15rem 15rem;
     column-gap: 5rem;
     background-color: var(--chocolate);
     align-items: center;

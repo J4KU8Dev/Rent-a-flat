@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { images } from '../gallery-images';
 import { imagesInterface } from '../images.model';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-gallery',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './gallery.html',
   styleUrl: './gallery.css',
 })
