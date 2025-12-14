@@ -1,1 +1,28 @@
+<div class="container">
+    <h1>ModernVista Apartments</h1>
+    <p>Find your furnished and fully-equipped flat</p>
+    <div class="apartaments">
+        @for (Apartament of Apartaments() ; track Apartament.id) {
+            <div class="apartament">
+                <div class="image">
+                    <img [src]="Apartament.imagePath" [alt]="Apartament.name" width="500" height="300">
+                </div>
+                <div class="apartament-info">
+                    <h2>{{ Apartament.name }}</h2>
+                    <div class="location">
+                        <img src="/assets/images/icons/location-icon.png" alt="location-icon">
+                        <p>{{ Apartament.city }}, Ul. {{ Apartament.street }} </p>
+                    </div>
+                    
+                    
+                </div>
+                <div class="price-square-call">
+                    <p>{{ (Apartament.rentalFee / Apartament.apartmentSize).toFixed(1) }} zł/m^2</p>
+                    <p>{{Apartament.rentalFee | currency: 'PLN'}}</p>
+                    <button>See more</button>
+                </div>
+            </div>
+        }
+    </div>
+</div>
 

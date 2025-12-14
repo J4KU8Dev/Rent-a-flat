@@ -1,0 +1,13 @@
+export  interface ApartamentsModel {
+    id: string,
+    imagePath: string,
+    name: string,
+    city: string,
+    street: string,
+    rentalFee: number,
+    apartmentSize: number,
+    rooms: number,
+    description: string,
+    parkingSpace: 'Yes' | 'No',
+    available: 'Yes' | 'No',
+}
