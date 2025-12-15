@@ -2,18 +2,38 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 4rem;
+    gap: 3rem;
+}
+.container .count{
+    font-size: 3rem;
+    margin-top: 2rem;
+    font-weight: 400;
+}
+.container h1{
+    margin-top: 5rem;
+    font-size: 5rem;
+    font-weight: 300;
 }
 .apartaments{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    align-items: center;
+    justify-content: center;
+    width: 60%;
     gap: 2rem;
+}
+.apartament-info{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 }
 .apartament{
     width: 100%;
     display: grid;
     grid-template-columns: 35rem 32rem 32rem;
-    border: 5px solid black;
+    border: 1px solid gray;
     border-radius: 10px;
     padding: 1.2rem;
     flex-direction: row;
@@ -30,7 +50,40 @@
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    justify-content: center;
 }
 .apartament-spec > *{
     display: flex;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.name{
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1.7rem;
+}
+.price-square-call{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3.2rem;
+}
+.price-square-call p{
+    font-size: 1.7rem;
+    font-weight: 300;
+}
+.price-square-call button{
+    padding: 1.5rem;
+    font-size: 2rem;
+    background: #27b67c;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    transition: color 0.2s ease-in-out;
+}
+.price-square-call button:hover{
+    color: white;
 }

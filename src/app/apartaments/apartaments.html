@@ -1,6 +1,6 @@
 <div class="container">
-    <h1>ModernVista Apartments</h1>
-    <p>We Found: {{Apartaments().length}} Apartaments</p>
+    <h1><i>ModernVista Apartments</i></h1>
+    <p class="count">We Found: <b style="color: #27b67c;"> {{Apartaments().length}}  Apartaments</b></p>
     <div class="apartaments">
         @for (Apartament of Apartaments() ; track Apartament.id) {
             <div class="apartament">
@@ -8,7 +8,7 @@
                     <img [src]="Apartament.imagePath" [alt]="Apartament.name" width="500" height="300">
                 </div>
                 <div class="apartament-info">
-                    <h2>{{ Apartament.name }}</h2>
+                    <h2 class="name" >{{ Apartament.name }}</h2>
                         <div class="apartament-spec">
                             <div class="location">
                                 <img src="/assets/images/icons/location-icon.png" alt="location-icon">
