@@ -8,6 +8,8 @@ export  interface ApartamentsModel {
     apartmentSize: number,
     rooms: number,
     description: string,
+    floor: string,
+    elevator: 'Yes' | 'No',
     parkingSpace: 'Yes' | 'No',
     available: 'Yes' | 'No',
 }

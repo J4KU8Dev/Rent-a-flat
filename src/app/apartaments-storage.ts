@@ -18,6 +18,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: '/assets/images/apartaments/apartament1.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a2',
@@ -31,6 +33,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament2.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a3',
@@ -44,6 +48,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament3.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a4',
@@ -57,6 +63,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'No',
       imagePath: 'assets/images/apartaments/apartament4.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a5',
@@ -70,6 +78,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament5.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a6',
@@ -83,6 +93,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament6.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a7',
@@ -96,6 +108,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'No',
       imagePath: 'assets/images/apartaments/apartament7.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a8',
@@ -109,6 +123,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament8.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a9',
@@ -122,6 +138,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament9.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a10',
@@ -135,6 +153,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'No',
       imagePath: 'assets/images/apartaments/apartament10.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a11',
@@ -148,6 +168,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament11.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a12',
@@ -161,6 +183,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament12.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a13',
@@ -174,6 +198,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament13.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a14',
@@ -187,6 +213,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'No',
       imagePath: 'assets/images/apartaments/apartament14.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a15',
@@ -200,6 +228,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament15.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a16',
@@ -213,6 +243,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament16.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a17',
@@ -226,6 +258,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'No',
       imagePath: 'assets/images/apartaments/apartament17.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a18',
@@ -239,6 +273,8 @@ export class ApartamentsStorage {
       parkingSpace: 'No',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament18.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a19',
@@ -252,6 +288,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament19.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
     {
       id: 'a20',
@@ -265,6 +303,8 @@ export class ApartamentsStorage {
       parkingSpace: 'Yes',
       available: 'Yes',
       imagePath: 'assets/images/apartaments/apartament20.jpg',
+      floor: "1st",
+      elevator: 'Yes',
     },
   ])
 

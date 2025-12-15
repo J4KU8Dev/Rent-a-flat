@@ -1,6 +1,6 @@
 <div class="container">
     <h1>ModernVista Apartments</h1>
-    <p>Find your furnished and fully-equipped flat</p>
+    <p>We Found: {{Apartaments().length}} Apartaments</p>
     <div class="apartaments">
         @for (Apartament of Apartaments() ; track Apartament.id) {
             <div class="apartament">
@@ -9,12 +9,24 @@
                 </div>
                 <div class="apartament-info">
                     <h2>{{ Apartament.name }}</h2>
-                    <div class="location">
-                        <img src="/assets/images/icons/location-icon.png" alt="location-icon">
-                        <p>{{ Apartament.city }}, Ul. {{ Apartament.street }} </p>
-                    </div>
-                    
-                    
+                        <div class="apartament-spec">
+                            <div class="location">
+                                <img src="/assets/images/icons/location-icon.png" alt="location-icon">
+                                <p>{{ Apartament.city }}, Ul. {{ Apartament.street }} </p>
+                            </div>
+                            <div class="parking">
+                                <img src="/assets/images/icons/parking-space.png" alt="parkingspace-icon">
+                                <p>Parking space: {{Apartament.parkingSpace}}</p>
+                            </div>
+                            <div class="rooms">
+                                <img src="/assets/images/icons/rooms-icon.png" alt="rooms-icon">
+                                <p>{{Apartament.rooms}} rooms</p>
+                            </div>
+                            <div class="floors">
+                                <img src="/assets/images/icons/floor-icon.png" alt="floor-icon">
+                                <p>{{Apartament.floor}} floor</p>
+                            </div>
+                        </div>
                 </div>
                 <div class="price-square-call">
                     <p>{{ (Apartament.rentalFee / Apartament.apartmentSize).toFixed(1) }} zł/m^2</p>

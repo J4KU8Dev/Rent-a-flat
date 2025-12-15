@@ -1,0 +1,36 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.apartaments{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    gap: 2rem;
+}
+.apartament{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 35rem 32rem 32rem;
+    border: 5px solid black;
+    border-radius: 10px;
+    padding: 1.2rem;
+    flex-direction: row;
+    gap: 3rem;
+}
+.image{
+    text-align: center;
+}
+.location{
+    display: flex;
+    flex-direction: row;
+}
+.apartament-spec{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.apartament-spec > *{
+    display: flex;
+}
