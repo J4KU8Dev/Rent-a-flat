@@ -1,10 +1,10 @@
 import { Component, inject, signal } from '@angular/core';
 import { ApartamentsStorage } from '../apartaments-storage';
 import { ApartamentsModel } from '../apartaments.model';
-import { CurrencyPipe } from '@angular/common';
+import { ZlotyPipe } from '../zloty-pipe';
 @Component({
   selector: 'app-apartaments',
-  imports: [CurrencyPipe],
+  imports: [ZlotyPipe],
   templateUrl: './apartaments.html',
   styleUrl: './apartaments.css',
 })

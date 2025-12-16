@@ -30,7 +30,7 @@
                 </div>
                 <div class="price-square-call">
                     <p>{{ (Apartament.rentalFee / Apartament.apartmentSize).toFixed(1) }} zł/m^2</p>
-                    <p>{{Apartament.rentalFee | currency: 'PLN'}}</p>
+                    <p>{{Apartament.rentalFee | zlotyPipe}}</p>
                     <button>See more</button>
                 </div>
             </div>
