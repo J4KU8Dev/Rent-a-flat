@@ -1,29 +1,36 @@
 <div class="container">
     <form>
-        <img src="" alt="questionMark-icon">
-        <p>Have questions? Go ahead! We're here to help you find what you're looking for</p>
+        <div class="question">
+             <img src="/assets/images/icons/question-mark.png" alt="questionMark-icon">
+            <p>Have questions? Go ahead! We're here to help you find what you're looking for !</p>
+        </div>
+       
         <div class="inputs">
-            <input type="text" placeholder="Name...">
-            <input type="email" placeholder="Email...">
-            <input type="number" placeholder="Phone...">
-            <input type="text" placeholder="Subject...">
-            <input type="text" placeholder="Your message goes here...">
+            <input type="text" placeholder="Name..." class="name">
+            <input type="email" placeholder="Email..." class="email">
+            <input type="number" placeholder="Phone..." class="number">
+            <input type="text" placeholder="Subject..." class="subject">
+            <textarea type="text" placeholder="Your message goes here..." class="message"></textarea>
+            
         </div>
         <div class="other">
             <input type="checkbox">
             <p>I consent to the storage of my data according to the Privacy Policy</p>
-            <button>Send Message</button>
         </div>
+        <button>Send Message</button>
     </form>
     <div class="informations">
-        <img src="" alt="background">
-        <h3>Address</h3>
-        <p>Poland, Brodnica ul.Mostowa 22</p>
-        <h3>Phone</h3>
-        <p>+48 123 456 789</p>
-        <h3>Instagram</h3>
-        <p>@ModernVista_Brodnica</p>
-        <h3>Email</h3>
-        <p>ModernVista@apartments.com</p>
+        <img src="/assets/images/background-contact.jpg" alt="background" width="500" height="500">
+        <div class="text-background">
+            <h3>Address</h3>
+            <p>Poland, Brodnica ul.Mostowa 22</p>
+            <h3>Phone</h3>
+            <p>+48 123 456 789</p>
+            <h3>Instagram</h3>
+            <p>@ModernVista_Brodnica</p>
+            <h3>Email</h3>
+            <p>ModernVista@apartments.com</p>
+        </div>
     </div>
+    <!-- add here google map library -->
 </div>
