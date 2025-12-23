@@ -1,12 +1,16 @@
 <div class="container">
     <div class="menu">
-        @for (opinion of Opinions(); track $index) {
-            <div class="card">
-                <p>{{opinion.firstName}}</p>
+        <h2>Our customers</h2>
+        @for (opinion of Opinions(); track opinion.CustomerId) {
+            <div class="card" (click)="onSelectedCustomer(opinion.CustomerId)">
+                <img [src]="'/assets/images/icons/' + opinion.gender + '.png'" [alt]="opinion.gender">
+                <p>{{opinion.firstName}}, {{opinion.lastName}}</p>
             </div>
         }
     </div>
     <div class="opinion">
-        <h1>opinion-content</h1>
+        <h1>Click on customer to read opinion !</h1>
+
+
     </div>
 </div>
