@@ -20,7 +20,7 @@
 }
 .opinion{
     width: 90rem;
-    background-color: aqua;
+    background-color: var(--cream);
 }
 .card{
     width: 32rem;

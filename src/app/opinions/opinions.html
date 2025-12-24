@@ -9,8 +9,13 @@
         }
     </div>
     <div class="opinion">
-        <h1>Click on customer to read opinion !</h1>
-
-
+        @if (selectedCustomer()!=='') {
+            <app-opinion-window [customerId]="selectedCustomer()"/>
+        }
+        
+        @else {
+            <h1>Click on customer to read opinion !</h1>
+        }
+        
     </div>
 </div>

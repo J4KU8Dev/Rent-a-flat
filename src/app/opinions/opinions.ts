@@ -1,9 +1,10 @@
 import { Component, inject, output, signal } from '@angular/core';
 import { OpinionsStorage } from '../opinions-storage';
 import { opinionsModel } from '../opinions.model';
+import { OpinionWindow } from "../opinion-window/opinion-window";
 @Component({
   selector: 'app-opinions',
-  imports: [],
+  imports: [OpinionWindow],
   templateUrl: './opinions.html',
   styleUrl: './opinions.css',
 })
