@@ -9,7 +9,7 @@ import { ZlotyPipe } from '../zloty-pipe';
   styleUrl: './apartaments.css',
 })
 export class Apartaments {
-  ApartamentsService = inject(ApartamentsStorage);
+  protected ApartamentsService = inject(ApartamentsStorage);
   Apartaments = signal<ApartamentsModel[]>(this.ApartamentsService.getAllApartaments());
   
 

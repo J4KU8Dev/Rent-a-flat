@@ -1,18 +1,22 @@
-<!-- <h1>{{opinionWindow()?.firstName}}</h1> -->
 <div class="container">
     <div class="customerData">
         <h1>{{opinionWindow()?.firstName}} {{opinionWindow()?.lastName}}</h1>
-        <!-- @for (stars of opinionWindow()?.rating; track stars) {} -->
+        <div class="stars">
+        @for (stars of getStars(opinionWindow()?.rating!); track stars) {
+            <img src="/assets/images/icons/star.png" alt="">
+        }
+        </div>
         <p>Reviewed: {{opinionWindow()?.opinionDate}}</p>
         
     </div>
     <div class="rest">
-        <div class="contentOpinion">
-            <p>{{opinionWindow()?.opinionContent}}</p>
-        </div>
         <div class="image">
-            <img src="" alt="">
-            <p>Opinion is about {{opinionWindow()?.apartamentId}}</p>
+            <img [src]="apartamentImage()?.imagePath" [alt]="apartamentImage()" width="700" height="500">
+            <p>{{apartamentImage()?.name}}</p>
         </div>
+        <div class="contentOpinion">
+            <p>"{{opinionWindow()?.opinionContent}}"</p>
+        </div>
+        
     </div>
 </div>
