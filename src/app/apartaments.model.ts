@@ -1,4 +1,4 @@
-export  interface ApartamentsModel {
+export interface ApartamentsModel {
     id: string,
     imagePath: string,
     name: string,
