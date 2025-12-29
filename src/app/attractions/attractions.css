@@ -1,0 +1,71 @@
+img{
+    width: 45vw;
+    height: 50vh;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 3rem 0 5rem;
+}
+.header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2.4rem 0;
+    flex-wrap: wrap;
+}
+.header h1{
+    font-size: 5rem;
+    font-weight: 400;
+    font-style: normal;
+}
+.header p{
+    font-size: 2.7rem;
+    font-weight: 300;
+    line-height: 3rem;
+    margin: 2rem 0;
+    text-align: center;
+}
+.attractions{
+    display: flex;
+    flex-direction: column;
+    gap: 15rem;
+}
+.card{
+    display: flex;
+    column-gap: 3rem;
+    align-items: center;
+    flex-direction: row;
+}
+.card .text-card{
+    width: 40vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .text-card p{
+    font-size: 3.5rem;
+    line-height: 4rem;
+    font-weight: 200;
+    flex-wrap: wrap;
+}
+.card-even{
+    background-color: var(--chocolate);
+    color: white;
+    text-align: center;
+}
+.card-odd{
+    background-color: var(--cream);
+    flex-direction: row-reverse;
+    text-align: center;
+}
+.img-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
