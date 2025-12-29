@@ -9,7 +9,6 @@
     width: 100vw;
 }
 .image-team-container{
-    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,32 +18,7 @@
     height: auto;
     background-size: cover;
 }
-.reservation{
-    position: absolute;
-    background: rgba(0,0,0,0.8); 
-    padding: 1.2rem;
-    border-radius: 8px;
-}
-.reservation h2{
-    text-align: center;
-    margin-bottom: 1rem;
-    color: var(--cream);
-    font-weight: 300;
-    font-size: 2rem;
-}
-.reservation .input-item{
-    padding: 1.2rem;
-    border: none;
-    outline: none;
-    margin-left: 1rem;
-}
-.reservation button{
-    padding: 1.2rem;
-    margin-left: 1rem;
-    color: var(--cream);
-    font-size: 1.3rem;
-    font-weight: 300;
-}
+
 .opinions-container{
     display: flex;
     justify-content: center;
