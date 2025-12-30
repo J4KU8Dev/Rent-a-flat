@@ -1,15 +1,22 @@
 .main{
-    display: grid;
-    width: 100vw;
-    height: 10rem;
-    grid-template-columns: 15rem 15rem 15rem 15rem 15rem 15rem;
+    display: flex;
     column-gap: 5rem;
     background-color: var(--chocolate);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.card{
+    /* flex-grow: 1; */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 .main .logo{
     text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 p{
     color: var(--cream);
@@ -25,17 +32,31 @@ p:hover{
     border-bottom: 2px solid var(--cream);
     cursor: pointer;
 }
-@media (max-width: 117rem){
+@media (max-width: 87rem){
     .main{
-        grid-template-columns: 10rem 10rem 10rem 10rem 10rem 10rem;
-        column-gap: 3rem;
-    }
-}
-@media (max-width: 117rem){
-    .main{
-        grid-template-columns: 7.5rem 7.5rem 7.5rem 7.5rem 7.5rem 7.5rem;
+        column-gap: 2rem;
     }
     p{
-        font-size: 1.5rem;
+        font-size: 1.8rem;
+    }
+}
+@media (max-width: 66rem){
+    .main{
+        column-gap: 1.3rem;
+    }
+    p{
+        font-size: 1.3rem;
+    }
+    .logo{
+        width: 115px;
+        height: 130px;  
+    }
+}
+@media (max-width: 57rem){
+    .main{
+        flex-direction: column;
+    }
+    .main .card,.logo{
+
     }
 }
