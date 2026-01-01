@@ -1,18 +1,19 @@
 .block{
-    width: 100vw;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     background-color: var(--chocolate);
     color: var(--cream);
-    height: 12rem;
+    padding: 1.5rem 0;
 }
 .cards-container{
+    margin-top: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .card{
     margin: 0 2rem 0 2rem;
@@ -20,6 +21,7 @@
 }
 .card h2{
     text-align: center;
+    line-height: 2rem;
     font-weight: 400;
     font-size: 1.8rem;
     margin-bottom: 0.9rem;
@@ -47,4 +49,18 @@ a{
     align-items: center;
     flex-direction: row;
     gap: 3rem;
+}
+@media (max-width: 49rem){
+    .cards-container{
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .endline{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .wrap-links{
+        flex-direction: column;
+        gap: 1rem;
+    }
 }

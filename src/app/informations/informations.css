@@ -43,7 +43,7 @@
     border: 2px solid var(--cream);
     width: 25rem;
     padding: 3rem;
-    height: 13rem;
+    /* height: 13rem; */
     margin: 2rem ;
 }
 .card-opinion p{
@@ -57,6 +57,7 @@
     font-size: 2rem;
     margin-top: 0.8rem;
     text-align: center;
+    line-height: 2rem;
 }
 
 .text-container{
@@ -81,6 +82,8 @@
     background-color: var(--cream);
     display: flex;
     align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .image-container img{
@@ -93,11 +96,12 @@
     padding-left: 1rem;
     margin-bottom: 2rem;
     font-weight: 400;
+    line-height: 2.5rem;
 }
 .text-company-container p{
     font-size: 1.7rem;
     line-height: 3rem;
-    text-align: left;
+    text-align: center;
     padding: 1rem;
     margin: 2rem;
     color: var(--carmel);
