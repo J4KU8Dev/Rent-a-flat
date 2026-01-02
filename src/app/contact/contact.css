@@ -61,8 +61,6 @@ form button:hover{
     color: white;
 }
 .informations img{
-    /* -webkit-filter: grayscale(100%);
-    filter: grayscale(100%); */
     filter: brightness(50%);
 }
 .text-background{
@@ -74,4 +72,27 @@ form button:hover{
 }
 .text-background > *{
     margin: 1rem;
+}
+@media (max-width: 91rem){
+    .container{
+        flex-direction: column;
+    }
+    form{
+        width: 70vw;
+    }
+    .informations{
+        width: 70vw;
+    }
+    .informations img{
+        width: 100%;
+    }
+}
+@media (max-width: 52rem){
+    .inputs{
+        display: flex;
+        flex-direction: column;
+    }
+    .inputs > *{
+        min-width: 500px;
+    }
 }

@@ -49,6 +49,7 @@ img{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 1rem;
 }
 .card .text-card p{
     font-size: 3.5rem;
@@ -72,13 +73,24 @@ img{
     justify-content: center;
 }
 @media (max-width: 88rem){
+    .attractions{
+        gap: 7rem;
+    }
     .card{
         flex-direction: column;
     }
     .card .text-card{
-        padding: 2rem;
+        padding: 1rem;
     }
-    /* finished here */
+    .card .text-card p{
+        font-size: 2rem;
+        line-height: 2rem;
+    }
+    .card .img-card img{
+        width: 800px;
+        height: 600px;
+    }
+
 }
 @media (max-width: 66rem){
     .header h1{
@@ -89,6 +101,19 @@ img{
         font-size: 2.3rem;
     }
 }
+@media (max-width: 52rem){
+    .attractions{
+        gap: 4rem;
+    }
+    .card .text-card p{
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+    .card .img-card img{
+        width: 500px;
+        height: 350px;
+    }
+}
 @media (max-width: 36rem){
     .header h1{
         font-size: 2.3rem;
@@ -97,5 +122,12 @@ img{
     .header p{
         font-size: 1.3rem;
         flex-wrap: wrap;
+    }
+    .card .text-card p{
+        font-size: 1.5rem;
+    }
+    .card .img-card img{
+        width: 350px;
+        height: 200px;
     }
 }
