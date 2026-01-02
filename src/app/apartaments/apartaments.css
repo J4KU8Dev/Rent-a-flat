@@ -35,6 +35,7 @@
 }
 .apartament{
     width: 100%;
+    max-width: 1900px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     border: 1px solid gray;

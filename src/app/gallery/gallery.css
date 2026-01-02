@@ -15,6 +15,7 @@
 .gallery-card{
     border: 3px solid grey;
     border-radius: 10px;
+  
 }
 .gallery-card:hover{
     border: 3px solid black;
@@ -35,4 +36,22 @@ a{
 .message a{
     color: black;
     
+}
+@media (max-width: 41rem){
+    img{
+        width: 400px;
+        height: 250px;
+    }
+}
+@media (max-width: 26rem){
+    img{
+        width: 300px;
+        height: 200px;
+    }
+    .container h2{
+        line-height: 2rem;
+    }
+    .message{
+        line-height: 2rem;
+    }
 }
