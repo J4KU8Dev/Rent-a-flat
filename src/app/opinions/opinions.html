@@ -2,7 +2,7 @@
     <div class="menu">
         <h2>Our customers</h2>
         @for (opinion of Opinions(); track opinion.CustomerId) {
-            <div class="card" (click)="onSelectedCustomer(opinion.CustomerId)">
+            <div class="card" (click)="onSelectedCustomer(opinion.CustomerId)" [class.active]="opinion.CustomerId === selectedCustomer()">
                 <img [src]="'/assets/images/icons/' + opinion.gender + '.png'" [alt]="opinion.gender">
                 <p>{{opinion.firstName}}, {{opinion.lastName}}</p>
             </div>
@@ -14,7 +14,7 @@
         }
         
         @else {
-            <h1>Click on customer to read opinion !</h1>
+            <h1 style="text-align: center; line-height: 50vh;">Click on customer to read opinion !</h1>
         }
         
     </div>

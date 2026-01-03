@@ -55,5 +55,6 @@ p:hover{
 @media (max-width: 57rem){
     .main{
         flex-direction: column;
+        padding-bottom: 1rem;
     }
 }

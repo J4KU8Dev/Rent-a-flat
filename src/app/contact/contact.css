@@ -75,13 +75,13 @@ form button:hover{
 }
 @media (max-width: 91rem){
     .container{
-        flex-direction: column;
+        flex-direction: column-reverse;
     }
     form{
         width: 70vw;
     }
     .informations{
-        width: 70vw;
+        width: 80vw;
     }
     .informations img{
         width: 100%;
@@ -93,6 +93,21 @@ form button:hover{
         flex-direction: column;
     }
     .inputs > *{
-        min-width: 500px;
+        width: 75vw;
+        height: auto;
+    }
+    .other{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    button{
+        text-align: center;
+    }
+}
+@media (max-width: 34rem){
+    .text-background{
+        font-size: 1.2rem;
     }
 }
