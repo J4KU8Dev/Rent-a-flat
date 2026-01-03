@@ -4,9 +4,10 @@
         @for (opinion of Opinions(); track opinion.CustomerId) {
             <div class="card" (click)="onSelectedCustomer(opinion.CustomerId)" [class.active]="opinion.CustomerId === selectedCustomer()">
                 <img [src]="'/assets/images/icons/' + opinion.gender + '.png'" [alt]="opinion.gender">
-                <p>{{opinion.firstName}}, {{opinion.lastName}}</p>
+                <p>{{opinion.firstName}} {{opinion.lastName}}</p>
             </div>
         }
+        <!-- delete padding bottom! -->
     </div>
     <div class="opinion">
         @if (selectedCustomer()!=='') {
@@ -14,7 +15,10 @@
         }
         
         @else {
-            <h1 style="text-align: center; line-height: 50vh;">Click on customer to read opinion !</h1>
+            <div style="display: flex; justify-content: center; align-items: center; height: 100vh; line-height: 1.5rem;">
+                <h1 style="text-align: center;">Click on customer to read opinion !</h1>
+            </div>
+            
         }
         
     </div>
