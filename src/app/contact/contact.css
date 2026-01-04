@@ -73,6 +73,13 @@ form button:hover{
 .text-background > *{
     margin: 1rem;
 }
+.googleMaps{
+    width: 100vw;
+}
+.googleMaps img{
+    width: 100vw;
+    height: auto;
+}
 @media (max-width: 91rem){
     .container{
         flex-direction: column-reverse;

@@ -31,7 +31,7 @@
                 <div class="price-square-call">
                     <p>{{ (Apartament.rentalFee / Apartament.apartmentSize).toFixed(1) }} zł/m<sup style="vertical-align: super; font-size: smaller;">2</sup></p>
                     <p>{{Apartament.rentalFee | zlotyPipe}}</p>
-                    <button>See more</button>
+                    <button [routerLink]="['/apartaments', Apartament.id]">See more</button>
                 </div>
             </div>
         }
