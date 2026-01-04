@@ -64,6 +64,7 @@
         display: none;
     }
     .menu{
+        padding: 2rem;
         gap: 3rem;
     }
     .menu h2{
@@ -88,6 +89,7 @@
     }
     .menu{
         gap: 1.5rem;
+        padding: 1rem;
     }
     .menu h2{
         font-size: 1.3rem;
