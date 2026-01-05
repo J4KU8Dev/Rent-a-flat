@@ -12,13 +12,14 @@ export interface ApartamentsModel {
     elevator: 'Yes' | 'No',
     parkingSpace: 'Yes' | 'No',
     available: 'Yes' | 'No',
-    details?: {
+    fullDescription: string,
+    details: {
         flat: {
             kitchenType: string,
             bathroomWithToilet: 'Yes' | 'No',
             balcony: 'Yes' | 'No',
             terrace: 'Yes' | 'No',
-            market: string  //rynek wtorny albo inny nwm?
+            market: 'Secondary' | 'Primary',
         }
         buidling: {
             buildingType: string,
@@ -32,5 +33,4 @@ export interface ApartamentsModel {
             views: number,
         }
     }
-    // make bigger model!( more details )
 }

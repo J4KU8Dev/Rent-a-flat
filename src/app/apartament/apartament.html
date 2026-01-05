@@ -9,6 +9,7 @@
     </div>
     <div class="info">
         <div class="flat">
+            <p>Apartament</p>
             <div class="detail">
                 <div class="left">
                     <h2>Apartament size</h2>
@@ -43,10 +44,74 @@
             </div>
         </div>
         <div class="building">
-            <!-- <div class="detail">
-                <div class="left"></div>
-                <div class="right"></div>
-            </div> -->
+            <p>Building</p>
+            <div class="detail">
+                <div class="left">
+                    <h2>Building type</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.buidling?.buildingType}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Building type</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.buidling?.buildingType}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Building Material</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.buidling?.buildingMaterial}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Date building</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.buidling?.dateBuilding}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="advertisement">
+            <p>Advertisement</p>
+            <div class="detail">
+                <div class="left">
+                    <h2>Added</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.advertisement?.addedDate}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Last update</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.advertisement?.lastUpdate}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Advertisement number</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.advertisement?.idAdvertisement}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Views</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.details?.advertisement?.views}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
