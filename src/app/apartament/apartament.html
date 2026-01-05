@@ -1,1 +1,52 @@
-<h1>{{apartamentView()?.apartmentSize}}</h1>
+<div class="container">
+    <div class="image"> 
+        <!-- add here box with images sliding -->
+        <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1300" height="1000">
+    </div>
+    <div class="name">
+        <h1>{{apartament()?.name}}</h1>
+        <p>{{apartament()?.city}}, {{apartament()?.street}} street</p>
+    </div>
+    <div class="info">
+        <div class="flat">
+            <div class="detail">
+                <div class="left">
+                    <h2>Apartament size</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.apartmentSize}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Floor</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.floor}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Parking space</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.parkingSpace}}</p>
+                </div>
+            </div>
+            <div class="detail">
+                <div class="left">
+                    <h2>Elevator</h2>
+                </div>
+                <div class="right">
+                    <p>{{apartament()?.elevator}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="building">
+            <!-- <div class="detail">
+                <div class="left"></div>
+                <div class="right"></div>
+            </div> -->
+        </div>
+    </div>
+</div>

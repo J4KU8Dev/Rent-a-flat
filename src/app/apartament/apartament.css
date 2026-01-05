@@ -1,0 +1,32 @@
+.container{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+.name{
+    display: flex;
+    gap: 2rem;
+}
+.name h1{
+    font-size: 4rem;
+    font-weight: 400;
+}
+.name p{
+    font-size: 3rem;
+    font-weight: 300
+}
+.info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.detail{
+    display: flex;
+    gap: 10rem;
+    align-items: center;
+    justify-content: space-between;
+}

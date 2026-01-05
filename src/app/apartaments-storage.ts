@@ -314,4 +314,5 @@ export class ApartamentsStorage {
   getApartamentById(id: string | undefined): ApartamentsModel | undefined {
     return this.Apartaments().find((apartament) => apartament.id === id);
   }
+
 }

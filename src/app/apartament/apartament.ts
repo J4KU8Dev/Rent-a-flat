@@ -10,14 +10,11 @@ import { ApartamentsModel } from '../apartaments.model';
   styleUrl: './apartament.css',
 })
 export class Apartament implements OnInit {
-  // id = signal<string | null>('');
-  id: string | null = '';
-  route = inject(ActivatedRoute);
-  apartamentView = signal<ApartamentsModel | undefined>(undefined);
+  route: ActivatedRoute = inject(ActivatedRoute);
   apartamentsStorage = inject(ApartamentsStorage);
-
+  apartament = signal<ApartamentsModel | undefined>(undefined);
   ngOnInit(): void {
-    this.apartamentView.set(this.apartamentsStorage.getApartamentById(this.id!))
-    this.id = this.route.snapshot.paramMap.get('id');
+    const id = signal(this.route.snapshot.params['id']);
+    this.apartament.set(this.apartamentsStorage.getApartamentById(id()))
   }
 }
