@@ -1,15 +1,23 @@
 <div class="container">
-    <div class="image"> 
-        <!-- add here box with images sliding -->
-        <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1300" height="1000">
+    <div class="image-slider"> 
+        <div class="wrapper">
+            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000">
+            <!-- <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1500" height="1000">
+            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1500" height="1000">
+            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1500" height="1000"> -->
+        </div>
+        
     </div>
     <div class="name">
         <h1>{{apartament()?.name}}</h1>
         <p>{{apartament()?.city}}, {{apartament()?.street}} street</p>
     </div>
+    <div class="full-description">
+        <p class="full-description-text">{{apartament()?.fullDescription}}</p>
+    </div>
     <div class="info">
         <div class="flat">
-            <p>Apartament</p>
+            <p class="text-header">Apartament</p>
             <div class="detail">
                 <div class="left">
                     <h2>Apartament size</h2>
@@ -44,15 +52,7 @@
             </div>
         </div>
         <div class="building">
-            <p>Building</p>
-            <div class="detail">
-                <div class="left">
-                    <h2>Building type</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.buidling?.buildingType}}</p>
-                </div>
-            </div>
+            <p class="text-header">Building</p>
             <div class="detail">
                 <div class="left">
                     <h2>Building type</h2>
@@ -79,7 +79,7 @@
             </div>
         </div>
         <div class="advertisement">
-            <p>Advertisement</p>
+            <p class="text-header">Advertisement</p>
             <div class="detail">
                 <div class="left">
                     <h2>Added</h2>
@@ -114,4 +114,25 @@
             </div>
         </div>
     </div>
+    <form>
+        <h2>Contact with us</h2>
+        <p class="phone-number">+48 123 456 789</p>
+        <div class="phone-function">
+            <button>Wanna call?</button>
+            <p>Give us your phone number. We will call you!</p>
+        <!-- add here border bottom -->
+        </div>
+        <div class="rest-from">
+            <textarea></textarea>
+            <input type="text" placeholder="Your name">
+            <input type="email" placeholder="Your email">
+            <input type="email" placeholder="Your phone number">
+            <input type="checkbox">
+            <label>I want to be informed about promotions and services.</label>
+            <input type="checkbox">
+            <label>I will need a loan.</label>
+            <a href="https://www.onet.pl">About the protection of personal data</a>
+        </div>
+       
+    </form>
 </div>

@@ -15,6 +15,6 @@ export class Apartament implements OnInit {
   apartament = signal<ApartamentsModel | undefined>(undefined);
   ngOnInit(): void {
     const id = signal(this.route.snapshot.params['id']);
-    this.apartament.set(this.apartamentsStorage.getApartamentById(id()))
+    this.apartament.set(this.apartamentsStorage.getApartamentById(id()));
   }
 }
