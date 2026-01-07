@@ -2,9 +2,9 @@
     <div class="image-slider"> 
         <div class="wrapper">
             <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000">
-            <!-- <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1500" height="1000">
-            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1500" height="1000">
-            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1500" height="1000"> -->
+            <!-- <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000" >
+            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000" >
+            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000" > -->
         </div>
         
     </div>
@@ -114,25 +114,33 @@
             </div>
         </div>
     </div>
-    <form>
+    <form (submit)="onSubmit($event)">
         <h2>Contact with us</h2>
         <p class="phone-number">+48 123 456 789</p>
         <div class="phone-function">
             <button>Wanna call?</button>
             <p>Give us your phone number. We will call you!</p>
-        <!-- add here border bottom -->
         </div>
+        <hr class="line">
         <div class="rest-from">
-            <textarea></textarea>
-            <input type="text" placeholder="Your name">
-            <input type="email" placeholder="Your email">
-            <input type="email" placeholder="Your phone number">
-            <input type="checkbox">
-            <label>I want to be informed about promotions and services.</label>
-            <input type="checkbox">
-            <label>I will need a loan.</label>
+            <textarea [field]="signalRegisterForm.message" [placeholder]="'I would like to know more details about the ad ' + apartament()?.details?.advertisement?.idAdvertisement"></textarea>
+            <input type="text" placeholder="Your name" class="element" [field]="signalRegisterForm.name">
+            <input type="email" placeholder="Your email" class="element" [field]="signalRegisterForm.email">
+            <input type="number" placeholder="Your phone number" class="element" [field]="signalRegisterForm.phoneNumber">
+            <div class="checkboxes">
+                <div class="checkbox-place">
+                    <input type="checkbox" [field]="signalRegisterForm.news">
+                    <label>I want to be informed about promotions and services.</label>
+                </div>
+                <div class="checkbox-place">
+                    <input type="checkbox" [field]="signalRegisterForm.loan">
+                    <label for="second">I will need a loan.</label>
+                </div>
+            </div>
+            <button type="submit">Send message</button>
             <a href="https://www.onet.pl">About the protection of personal data</a>
         </div>
        
     </form>
 </div>
+<!-- other adverts -->
