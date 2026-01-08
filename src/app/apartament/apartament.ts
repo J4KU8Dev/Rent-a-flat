@@ -2,7 +2,7 @@ import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApartamentsStorage } from '../apartaments-storage';
 import { ApartamentsModel } from '../apartaments.model';
-import { Field, form } from '@angular/forms/signals';
+import { email, Field, form, required } from '@angular/forms/signals';
 type RegisterModel = {
   message: string,
   name: string,
@@ -36,17 +36,26 @@ export class Apartament implements OnInit {
   onSubmit(event: Event): void{
     event.preventDefault();
     console.log(this.signalRegisterModel())
+    this.signalRegisterModel.set({message: '', name: '', email: '', phoneNumber: 0, loan: false, news: false});
+    this.signalRegisterForm().reset;
   }
 
   signalRegisterModel = signal<RegisterModel>({
     message: '',
     name: '',
     email: '',
-    phoneNumber: 123456789,
+    phoneNumber: 0,
     news: false,
     loan: false,
   })
+
   // add validation
-  signalRegisterForm = form(this.signalRegisterModel);
+  signalRegisterForm = form(this.signalRegisterModel, (fieldPath)=>{
+    required(fieldPath.name, {message: 'Name is required'});
+    required(fieldPath.message, {message: 'Message is required'});
+    required(fieldPath.phoneNumber, {message: 'Phone Number is required'});
+    email(fieldPath.email, {message: 'Enter a valid email'});
+    required(fieldPath.email, {message: 'Email is required'});
+  });
 
 }

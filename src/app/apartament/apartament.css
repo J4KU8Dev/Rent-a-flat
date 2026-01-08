@@ -108,11 +108,11 @@ form{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: var(--chocolate);
+    background-color: var(--cream);
     padding: 2rem;
     border-radius: 20px;
     margin-bottom: 2rem;
-    color: white;
+    color: black;
 }
 form h2{
     font-size: 3rem;
@@ -135,7 +135,7 @@ form .phone-number{
     padding: 1rem;
     font-size: 1.3rem;
     width: 27vw;
-    border: 1px solid gray;
+    border: 2px solid gray;
     height: auto;
 }
 .rest-from .element{
@@ -143,7 +143,7 @@ form .phone-number{
     font-size: 1.3rem;
     width: 27vw;
     border-radius: 13px;
-    border: 1px solid gray;
+    border: 2px solid gray;
 }
 .checkboxes{
     display: flex;
@@ -182,6 +182,19 @@ form a{
     text-decoration: none;
     font-size: 1.3rem;
     font-weight: 300;
+}
+.rest-from .element.invalid,.rest-from textarea.invalid{
+    border-color: red ;
+}
+.element:focus,.rest-from textarea:focus{
+    -webkit-box-shadow: 19px 19px 45px -23px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 19px 19px 45px -23px rgba(66, 68, 90, 1);
+    box-shadow: 19px 19px 45px -23px rgba(66, 68, 90, 1);
+}
+.error{
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: red;
 }
 
 @keyframes slide{

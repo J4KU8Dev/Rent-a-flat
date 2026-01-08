@@ -1,146 +1,185 @@
 <div class="container">
-    <div class="image-slider"> 
-        <div class="wrapper">
-            <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000">
-            <!-- <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000" >
+  <div class="image-slider">
+    <div class="wrapper">
+      <img
+        [src]="apartament()?.imagePath"
+        [alt]="apartament()?.id"
+        width="1000"
+      />
+      <!-- <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000" >
             <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000" >
             <img [src]="apartament()?.imagePath" [alt]="apartament()?.id" width="1000" > -->
-        </div>
-        
     </div>
-    <div class="name">
-        <h1>{{apartament()?.name}}</h1>
-        <p>{{apartament()?.city}}, {{apartament()?.street}} street</p>
+  </div>
+  <div class="name">
+    <h1>{{ apartament()?.name }}</h1>
+    <p>{{ apartament()?.city }}, {{ apartament()?.street }} street</p>
+  </div>
+  <div class="full-description">
+    <p class="full-description-text">{{ apartament()?.fullDescription }}</p>
+  </div>
+  <div class="info">
+    <div class="flat">
+      <p class="text-header">Apartament</p>
+      <div class="detail">
+        <div class="left">
+          <h2>Apartament size</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.apartmentSize }}</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Floor</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.floor }}</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Parking space</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.parkingSpace }}</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Elevator</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.elevator }}</p>
+        </div>
+      </div>
     </div>
-    <div class="full-description">
-        <p class="full-description-text">{{apartament()?.fullDescription}}</p>
+    <div class="building">
+      <p class="text-header">Building</p>
+      <div class="detail">
+        <div class="left">
+          <h2>Building type</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.details?.buidling?.buildingType }}</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Building Material</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.details?.buidling?.buildingMaterial }}</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Date building</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.details?.buidling?.dateBuilding }}</p>
+        </div>
+      </div>
     </div>
-    <div class="info">
-        <div class="flat">
-            <p class="text-header">Apartament</p>
-            <div class="detail">
-                <div class="left">
-                    <h2>Apartament size</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.apartmentSize}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Floor</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.floor}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Parking space</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.parkingSpace}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Elevator</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.elevator}}</p>
-                </div>
-            </div>
+    <div class="advertisement">
+      <p class="text-header">Advertisement</p>
+      <div class="detail">
+        <div class="left">
+          <h2>Added</h2>
         </div>
-        <div class="building">
-            <p class="text-header">Building</p>
-            <div class="detail">
-                <div class="left">
-                    <h2>Building type</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.buidling?.buildingType}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Building Material</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.buidling?.buildingMaterial}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Date building</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.buidling?.dateBuilding}}</p>
-                </div>
-            </div>
+        <div class="right">
+          <p>{{ apartament()?.details?.advertisement?.addedDate }}</p>
         </div>
-        <div class="advertisement">
-            <p class="text-header">Advertisement</p>
-            <div class="detail">
-                <div class="left">
-                    <h2>Added</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.advertisement?.addedDate}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Last update</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.advertisement?.lastUpdate}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Advertisement number</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.advertisement?.idAdvertisement}}</p>
-                </div>
-            </div>
-            <div class="detail">
-                <div class="left">
-                    <h2>Views</h2>
-                </div>
-                <div class="right">
-                    <p>{{apartament()?.details?.advertisement?.views}}</p>
-                </div>
-            </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Last update</h2>
         </div>
+        <div class="right">
+          <p>{{ apartament()?.details?.advertisement?.lastUpdate }}</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Advertisement number</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.details?.advertisement?.idAdvertisement }}</p>
+        </div>
+      </div>
+      <div class="detail">
+        <div class="left">
+          <h2>Views</h2>
+        </div>
+        <div class="right">
+          <p>{{ apartament()?.details?.advertisement?.views }}</p>
+        </div>
+      </div>
     </div>
-    <form (submit)="onSubmit($event)">
-        <h2>Contact with us</h2>
-        <p class="phone-number">+48 123 456 789</p>
-        <div class="phone-function">
-            <button>Wanna call?</button>
-            <p>Give us your phone number. We will call you!</p>
+  </div>
+  <form (submit)="onSubmit($event)">
+    <h2>Contact with us</h2>
+    <p class="phone-number">+48 123 456 789</p>
+    <div class="phone-function">
+      <button>Wanna call?</button>
+      <p>Give us your phone number. We will call you!</p>
+    </div>
+    <hr class="line" />
+    <div class="rest-from">
+      <textarea
+        [class.invalid]="signalRegisterForm.message().invalid() && signalRegisterForm.message().touched()"
+        [field]="signalRegisterForm.message"
+        [placeholder]="
+          'I would like to know more details about the ad ' +
+          apartament()?.details?.advertisement?.idAdvertisement
+        "
+      ></textarea>
+      @if (signalRegisterForm.message().invalid() && signalRegisterForm.message().touched()) {
+        <span class="error">{{signalRegisterForm.message().errors()[0].message}}</span>
+      }
+      <input
+        type="text"
+        [class.invalid]="signalRegisterForm.name().invalid() && signalRegisterForm.name().touched()"
+        placeholder="Your name"
+        class="element"
+        [field]="signalRegisterForm.name"
+      />
+      @if (signalRegisterForm.name().invalid() && signalRegisterForm.name().touched()) {
+        <span class="error">{{signalRegisterForm.name().errors()[0].message}}</span>
+      }
+      <input
+        type="email"
+        [class.invalid]="signalRegisterForm.email().invalid() && signalRegisterForm.email().touched()"
+        placeholder="Your email"
+        class="element"
+        [field]="signalRegisterForm.email"
+      />
+      @if (signalRegisterForm.email().invalid() && signalRegisterForm.email().touched()) {
+        <span class="error">{{signalRegisterForm.email().errors()[0].message}}</span>
+      }
+      <input
+        type="number"
+        [class.invalid]="signalRegisterForm.phoneNumber().invalid() && signalRegisterForm.phoneNumber().touched()"
+        placeholder="Your phone number"
+        class="element"
+        [field]="signalRegisterForm.phoneNumber"
+      />
+      @if (signalRegisterForm.phoneNumber().invalid() && signalRegisterForm.phoneNumber().touched()) {
+        <span class="error">{{signalRegisterForm.phoneNumber().errors()[0].message}}</span>
+      }
+      <div class="checkboxes">
+        <div class="checkbox-place">
+          <input type="checkbox" [field]="signalRegisterForm.news" />
+          <label>I want to be informed about promotions and services.</label>
         </div>
-        <hr class="line">
-        <div class="rest-from">
-            <textarea [field]="signalRegisterForm.message" [placeholder]="'I would like to know more details about the ad ' + apartament()?.details?.advertisement?.idAdvertisement"></textarea>
-            <input type="text" placeholder="Your name" class="element" [field]="signalRegisterForm.name">
-            <input type="email" placeholder="Your email" class="element" [field]="signalRegisterForm.email">
-            <input type="number" placeholder="Your phone number" class="element" [field]="signalRegisterForm.phoneNumber">
-            <div class="checkboxes">
-                <div class="checkbox-place">
-                    <input type="checkbox" [field]="signalRegisterForm.news">
-                    <label>I want to be informed about promotions and services.</label>
-                </div>
-                <div class="checkbox-place">
-                    <input type="checkbox" [field]="signalRegisterForm.loan">
-                    <label for="second">I will need a loan.</label>
-                </div>
-            </div>
-            <button type="submit">Send message</button>
-            <a href="https://www.onet.pl">About the protection of personal data</a>
+        <div class="checkbox-place">
+          <input type="checkbox" [field]="signalRegisterForm.loan" />
+          <label for="second">I will need a loan.</label>
         </div>
-       
-    </form>
+      </div>
+      <button type="submit">Send message</button>
+      <a href="https://www.onet.pl">About the protection of personal data</a>
+    </div>
+  </form>
 </div>
 <!-- other adverts -->
