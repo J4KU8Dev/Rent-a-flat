@@ -121,8 +121,8 @@
       <button (click)="onCallBack()">Wanna call?</button>
       <p>Give us your phone number. We will call you!</p>
       <div style="display: none;" [style.display]="isShowed ? 'block' : 'none' ">
-        <input type="number" class="callbackNumber">
-        <button class="callbackButton">➡️</button>
+        <input type="number" class="callbackNumber" #phone>
+        <button class="callbackButton" (click)="onSendCallBack(phone.valueAsNumber)">➡️</button>
       </div>
     </div>
   <form (submit)="onSubmit($event)">
@@ -162,7 +162,7 @@
         <span class="error">{{signalRegisterForm.email().errors()[0].message}}</span>
       }
       <input
-        type="number"
+        type="text"
         [class.invalid]="signalRegisterForm.phoneNumber().invalid() && signalRegisterForm.phoneNumber().touched()"
         placeholder="Your phone number"
         class="element"
@@ -181,7 +181,7 @@
           <label for="second">I will need a loan.</label>
         </div>
       </div>
-      <button type="submit">Send message</button>
+      <button type="submit" [disabled]="signalRegisterForm().invalid()">Send message</button>
       <a href="https://www.onet.pl">About the protection of personal data</a>
     </div>
   </form>

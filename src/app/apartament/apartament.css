@@ -185,6 +185,12 @@ form .phone-number{
     cursor: pointer;
     transition: 0.3s ease-in-out;
 }
+.rest-from button:disabled,.rest-from button[disabled]{
+    background-color: gray;
+}
+.rest-from button:disabled:hover,.rest-from button[disabled]:hover{
+    background-color: red;
+}
 .rest-from button:hover{
     background-color: var(--carmel);
 }
