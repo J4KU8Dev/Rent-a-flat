@@ -117,13 +117,17 @@
       </div>
     </div>
   </div>
+  <div class="phone-function">
+      <button (click)="onCallBack()">Wanna call?</button>
+      <p>Give us your phone number. We will call you!</p>
+      <div style="display: none;" [style.display]="isShowed ? 'block' : 'none' ">
+        <input type="number" class="callbackNumber">
+        <button class="callbackButton">➡️</button>
+      </div>
+    </div>
   <form (submit)="onSubmit($event)">
     <h2>Contact with us</h2>
     <p class="phone-number">+48 123 456 789</p>
-    <div class="phone-function">
-      <button>Wanna call?</button>
-      <p>Give us your phone number. We will call you!</p>
-    </div>
     <hr class="line" />
     <div class="rest-from">
       <textarea

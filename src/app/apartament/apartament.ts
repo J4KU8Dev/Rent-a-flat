@@ -1,4 +1,4 @@
-import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApartamentsStorage } from '../apartaments-storage';
 import { ApartamentsModel } from '../apartaments.model';
@@ -22,7 +22,8 @@ export class Apartament implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   apartamentsStorage = inject(ApartamentsStorage);
   apartament = signal<ApartamentsModel | undefined>(undefined);
-  
+  isShowed:boolean = false;
+
   // permisions = [
   //   {id: 1, title: 'news'},
   //   {id: 2, title: 'loan'},
@@ -57,5 +58,14 @@ export class Apartament implements OnInit {
     email(fieldPath.email, {message: 'Enter a valid email'});
     required(fieldPath.email, {message: 'Email is required'});
   });
+
+  // ngAfterViewInit(): void {
+  //   this.form?.nativeElement.setAttribute('show', '');
+  // }
+
+  onCallBack(){
+    this.isShowed = !this.isShowed;
+    console.log(this.isShowed);
+  }
 
 }

@@ -79,7 +79,9 @@
     margin: 1rem 0 .5;
     display: flex;
     align-items: center;
+    flex-direction: column;
     width: 27vw;
+    gap: 1rem;
 }
 .phone-function button{
     padding: 1rem;
@@ -95,8 +97,17 @@
 .phone-function button:hover{
     background-color: var(--carmel);
 }
-.phone-function p{
+.phone-function .callbackButton{
+    border-radius: 50%;
+}
+.phone-function .callbackNumber{
+    padding: 1rem;
     font-size: 1.5rem;
+    text-align: center;
+}
+.phone-function p{
+    font-size: 2rem;
+    text-wrap: nowrap;
     font-weight: 300;
 }
 .line{
