@@ -6,6 +6,7 @@ import { attractionsModel } from './attractions.model';
 })
 export class AttractionsStorage {
   public attractions: attractionsModel[] = [
+    // add this to postman
     {
       id: "t1",
       text: "No child needs any encouragement to play outside. Our playground is the perfect place for it.",
