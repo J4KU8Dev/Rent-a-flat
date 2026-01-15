@@ -1,7 +1,7 @@
 import { Component, inject, input, OnChanges, signal, SimpleChanges } from '@angular/core';
-import { OpinionsStorage } from '../opinions-storage';
+import { OpinionsStorage } from '../services/opinions-storage';
 import { opinionsModel } from '../opinions.model';
-import { ApartamentsStorage } from '../apartaments-storage';
+import { ApartamentsStorage } from '../services/apartaments-storage';
 import { ApartamentsModel } from '../apartaments.model';
 
 @Component({
@@ -23,8 +23,10 @@ export class OpinionWindow implements OnChanges {
     // console.log(changes);
     this.opinionWindow.set(this.OpinionsStorage.getOpinionById(this.customerId()));
     this.id.set(this.OpinionsStorage.getOpinionById(this.customerId())?.apartamentId);
-    this.apartamentImage.set(this.ApartamentsStorage.getApartamentById(this.id()));
-    console.log(this.apartamentImage()?.id);
+    // this.apartamentImage.set(this.ApartamentsStorage.getApartamentById(this.id()));
+    this.ApartamentsStorage.getApartamentById(this.id()!).subscribe(data => {
+      this.apartamentImage.set(data);
+    })
   }
   
   getStars(rating: 1 | 2 | 3 | 4 | 5){

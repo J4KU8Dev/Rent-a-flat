@@ -1,5 +1,5 @@
 import { Component, inject, output, signal } from '@angular/core';
-import { OpinionsStorage } from '../opinions-storage';
+import { OpinionsStorage } from '../services/opinions-storage';
 import { opinionsModel } from '../opinions.model';
 import { OpinionWindow } from "../opinion-window/opinion-window";
 @Component({

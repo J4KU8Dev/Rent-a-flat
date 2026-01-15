@@ -1,5 +1,5 @@
-import { Component, inject, signal } from '@angular/core';
-import { ApartamentsStorage } from '../apartaments-storage';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { ApartamentsStorage } from '../services/apartaments-storage';
 import { ApartamentsModel } from '../apartaments.model';
 import { ZlotyPipe } from '../zloty-pipe';
 import { RouterLink } from "@angular/router";
@@ -9,9 +9,12 @@ import { RouterLink } from "@angular/router";
   templateUrl: './apartaments.html',
   styleUrl: './apartaments.css',
 })
-export class Apartaments {
+export class Apartaments implements OnInit {
   protected ApartamentsService = inject(ApartamentsStorage);
-  Apartaments = signal<ApartamentsModel[]>(this.ApartamentsService.getAllApartaments());
-  
 
+  ngOnInit(): void {
+    this.ApartamentsService.getAllApartaments();
+    console.log(this.ApartamentsService.apartaments());
+  }
+  
 }

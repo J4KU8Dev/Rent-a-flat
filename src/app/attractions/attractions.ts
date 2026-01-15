@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AttractionsStorage } from '../attractions-storage';
+import { AttractionsStorage } from '../services/attractions-storage';
 
 @Component({
   selector: 'app-attractions',

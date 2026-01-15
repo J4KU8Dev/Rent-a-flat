@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { images } from '../gallery-images';
+import { images } from '../services/gallery-images';
 import { imagesInterface } from '../images.model';
 import { RouterLink } from "@angular/router";
 
