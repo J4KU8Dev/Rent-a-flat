@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
-export class ApartamentsStorage {
+export class ApartamentsService {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:3000'
   apartaments = signal<ApartamentsModel[]>([]);
@@ -15,8 +15,8 @@ export class ApartamentsStorage {
   }
 
   getAllApartaments() {
-    return this.http.get<ApartamentsModel[]>(`${this.apiUrl}/apartaments`).subscribe(data => {
-        this.apartaments.set(data);
+    return this.http.get<ApartamentsModel[]>(`${this.apiUrl}/apartaments`).subscribe((data) => {
+      this.apartaments.set(data);
       });;
   }
   getApartamentById(id: string) {

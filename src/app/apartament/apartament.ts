@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApartamentsStorage } from '../services/apartaments-storage';
+import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
 import { email, Field, form, pattern, required } from '@angular/forms/signals';
 
@@ -21,7 +21,7 @@ type RegisterModel = {
 })
 export class Apartament implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
-  apartamentsStorage = inject(ApartamentsStorage);
+  apartamentsService = inject(ApartamentsService);
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed:boolean = false;
 
@@ -30,7 +30,7 @@ export class Apartament implements OnInit {
     if(!id){
       return;
     }
-    this.apartamentsStorage.getApartamentById(id()).subscribe(data => {
+    this.apartamentsService.getApartamentById(id()).subscribe(data => {
       this.apartament.set(data);
     })
   }

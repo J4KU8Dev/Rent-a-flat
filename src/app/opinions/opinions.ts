@@ -1,7 +1,7 @@
 import { Component, inject, output, signal } from '@angular/core';
-import { OpinionsStorage } from '../services/opinions-storage';
-import { opinionsModel } from '../opinions.model';
+import { OpinionsService } from '../services/opinions-service';
 import { OpinionWindow } from "../opinion-window/opinion-window";
+import { opinionsModel } from '../opinions.model';
 @Component({
   selector: 'app-opinions',
   imports: [OpinionWindow],
@@ -10,14 +10,8 @@ import { OpinionWindow } from "../opinion-window/opinion-window";
 })
 export class Opinions {
   selectedCustomer = signal<string>('');
-  Opinions = signal<opinionsModel[]>([]);
-  OpinionService = inject(OpinionsStorage);
+  opinionService = inject(OpinionsService);
   selectedCustomerOutput = output<string>();
-
-  constructor() {
-    this.Opinions.set(this.OpinionService.getAllOpinions());
-  }
-  
   onSelectedCustomer(id: string){
     this.selectedCustomer.set(id);
     // console.log(this.selectedCustomer());

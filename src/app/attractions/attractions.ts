@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { AttractionsStorage } from '../services/attractions-storage';
+import { AttractionsService } from '../services/attractions-service';
 
 @Component({
   selector: 'app-attractions',
@@ -8,6 +8,6 @@ import { AttractionsStorage } from '../services/attractions-storage';
   styleUrl: './attractions.css',
 })
 export class Attractions {
-  attractionsStorage = inject(AttractionsStorage);
+  attractionsService = inject(AttractionsService);
   
 }

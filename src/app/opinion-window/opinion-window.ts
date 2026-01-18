@@ -1,8 +1,9 @@
-import { Component, inject, input, OnChanges, signal, SimpleChanges } from '@angular/core';
-import { OpinionsStorage } from '../services/opinions-storage';
+import { Component, inject, input, OnChanges, OnInit, signal, SimpleChanges } from '@angular/core';
+import { OpinionsService } from '../services/opinions-service';
 import { opinionsModel } from '../opinions.model';
-import { ApartamentsStorage } from '../services/apartaments-storage';
+import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-opinion-window',
@@ -10,21 +11,28 @@ import { ApartamentsModel } from '../apartaments.model';
   templateUrl: './opinion-window.html',
   styleUrl: './opinion-window.css',
 })
-export class OpinionWindow implements OnChanges {
-  protected ApartamentsStorage = inject(ApartamentsStorage);
-  protected OpinionsStorage = inject(OpinionsStorage);
-
+export class OpinionWindow implements OnChanges, OnInit {
+  protected ApartamentsService = inject(ApartamentsService);
+  protected OpinionsService = inject(OpinionsService);
+  route = inject(ActivatedRoute)
   opinionWindow = signal<opinionsModel | undefined>(undefined);
   customerId = input<string>();
   apartamentImage = signal<ApartamentsModel | undefined>(undefined);
-  id = signal<string | undefined>(undefined);
+  id = signal<string>('');
+
+  ngOnInit(): void {
+    const id = signal(this.route.snapshot.params['id']);
+    if(!id){
+      return;
+    }
+    this.OpinionsService.getOpinionById(id());
+  }
 
   ngOnChanges(changes: SimpleChanges){
-    // console.log(changes);
-    this.opinionWindow.set(this.OpinionsStorage.getOpinionById(this.customerId()));
-    this.id.set(this.OpinionsStorage.getOpinionById(this.customerId())?.apartamentId);
-    // this.apartamentImage.set(this.ApartamentsStorage.getApartamentById(this.id()));
-    this.ApartamentsStorage.getApartamentById(this.id()!).subscribe(data => {
+    console.log(changes);
+    this.opinionWindow.set(this.OpinionsService.getOpinionById(this.id()));
+    this.id.set(this.OpinionsService.getOpinionById(this.customerId()).apartamentId);
+    this.ApartamentsService.getApartamentById(this.id()!).subscribe(data => {
       this.apartamentImage.set(data);
     })
   }

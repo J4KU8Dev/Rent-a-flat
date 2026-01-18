@@ -953,42 +953,6 @@
           "views": 198
         }
       }
-    },
-    {
-      "id": "a3",
-      "imagePath": "/assets/images/apartaments/apartament3.jpg",
-      "name": "CityLoft Premium",
-      "city": "Brodnica",
-      "street": "Dworcowa 7",
-      "rentalFee": 2600,
-      "apartmentSize": 60,
-      "rooms": 3,
-      "description": "Premium loft-style apartment.",
-      "floor": "3rd",
-      "elevator": "Yes",
-      "parkingSpace": "Yes",
-      "available": "No",
-      "fullDescription": "Stylish loft apartment with high ceilings and modern design located near the city center.",
-      "details": {
-        "flat": {
-          "kitchenType": "Open kitchen",
-          "bathroomWithToilet": "Yes",
-          "balcony": "Yes",
-          "terrace": "No",
-          "market": "Primary"
-        },
-        "buidling": {
-          "buildingType": "Loft building",
-          "buildingMaterial": "Steel & brick",
-          "dateBuilding": "2020"
-        },
-        "advertisement": {
-          "addedDate": "05-01-2025",
-          "lastUpdate": "14-01-2025",
-          "idAdvertisement": "ADV-a3",
-          "views": 312
-        }
-      }
     }
     ],
     "gallery": [

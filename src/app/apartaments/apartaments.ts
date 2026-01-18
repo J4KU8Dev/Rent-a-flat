@@ -1,8 +1,9 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { ApartamentsStorage } from '../services/apartaments-storage';
+import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
 import { ZlotyPipe } from '../zloty-pipe';
 import { RouterLink } from "@angular/router";
+import { Apartament } from '../apartament/apartament';
 @Component({
   selector: 'app-apartaments',
   imports: [ZlotyPipe, RouterLink],
@@ -10,7 +11,7 @@ import { RouterLink } from "@angular/router";
   styleUrl: './apartaments.css',
 })
 export class Apartaments implements OnInit {
-  protected ApartamentsService = inject(ApartamentsStorage);
+  protected ApartamentsService = inject(ApartamentsService);
 
   ngOnInit(): void {
     this.ApartamentsService.getAllApartaments();
