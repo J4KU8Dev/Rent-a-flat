@@ -30,9 +30,16 @@ export class OpinionWindow implements OnChanges, OnInit {
 
   ngOnChanges(changes: SimpleChanges){
     console.log(changes);
-    this.opinionWindow.set(this.OpinionsService.getOpinionById(this.id()));
-    this.id.set(this.OpinionsService.getOpinionById(this.customerId()).apartamentId);
-    this.ApartamentsService.getApartamentById(this.id()!).subscribe(data => {
+    this.OpinionsService.getOpinionById(this.id()).subscribe((data) => {
+      this.opinionWindow.set(data);
+    })
+    // this.opinionWindow.set(this.OpinionsService.getOpinionById(this.id()));
+    // this.OpinionsService.getOpinionById(this.customerId()).subscribe((data) => {
+    //   this.id.set(data);
+    // })
+
+    // this.id.set(this.OpinionsService.getOpinionById(this.customerId()));
+    this.ApartamentsService.getApartamentById(this.id()).subscribe(data => {
       this.apartamentImage.set(data);
     })
   }
