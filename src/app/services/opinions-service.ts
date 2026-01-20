@@ -11,12 +11,14 @@ export class OpinionsService {
   private apiUrl = 'http://localhost:3000';
   opinions = signal<opinionsModel[]>([]);
   customerId = signal<string>('');
+  
+  // change constructor -> void function
   constructor() {
     this.getAllOpinions();
-  }
+  } 
 
   getAllOpinions() {
-     return this.http.get<opinionsModel[]>(`${this.apiUrl}/apartaments`).subscribe((data) => {
+    return this.http.get<opinionsModel[]>(`${this.apiUrl}/opinions`).subscribe((data) => {
           this.opinions.set(data);
           });;
   }
@@ -25,7 +27,7 @@ export class OpinionsService {
   //   return this.opinions().find((opinion) => opinion.CustomerId === id);
   // } old version
 
-  getOpinionById(id: string): Observable<opinionsModel> {
-    return this.http.get<opinionsModel>(`${this.apiUrl}/attractions/${id}`);
+  getOpinionById(customerId: string) {
+     return this.http.get<opinionsModel>(`${this.apiUrl}/opinions?CustomerId=${customerId}`);
   }
 }

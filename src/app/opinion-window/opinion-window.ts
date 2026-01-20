@@ -11,41 +11,74 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './opinion-window.html',
   styleUrl: './opinion-window.css',
 })
-export class OpinionWindow implements OnChanges, OnInit {
-  protected ApartamentsService = inject(ApartamentsService);
-  protected OpinionsService = inject(OpinionsService);
-  route = inject(ActivatedRoute)
-  opinionWindow = signal<opinionsModel | undefined>(undefined);
-  customerId = input<string>();
-  apartamentImage = signal<ApartamentsModel | undefined>(undefined);
-  id = signal<string>('');
+export class OpinionWindow implements OnChanges {
+  private opinionsService = inject(OpinionsService);
+  private apartamentsService = inject(ApartamentsService);
 
-  ngOnInit(): void {
-    const id = signal(this.route.snapshot.params['id']);
-    if(!id){
+  customerId = input<string>();
+
+  opinionWindow = signal<opinionsModel | null>(null);
+  apartamentImage = signal<ApartamentsModel | null>(null);
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const id = this.customerId();
+
+    if (!id) {
       return;
     }
-    this.OpinionsService.getOpinionById(id());
+
+    this.opinionsService.getOpinionById(id).subscribe(opinion => {
+      this.opinionWindow.set(opinion);
+
+      this.apartamentsService
+        .getApartamentById(opinion.apartamentId)
+        .subscribe(apartment => {
+          this.apartamentImage.set(apartment);
+        });
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges){
-    console.log(changes);
-    this.OpinionsService.getOpinionById(this.id()).subscribe((data) => {
-      this.opinionWindow.set(data);
-    })
-    // this.opinionWindow.set(this.OpinionsService.getOpinionById(this.id()));
-    // this.OpinionsService.getOpinionById(this.customerId()).subscribe((data) => {
-    //   this.id.set(data);
-    // })
-
-    // this.id.set(this.OpinionsService.getOpinionById(this.customerId()));
-    this.ApartamentsService.getApartamentById(this.id()).subscribe(data => {
-      this.apartamentImage.set(data);
-    })
+  getStars(rating: 1 | 2 | 3 | 4 | 5) {
+    return Array(rating);
   }
-  
-  getStars(rating: 1 | 2 | 3 | 4 | 5){
-    return Array(rating).fill(0);
-  }
-    
 }
+  // protected ApartamentsService = inject(ApartamentsService);
+  // protected OpinionsService = inject(OpinionsService);
+  
+  // customerId = input<string>();
+
+  // route = inject(ActivatedRoute)
+  // opinionWindow = signal<opinionsModel | undefined>(undefined);
+  
+  // apartamentImage = signal<ApartamentsModel | undefined>(undefined);
+  // id = signal<string>('');
+
+  // ngOnInit(): void {
+  //   const id = signal(this.route.snapshot.params['id']);
+  //   if(!id){
+  //     return;
+  //   }
+  //   this.OpinionsService.getOpinionById(id());
+  // }
+
+  // ngOnChanges(changes: SimpleChanges){
+  //   console.log(changes);
+  //   this.OpinionsService.getOpinionById(this.id());
+  //   // this.opinionWindow.set(this.OpinionsService.getOpinionById(this.id()));
+
+
+  //   this.OpinionsService.getOpinionById(this.customerId()).subscribe((data) => {
+  //     this.id.set(data);
+  //   })
+  //   // this.id.set(this.OpinionsService.getOpinionById(this.customerId()));
+    
+  //   this.ApartamentsService.getApartamentById(this.id()).subscribe(data => {
+  //     this.apartamentImage.set(data);
+  //   })
+  // }
+  
+  // getStars(rating: 1 | 2 | 3 | 4 | 5){
+  //   return Array(rating).fill(0);
+  // }
+    
+// }
