@@ -33,14 +33,14 @@
     ],
     "opinions": [
         {
-            "CustomerId": "c1",
-            "gender": "female",
-            "firstName": "Emily",
-            "lastName": "Carter",
-            "opinionDate": "05-01-2025",
-            "opinionContent": "Very clean apartment with a modern and cozy interior. The location was perfect, close to shops and restaurants. Everything inside was well prepared and exactly as described. The check-in process was smooth and hassle-free. I would definitely recommend this place to anyone visiting the city.",
-            "apartamentId": "a1",
-            "rating": 5
+          "CustomerId": "c1",
+          "gender": "female",
+          "firstName": "Emily",
+          "lastName": "Carter",
+          "opinionDate": "05-01-2025",
+          "opinionContent": "Very clean apartment with a modern and cozy interior. The location was perfect, close to shops and restaurants. Everything inside was well prepared and exactly as described. The check-in process was smooth and hassle-free. I would definitely recommend this place to anyone visiting the city.",
+          "apartamentId": "a1",
+          "rating": 5
         },
         {
             "CustomerId": "c2",

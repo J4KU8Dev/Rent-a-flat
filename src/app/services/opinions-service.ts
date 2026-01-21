@@ -27,7 +27,7 @@ export class OpinionsService {
   //   return this.opinions().find((opinion) => opinion.CustomerId === id);
   // } old version
 
-  getOpinionById(customerId: string): Observable<opinionsModel> {
-     return this.http.get<opinionsModel>(`${this.apiUrl}/opinions?CustomerId=${customerId}`);
+  getOpinionById(customerId: string) {
+     return this.http.get<opinionsModel[]>(`${this.apiUrl}/opinions?CustomerId=${customerId}`);
   }
 }

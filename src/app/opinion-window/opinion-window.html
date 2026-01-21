@@ -2,7 +2,7 @@
     <div class="customerData">
         <h1>{{opinionWindow()?.firstName}} {{opinionWindow()?.lastName}}</h1>
         <div class="stars">
-        @for (stars of getStars(opinionWindow()?.rating!); track stars) {
+        @for (stars of getStars(opinionWindow()?.rating!); track $index) {
             <img src="/assets/images/icons/star.png" alt="">
         }
         </div>
