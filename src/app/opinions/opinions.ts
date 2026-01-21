@@ -14,7 +14,7 @@ export class Opinions {
   selectedCustomerOutput = output<string>();
   onSelectedCustomer(id: string){
     this.selectedCustomer.set(id);
-    // console.log(this.selectedCustomer());
+    console.log(this.selectedCustomer());
     this.selectedCustomerOutput.emit(this.selectedCustomer());
   }
 }

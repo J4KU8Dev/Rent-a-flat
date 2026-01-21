@@ -12,73 +12,39 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './opinion-window.css',
 })
 export class OpinionWindow implements OnChanges {
-  private opinionsService = inject(OpinionsService);
-  private apartamentsService = inject(ApartamentsService);
+  protected ApartamentsService = inject(ApartamentsService);
+  protected OpinionsService = inject(OpinionsService);
+  route = inject(ActivatedRoute);
+  customerId = input<string>('');
 
-  customerId = input<string>();
+  opinionWindow = signal<opinionsModel | undefined>(undefined);
+  apartamentImage = signal<ApartamentsModel | undefined>(undefined);
+  apartamentId = signal<string>('')
+  ngOnChanges(changes: SimpleChanges){
+    console.log(changes);
 
-  opinionWindow = signal<opinionsModel | null>(null);
-  apartamentImage = signal<ApartamentsModel | null>(null);
-
-  ngOnChanges(changes: SimpleChanges): void {
-    const id = this.customerId();
-
-    if (!id) {
-      return;
-    }
-
-    this.opinionsService.getOpinionById(id).subscribe(opinion => {
-      this.opinionWindow.set(opinion);
-
-      this.apartamentsService
-        .getApartamentById(opinion.apartamentId)
-        .subscribe(apartment => {
-          this.apartamentImage.set(apartment);
-        });
+    // loading changed data
+    this.OpinionsService.getOpinionById(this.customerId()).subscribe(data => {
+      // console.log(this.opinionWindow());
+      this.opinionWindow.set(data);
     });
-  }
+    
+    // fetching apartament id
+    this.OpinionsService.getOpinionById(this.customerId()).subscribe(data => {
+      this.apartamentId.set(data.CustomerId);
+    })
+    // console.log(this.apartamentId());
 
-  getStars(rating: 1 | 2 | 3 | 4 | 5) {
-    return Array(rating);
+    console.log(`Changed data {
+      customer: ${this.customerId()}
+      apartamentId: ${this.apartamentId()}
+      data: ${this.opinionWindow()}
+      }
+      `)
   }
+  
+  getStars(rating: 1 | 2 | 3 | 4 | 5){
+    return Array(rating).fill(0);
+  }
+    
 }
-  // protected ApartamentsService = inject(ApartamentsService);
-  // protected OpinionsService = inject(OpinionsService);
-  
-  // customerId = input<string>();
-
-  // route = inject(ActivatedRoute)
-  // opinionWindow = signal<opinionsModel | undefined>(undefined);
-  
-  // apartamentImage = signal<ApartamentsModel | undefined>(undefined);
-  // id = signal<string>('');
-
-  // ngOnInit(): void {
-  //   const id = signal(this.route.snapshot.params['id']);
-  //   if(!id){
-  //     return;
-  //   }
-  //   this.OpinionsService.getOpinionById(id());
-  // }
-
-  // ngOnChanges(changes: SimpleChanges){
-  //   console.log(changes);
-  //   this.OpinionsService.getOpinionById(this.id());
-  //   // this.opinionWindow.set(this.OpinionsService.getOpinionById(this.id()));
-
-
-  //   this.OpinionsService.getOpinionById(this.customerId()).subscribe((data) => {
-  //     this.id.set(data);
-  //   })
-  //   // this.id.set(this.OpinionsService.getOpinionById(this.customerId()));
-    
-  //   this.ApartamentsService.getApartamentById(this.id()).subscribe(data => {
-  //     this.apartamentImage.set(data);
-  //   })
-  // }
-  
-  // getStars(rating: 1 | 2 | 3 | 4 | 5){
-  //   return Array(rating).fill(0);
-  // }
-    
-// }
