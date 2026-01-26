@@ -16,27 +16,32 @@ export class OpinionWindow implements OnChanges {
   protected OpinionsService = inject(OpinionsService);
   route = inject(ActivatedRoute);
   customerId = input<string>('');
-
+  
   opinionWindow = signal<opinionsModel | undefined>(undefined);
   apartamentImage = signal<ApartamentsModel | undefined>(undefined);
   // apartamentId = signal<string>('');
-  apartamentId = signal<opinionsModel | undefined>(undefined);
+  apartamentId = signal<string>('');
   ngOnChanges(changes: SimpleChanges){
     console.log(changes);
 
-
-
-    // loading changed data
     this.OpinionsService.getOpinionById(this.customerId()).subscribe(data => {
       const opinion = data[0];
       this.opinionWindow.set(opinion);
 });
     
-    // fetching apartament id
     this.OpinionsService.getOpinionById(this.customerId()).subscribe(data => {
-      const apartament = data[0];
+      const apartament = data[0].apartamentId;
       this.apartamentId.set(apartament);
-      // change it to image
+
+      // console.log(this.apartamentId());
+      
+      this.updateApartamentImage(this.apartamentId())
+    })
+  }
+
+  updateApartamentImage(id: string){
+    this.ApartamentsService.getApartamentById(this.apartamentId()).subscribe(data => {
+      this.apartamentImage.set(data);
     })
   }
   
