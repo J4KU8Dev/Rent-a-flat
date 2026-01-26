@@ -12,4 +12,7 @@ export class ContactService {
   createMessage(data: any): Observable<any>{
     return this.http.post(`${this.apiUrl}/messages`, data);
   }
+  contactAboutApartament(data: string): Observable<any>{
+    return this.http.post(`${this.apiUrl}/contact`, data);
+  }
 }

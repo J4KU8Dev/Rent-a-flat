@@ -1,23 +1,23 @@
 <div class="container">
-    <form [formGroup]="contactForm" (submit)="onSubmit()">
+    <form (submit)="onSubmit($event)">
         <div class="question">
              <img src="/assets/images/icons/question-mark.png" alt="questionMark-icon">
             <p>Have questions? Go ahead! We're here to help you find what you're looking for!</p>
         </div>
-       
+       <!-- finish form -->
         <div class="inputs">
-            <input type="text" placeholder="Name..." class="name" [formControl]="contactForm.controls.name">
-            <input type="email" placeholder="Email..." class="email" [formControl]="contactForm.controls.email">
-            <input type="number" placeholder="Phone..." class="number" [formControl]="contactForm.controls.number">
-            <input type="text" placeholder="Subject..." class="subject" [formControl]="contactForm.controls.subject">
-            <textarea type="text" placeholder="Your message goes here..." class="message" [formControl]="contactForm.controls.message"></textarea>
+            <input type="text" placeholder="Name..." class="name" [field]="contactForm.name">
+            <input type="email" placeholder="Email..." class="email" [field]="contactForm.email">
+            <input type="number" placeholder="Phone..." class="number" [field]="contactForm.number">
+            <input type="text" placeholder="Subject..." class="subject" [field]="contactForm.subject">
+            <textarea type="text" placeholder="Your message goes here..." class="message" [field]="contactForm.message"></textarea>
             
         </div>
         <div class="other"> 
-            <input type="checkbox" [formControl]="contactForm.controls.check">
+            <input type="checkbox" [field]="contactForm.check">
             <p>I consent to the storage of my data according to the Privacy Policy</p>
         </div>
-        <button type="submit" [disabled]="!contactForm.valid ">Send Message</button>
+        <button type="submit" [disabled]="!contactForm">Send Message</button>
     </form>
     <div class="informations">
         <img src="/assets/images/background-contact.jpg" alt="background" width="500" height="500">
