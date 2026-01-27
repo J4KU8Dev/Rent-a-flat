@@ -5,6 +5,13 @@
     flex-direction: row;
     gap: 2rem;
     margin: 3rem 0;
+    width: 100vw;
+}
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3rem;
 }
 .question{
     display: flex;
@@ -14,20 +21,17 @@
     font-size: 1.5rem;
 }
 .inputs{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    display: grid;  
     align-items: center;
-    justify-content: center;
     flex: auto;
 }
 .inputs .message{
-    grid-column: 1/-1;
     resize: none;
 }
 .inputs input{
     padding: 1rem;
     font-size: 1.2rem;
+    flex: auto;
 }
 .inputs textarea{
     padding: 1rem;
@@ -80,6 +84,20 @@ form button:hover{
     width: 100vw;
     height: auto;
 }
+.invalid{
+    border: 2px solid red;
+}
+.errorMessage{
+    color: red;
+    font-size: 1rem;
+}
+button:disabled, button[disabled]{
+    background-color: gray;
+}
+button:disabled:hover, button[disabled]:hover{
+    background-color: red;
+}
+/* repair rwd here */
 @media (max-width: 91rem){
     .container{
         flex-direction: column-reverse;
