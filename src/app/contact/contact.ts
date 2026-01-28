@@ -42,6 +42,8 @@ export class Contact {
   })
   
   onSubmit(event: Event) {
+    // repair this
+    // rwd repaired
     event.preventDefault();
     this.contactService.createMessage(this.contactForm).subscribe(
       response => console.log('Message sent successfully.', response),
