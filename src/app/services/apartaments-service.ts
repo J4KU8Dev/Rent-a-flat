@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApartamentsService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000'
+  private apiUrl = 'http://localhost:5000'
   apartaments = signal<ApartamentsModel[]>([]);
 
   constructor() {

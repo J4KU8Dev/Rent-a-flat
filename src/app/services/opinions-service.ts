@@ -8,24 +8,13 @@ import { Observable } from 'rxjs';
 })
 export class OpinionsService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:5000';
   opinions = signal<opinionsModel[]>([]);
   customerId = signal<string>('');
-  
-  // change constructor -> void function
-  constructor() {
-    this.getAllOpinions();
-  } 
 
-  getAllOpinions() {
-    return this.http.get<opinionsModel[]>(`${this.apiUrl}/opinions`).subscribe((data) => {
-          this.opinions.set(data);
-          });;
+  getAllOpinions(): Observable<opinionsModel[]> {
+   return this.http.get<opinionsModel[]>(`${this.apiUrl}/opinions`);
   }
-
-  // getOpinionById(id:string | undefined): opinionsModel | undefined {
-  //   return this.opinions().find((opinion) => opinion.CustomerId === id);
-  // } old version
 
   getOpinionById(customerId: string) {
      return this.http.get<opinionsModel[]>(`${this.apiUrl}/opinions?CustomerId=${customerId}`);

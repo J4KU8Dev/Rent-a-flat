@@ -2,6 +2,7 @@ import { Component, inject, output, signal } from '@angular/core';
 import { OpinionsService } from '../services/opinions-service';
 import { OpinionWindow } from "../opinion-window/opinion-window";
 import { opinionsModel } from '../opinions.model';
+
 @Component({
   selector: 'app-opinions',
   imports: [OpinionWindow],
@@ -12,6 +13,14 @@ export class Opinions {
   selectedCustomer = signal<string>('');
   opinionService = inject(OpinionsService);
   selectedCustomerOutput = output<string>();
+  opinions = signal<opinionsModel[]>([])
+  constructor(){
+    this.opinionService.getAllOpinions().subscribe((opinions: opinionsModel[]) => {
+      this.opinions.set(opinions);
+      console.log(opinions);
+    })
+  }
+
   onSelectedCustomer(id: string){
     this.selectedCustomer.set(id);
     console.log(this.selectedCustomer());

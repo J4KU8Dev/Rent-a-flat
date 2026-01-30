@@ -19,7 +19,6 @@ interface formData {
 })
 export class Contact {
   public contactService = inject(ContactService);
-  // changed this form (reactiveForm => signalForm)
   
   signalformModel = signal<formData>({
     name: '',
@@ -42,8 +41,6 @@ export class Contact {
   })
   
   onSubmit(event: Event) {
-    // repair this
-    // rwd repaired
     event.preventDefault();
     this.contactService.createMessage(this.contactForm).subscribe(
       response => console.log('Message sent successfully.', response),

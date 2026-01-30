@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
   private http = inject(HttpClient);
-  private apiUrl: string = 'http://localhost:3000';
+  private apiUrl: string = 'http://localhost:5000';
   
   createMessage(data: any): Observable<any>{
     return this.http.post(`${this.apiUrl}/messages`, data);
