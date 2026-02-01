@@ -1,8 +1,8 @@
 <div class="container">
     <h1><i>ModernVista Apartments</i></h1>
-    <p class="count">We Found: <b style="color: #27b67c;"> {{ApartamentsService.apartaments().length}}  Apartaments</b></p>
+    <p class="count">We Found: <b style="color: #27b67c;"> {{apartaments().length}}  Apartaments</b></p>
     <div class="apartaments">
-        @for (Apartament of ApartamentsService.apartaments() ; track Apartament.id) {
+        @for (Apartament of apartaments(); track Apartament.id) {
             <div class="apartament">
                 <div class="image">
                     <img [src]="Apartament.imagePath" [alt]="Apartament.name" width="600" height="400">

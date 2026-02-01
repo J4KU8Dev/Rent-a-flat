@@ -40,7 +40,8 @@
       "opinionDate": "05-01-2025",
       "opinionContent": "Very clean apartment with a modern and cozy interior. The location was perfect, close to shops and restaurants. Everything inside was well prepared and exactly as described. The check-in process was smooth and hassle-free. I would definitely recommend this place to anyone visiting the city.",
       "apartamentId": "a1",
-      "rating": 5
+      "rating": 5,
+      "id": "0399"
     },
     {
       "CustomerId": "c2",
@@ -50,7 +51,8 @@
       "opinionDate": "08-01-2025",
       "opinionContent": "The apartment was comfortable and well equipped for a short stay. I appreciated the quiet neighborhood and good sound insulation. All amenities were working properly and the space was very clean. Communication with the host was fast and helpful. Overall, a very pleasant experience.",
       "apartamentId": "a2",
-      "rating": 4
+      "rating": 4,
+      "id": "b710"
     },
     {
       "CustomerId": "c3",
@@ -60,7 +62,8 @@
       "opinionDate": "12-01-2025",
       "opinionContent": "A beautifully designed apartment with a modern interior style. The neighborhood was calm and perfect for relaxing after a long day. The apartment had everything needed for daily use. Cleanliness was at a very high level. I would gladly stay here again.",
       "apartamentId": "a3",
-      "rating": 5
+      "rating": 5,
+      "id": "f7f9"
     },
     {
       "CustomerId": "c4",
@@ -70,7 +73,8 @@
       "opinionDate": "15-01-2025",
       "opinionContent": "The apartment offered great value for the price. It was clean, functional and well located. The rooms were spacious and comfortable. Everything matched the description provided online. A solid choice for both short and longer stays.",
       "apartamentId": "a4",
-      "rating": 4
+      "rating": 4,
+      "id": "b884"
     },
     {
       "CustomerId": "c5",
@@ -80,7 +84,8 @@
       "opinionDate": "18-01-2025",
       "opinionContent": "Excellent location close to the city center and public transport. The apartment was bright, clean and very well maintained. Check-in was quick and simple. The interior felt welcoming and comfortable. I truly enjoyed my stay here.",
       "apartamentId": "a5",
-      "rating": 5
+      "rating": 5,
+      "id": "8e36"
     },
     {
       "CustomerId": "c6",
@@ -90,7 +95,8 @@
       "opinionDate": "21-01-2025",
       "opinionContent": "A spacious apartment that was perfect for a longer stay. The kitchen was fully equipped and easy to use. Everything was clean and well organized. The area was quiet and peaceful. I felt at home during my entire stay.",
       "apartamentId": "a6",
-      "rating": 5
+      "rating": 5,
+      "id": "07e5"
     },
     {
       "CustomerId": "c7",
@@ -100,7 +106,8 @@
       "opinionDate": "24-01-2025",
       "opinionContent": "Cozy apartment with a warm and welcoming atmosphere. All basic amenities were available and in good condition. The place was clean and well prepared before arrival. The neighborhood felt safe and calm. Overall, a very comfortable stay.",
       "apartamentId": "a7",
-      "rating": 4
+      "rating": 4,
+      "id": "979e"
     },
     {
       "CustomerId": "c8",
@@ -110,7 +117,8 @@
       "opinionDate": "27-01-2025",
       "opinionContent": "The apartment exceeded my expectations in every way. Modern design, great layout and excellent cleanliness. The location was convenient and easy to access. Communication with the owner was smooth. Highly recommended.",
       "apartamentId": "a8",
-      "rating": 5
+      "rating": 5,
+      "id": "3692"
     },
     {
       "CustomerId": "c9",
@@ -120,7 +128,8 @@
       "opinionDate": "30-01-2025",
       "opinionContent": "Very comfortable apartment with stylish interior design. The space was bright and well arranged. Everything was clean and ready upon arrival. The location made it easy to explore the city. I would happily book this apartment again.",
       "apartamentId": "a9",
-      "rating": 5
+      "rating": 5,
+      "id": "2d07"
     },
     {
       "CustomerId": "c10",
@@ -130,7 +139,8 @@
       "opinionDate": "02-02-2025",
       "opinionContent": "A solid and well-located apartment close to key attractions. The rooms were clean and nicely furnished. All basic needs were covered. The stay was smooth from start to finish. Good choice for business or leisure trips.",
       "apartamentId": "a10",
-      "rating": 4
+      "rating": 4,
+      "id": "037c"
     },
     {
       "CustomerId": "c11",
@@ -140,7 +150,8 @@
       "opinionDate": "05-02-2025",
       "opinionContent": "Everything was perfectly prepared before arrival. The apartment was spotless and smelled fresh. Furniture and equipment were modern and well maintained. The stay was very comfortable from start to finish. I would definitely recommend this place to others.",
       "apartamentId": "a11",
-      "rating": 5
+      "rating": 5,
+      "id": "bca7"
     },
     {
       "CustomerId": "c12",
@@ -150,7 +161,8 @@
       "opinionDate": "08-02-2025",
       "opinionContent": "The apartment was located in a quiet and peaceful area. It offered everything needed for a comfortable stay. The interior was clean and well organized. I appreciated the calm atmosphere after a busy day. Overall, a very good experience.",
       "apartamentId": "a12",
-      "rating": 4
+      "rating": 4,
+      "id": "b143"
     },
     {
       "CustomerId": "c13",
@@ -160,7 +172,8 @@
       "opinionDate": "11-02-2025",
       "opinionContent": "This apartment was perfect for a weekend getaway. The space was cozy, clean and nicely arranged. Everything was easy to use and well explained. The location was convenient and accessible. I would gladly return in the future.",
       "apartamentId": "a13",
-      "rating": 5
+      "rating": 5,
+      "id": "5fe0"
     },
     {
       "CustomerId": "c14",
@@ -170,7 +183,8 @@
       "opinionDate": "14-02-2025",
       "opinionContent": "High-quality apartment with a modern and elegant interior. Everything was spotless and well prepared. The check-in process was smooth and professional. The overall standard exceeded my expectations. I highly recommend this apartment.",
       "apartamentId": "a14",
-      "rating": 5
+      "rating": 5,
+      "id": "0446"
     },
     {
       "CustomerId": "c15",
@@ -180,7 +194,8 @@
       "opinionDate": "17-02-2025",
       "opinionContent": "A very comfortable apartment that truly felt like home. The rooms were warm, clean and inviting. All amenities worked perfectly. The stay was calm and relaxing. I really enjoyed my time here.",
       "apartamentId": "a15",
-      "rating": 4
+      "rating": 4,
+      "id": "0c24"
     },
     {
       "CustomerId": "c16",
@@ -190,7 +205,8 @@
       "opinionDate": "20-02-2025",
       "opinionContent": "Modern apartment with great attention to detail. The interior was stylish and very clean. The location was excellent and easy to reach. Everything was prepared exactly as promised. A great choice for a comfortable stay.",
       "apartamentId": "a16",
-      "rating": 5
+      "rating": 5,
+      "id": "3124"
     },
     {
       "CustomerId": "c17",
@@ -200,7 +216,8 @@
       "opinionDate": "23-02-2025",
       "opinionContent": "An excellent experience from beginning to end. The apartment was clean, bright and well organized. The neighborhood was quiet and pleasant. Communication was easy and helpful. I would definitely stay here again.",
       "apartamentId": "a17",
-      "rating": 5
+      "rating": 5,
+      "id": "ebb5"
     },
     {
       "CustomerId": "c18",
@@ -210,7 +227,8 @@
       "opinionDate": "26-02-2025",
       "opinionContent": "Very nice apartment equipped with everything needed. The space was clean and comfortable. The interior design was modern and practical. The stay was smooth and problem-free. A very good option for travelers.",
       "apartamentId": "a18",
-      "rating": 4
+      "rating": 4,
+      "id": "e7aa"
     },
     {
       "CustomerId": "c19",
@@ -220,7 +238,8 @@
       "opinionDate": "01-03-2025",
       "opinionContent": "Clean, bright and welcoming apartment. The rooms were spacious and nicely furnished. Everything was ready upon arrival. The location made it easy to get around. I was very satisfied with my stay.",
       "apartamentId": "a19",
-      "rating": 5
+      "rating": 5,
+      "id": "1cbd"
     },
     {
       "CustomerId": "c20",
@@ -230,7 +249,8 @@
       "opinionDate": "04-03-2025",
       "opinionContent": "Excellent apartment with high-quality finish. Everything was clean, modern and well maintained. Communication was quick and professional. The stay was comfortable and stress-free. I would highly recommend this place.",
       "apartamentId": "a20",
-      "rating": 5
+      "rating": 5,
+      "id": "0bdc"
     }
   ],
   "apartaments": [
@@ -1008,7 +1028,70 @@
     }
   ],
   "messages": [
-    
+    {
+      "id": "8791",
+      "name": "123",
+      "email": "123123123@gs.com",
+      "number": "123-123-123",
+      "subject": "123",
+      "message": "123",
+      "check": true
+    },
+    {
+      "id": "b221",
+      "name": "123",
+      "email": "asdasdaasdasd@sd.com",
+      "number": "345-123-777",
+      "subject": "asfdasdas",
+      "message": "asdasdasdad",
+      "check": true
+    },
+    {
+      "id": "794e",
+      "name": "123",
+      "email": "123123123@gs.com",
+      "number": "444-123-123",
+      "subject": "sdfsdfsdf",
+      "message": "sdfsdfsdfsdf",
+      "check": true
+    },
+    {
+      "id": "3b90",
+      "name": "jakub",
+      "email": "matis@gg.comd",
+      "number": "213-769-420",
+      "subject": "Questions",
+      "message": "Can i ask u something ?",
+      "check": true
+    },
+    {
+      "id": "f67c",
+      "name": "asdasdasd",
+      "email": "123@s.com",
+      "number": "000-000-000",
+      "subject": "fsddfdfssdfsdf",
+      "message": "nnbbbbbbb",
+      "check": true
+    }
   ],
-  "contact": []
+  "contact": [
+    {
+      "id": "7dc2",
+      "message": "123",
+      "name": "123",
+      "email": "123123123@gs.com",
+      "phoneNumber": "123-123-123",
+      "news": false,
+      "loan": false
+    },
+    {
+      "id": "d654",
+      "message": "asdasdas",
+      "name": "123",
+      "email": "asdas@gmail.cs",
+      "phoneNumber": "123-123-123",
+      "news": true,
+      "loan": false
+    }
+  ]
 }

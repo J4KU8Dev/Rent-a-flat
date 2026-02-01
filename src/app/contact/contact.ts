@@ -42,10 +42,11 @@ export class Contact {
   
   onSubmit(event: Event) {
     event.preventDefault();
-    this.contactService.createMessage(this.contactForm).subscribe(
+    this.contactService.createMessage(this.signalformModel()).subscribe(
       response => console.log('Message sent successfully.', response),
-
-    )
-    // console.log(this.contactForm.value);
+      // error => console.log('Error: ', error),
+    );
+    this.signalformModel.set({ name: '', email: '', number: '', subject: '', message: '', check: false,})
+    this.contactForm().reset();
   }
 }

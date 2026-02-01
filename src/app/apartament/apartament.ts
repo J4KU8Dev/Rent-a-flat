@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
 import { email, Field, form, pattern, required } from '@angular/forms/signals';
+import { ContactService } from '../services/contact-service';
 
 type RegisterModel = {
   message: string,
@@ -21,6 +22,7 @@ type RegisterModel = {
 })
 export class Apartament implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
+  contactService = inject(ContactService);
   apartamentsService = inject(ApartamentsService);
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed:boolean = false;
@@ -37,7 +39,10 @@ export class Apartament implements OnInit {
 
   onSubmit(event: Event): void{
     event.preventDefault();
-    console.log(this.signalRegisterModel())
+    this.contactService.contactAboutApartament(this.signalRegisterModel()).subscribe(
+      response => console.log('Message sent successfully.', response),
+    )
+    // console.log(this.signalRegisterModel())
     this.onResetForm();
   }
 

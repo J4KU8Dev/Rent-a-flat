@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,9 +10,21 @@ export class ContactService {
   private apiUrl: string = 'http://localhost:5000';
   
   createMessage(data: any): Observable<any>{
-    return this.http.post(`${this.apiUrl}/messages`, data);
+    return this.http.post(`${this.apiUrl}/messages`, data)
+    .pipe(
+      catchError(error => {
+        console.error('An error ocured: ', error);
+        throw error;
+      })
+    );
   }
-  contactAboutApartament(data: string): Observable<any>{
-    return this.http.post(`${this.apiUrl}/contact`, data);
+  contactAboutApartament(data: any): Observable<any>{
+    return this.http.post(`${this.apiUrl}/contact`, data)
+    .pipe(
+      catchError(error => {
+        console.error('An error ocured: ', error);
+        throw error;
+      })
+    );
   }
 }

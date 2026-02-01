@@ -3,7 +3,7 @@ import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
 import { ZlotyPipe } from '../zloty-pipe';
 import { RouterLink } from "@angular/router";
-import { Apartament } from '../apartament/apartament';
+
 @Component({
   selector: 'app-apartaments',
   imports: [ZlotyPipe, RouterLink],
@@ -12,10 +12,12 @@ import { Apartament } from '../apartament/apartament';
 })
 export class Apartaments implements OnInit {
   protected ApartamentsService = inject(ApartamentsService);
+  apartaments = signal<ApartamentsModel[]>([]);
 
   ngOnInit(): void {
-    this.ApartamentsService.getAllApartaments();
-    console.log(this.ApartamentsService.apartaments());
+    this.ApartamentsService.getAllApartaments().subscribe(data => {
+      this.apartaments.set(data);
+    })
   }
   
 }

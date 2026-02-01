@@ -1,25 +1,20 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { ApartamentsModel } from '../apartaments.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ApartamentsService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5000'
+  private apiUrl = 'http://localhost:5000';
   apartaments = signal<ApartamentsModel[]>([]);
 
-  constructor() {
-    this.getAllApartaments();
+  getAllApartaments(): Observable<ApartamentsModel[]> {
+    return this.http.get<ApartamentsModel[]>(`${this.apiUrl}/apartaments`);
   }
-
-  getAllApartaments() {
-    return this.http.get<ApartamentsModel[]>(`${this.apiUrl}/apartaments`).subscribe((data) => {
-      this.apartaments.set(data);
-      });;
-  }
-  getApartamentById(id: string) {
+  getApartamentById(id: string): Observable<ApartamentsModel> {
     return this.http.get<ApartamentsModel>(`${this.apiUrl}/apartaments/${id}`);
   }
 
