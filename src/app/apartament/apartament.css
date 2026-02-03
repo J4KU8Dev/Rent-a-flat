@@ -8,17 +8,22 @@
 }
 .name{
     display: flex;
+    text-wrap: nowrap;
     gap: 2rem;
+    align-items: center;
+    justify-content: center;
 }
 .name h1{
     font-size: 4rem;
     font-weight: 400;
     line-height: 2.5rem;
+    text-align: center;
 }
 .name p{
     font-size: 3rem;
     font-weight: 300;
     line-height: 2.5rem;
+    text-align: center;
 }
 .full-description{
     max-width: 60vw;
@@ -35,7 +40,7 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    width: 35vw;
+    width: 40vw;
 }
 .detail{
     display: flex;
@@ -45,6 +50,7 @@
     border-bottom: 1.5px solid grey;
     margin: 1rem 0;
     padding-bottom: .3rem;
+    text-wrap: nowrap;
 }
 .detail h2{
     font-size: 1.5rem;
@@ -238,5 +244,52 @@ form a{
     }
     100%{
         transform: translateX(-300%);
+    }
+}
+@media (max-width: 82rem) {
+    .name{
+        display: grid;
+    }
+    .container{
+        gap: 2.6rem;
+    }
+    .info{
+        width: 70vw;
+    }
+}
+@media (max-width: 50rem) {
+    .name > h1{
+        font-size: 3rem;
+        line-height: 1.5rem;
+    }
+    .name > p{
+        font-size: 2rem;
+        line-height: 1.5rem;
+    }
+    .container{
+        gap: 2rem;
+    }
+    .wrapper img{
+        height: 40rem;
+    }
+    .full-description-text{
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+    }
+}
+@media (max-width: 34rem) {
+    .name > h1{
+        font-size: 2.0rem;
+        line-height: 1.2rem;
+    }
+    .name > p{
+        font-size: 1.6rem;
+        line-height: 1.2rem;
+    }
+    .wrapper img{
+        height: 25rem;
+    }
+    .container{
+        gap: 1.5rem;
     }
 }
