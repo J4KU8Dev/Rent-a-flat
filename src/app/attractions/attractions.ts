@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { AttractionsService } from '../services/attractions-service';
+import { attractionsModel } from '../attractions.model';
 
 @Component({
   selector: 'app-attractions',
@@ -7,7 +8,14 @@ import { AttractionsService } from '../services/attractions-service';
   templateUrl: './attractions.html',
   styleUrl: './attractions.css',
 })
-export class Attractions {
+export class Attractions implements OnInit{
   attractionsService = inject(AttractionsService);
-  
+  attractions = signal<attractionsModel[]>([]);
+
+  ngOnInit(): void {
+    this.attractionsService.getAllAttractions().subscribe(data => {
+      this.attractions.set(data);
+    })
+  }
+
 }

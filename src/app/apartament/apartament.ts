@@ -1,9 +1,10 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
 import { email, Field, form, pattern, required } from '@angular/forms/signals';
 import { ContactService } from '../services/contact-service';
+import { Subscription } from 'rxjs';
 
 type RegisterModel = {
   message: string,
@@ -20,21 +21,26 @@ type RegisterModel = {
   templateUrl: './apartament.html',
   styleUrl: './apartament.css',
 })
-export class Apartament implements OnInit {
+export class Apartament implements OnInit, OnDestroy {
   route: ActivatedRoute = inject(ActivatedRoute);
   contactService = inject(ContactService);
   apartamentsService = inject(ApartamentsService);
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed:boolean = false;
+  dataSubscription: Subscription | undefined;
 
   ngOnInit(): void {
     const id = signal(this.route.snapshot.params['id']);
     if(!id){
       return;
     }
-    this.apartamentsService.getApartamentById(id()).subscribe(data => {
+    this.dataSubscription = this.apartamentsService.getApartamentById(id()).subscribe(data => {
       this.apartament.set(data);
     })
+  }
+
+  ngOnDestroy(): void {
+    this.dataSubscription?.unsubscribe();
   }
 
   onSubmit(event: Event): void{

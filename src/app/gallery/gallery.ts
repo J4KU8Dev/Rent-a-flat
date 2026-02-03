@@ -1,5 +1,4 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
-import { images } from '../services/gallery-images';
 import { imagesInterface } from '../images.model';
 import { RouterLink } from "@angular/router";
 import { GalleryService } from '../services/gallery-service';

@@ -1,6 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { attractionsModel } from '../attractions.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,15 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class AttractionsService {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:5000';
-  attractions = signal<attractionsModel[]>([]);
 
-  constructor() {
-    this.getAllAttractions();
-  }
-
-  getAllAttractions() {
-    return this.http.get<attractionsModel[]>(`${this.apiUrl}/attractions`).subscribe((data) => {
-      this.attractions.set(data);
-    })
+  getAllAttractions(): Observable<attractionsModel[]> {
+    return this.http.get<attractionsModel[]>(`${this.apiUrl}/attractions`);
   }
 }

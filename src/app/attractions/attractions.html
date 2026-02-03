@@ -4,7 +4,7 @@
         <p>Discover a place where comfort meets convenience. Our surroundings offer a perfect balance of relaxation, nature, and local attractions. Whether you’re traveling for leisure or business, you’ll always find something to enjoy nearby.</p>
     </div>
     <div class="attractions">
-        @for (item of attractionsService.attractions(); track $index; let odd = $odd; let even = $even ) {
+        @for (item of attractions(); track $index; let odd = $odd; let even = $even ) {
             <div class="card" [class.card-even]="even" [class.card-odd]="odd">
                 <div class="img-card">
                     <img [src]="item.img" [alt]="item.id">

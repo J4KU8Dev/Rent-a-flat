@@ -1072,6 +1072,24 @@
       "subject": "fsddfdfssdfsdf",
       "message": "nnbbbbbbb",
       "check": true
+    },
+    {
+      "id": "1f4c",
+      "name": "123",
+      "email": "123123123@gs.com",
+      "number": "123-123-123",
+      "subject": "123",
+      "message": "123",
+      "check": true
+    },
+    {
+      "id": "52e4",
+      "name": "kuba",
+      "email": "kuba123@gmail.com",
+      "number": "458-244-123",
+      "subject": "ask",
+      "message": "call me poios",
+      "check": true
     }
   ],
   "contact": [
@@ -1090,6 +1108,15 @@
       "name": "123",
       "email": "asdas@gmail.cs",
       "phoneNumber": "123-123-123",
+      "news": true,
+      "loan": false
+    },
+    {
+      "id": "d442",
+      "message": "2222222222222",
+      "name": "123@dasd.com",
+      "email": "gg@ghadu.com",
+      "phoneNumber": "000-000-000",
       "news": true,
       "loan": false
     }

@@ -16,7 +16,7 @@ export class OpinionsService {
    return this.http.get<opinionsModel[]>(`${this.apiUrl}/opinions`);
   }
 
-  getOpinionById(customerId: string) {
+  getOpinionById(customerId: string): Observable<opinionsModel[]> {
      return this.http.get<opinionsModel[]>(`${this.apiUrl}/opinions?CustomerId=${customerId}`);
   }
 }

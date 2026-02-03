@@ -13,7 +13,8 @@ export class Opinions {
   selectedCustomer = signal<string>('');
   opinionService = inject(OpinionsService);
   selectedCustomerOutput = output<string>();
-  opinions = signal<opinionsModel[]>([])
+  opinions = signal<opinionsModel[]>([]);
+
   constructor(){
     this.opinionService.getAllOpinions().subscribe((opinions: opinionsModel[]) => {
       this.opinions.set(opinions);
