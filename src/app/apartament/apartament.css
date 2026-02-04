@@ -272,6 +272,26 @@ form a{
     .wrapper img{
         height: 40rem;
     }
+    .detail{
+        gap: 1rem;
+        width: 100%;
+        justify-content: center;
+        margin: .6rem;
+    }
+    .left{
+        width: 35vw;
+        text-align: left;
+    }
+    .right{
+        width: 35vw;
+        text-align: right;
+    }
+    .left h2{
+        font-size: 1.3rem;
+    }
+    .right p{
+        font-size: 1.3rem;
+    }
     .full-description-text{
         font-size: 1.6rem;
         line-height: 1.8rem;
@@ -291,5 +311,11 @@ form a{
     }
     .container{
         gap: 1.5rem;
+    }
+    .left h2{
+        font-size: 1rem;
+    }
+    .right p{
+        font-size: 1rem;
     }
 }

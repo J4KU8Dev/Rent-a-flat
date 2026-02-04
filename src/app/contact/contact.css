@@ -114,12 +114,13 @@ button:disabled:hover, button[disabled]:hover{
 @media (max-width: 55rem){
     .wrapper{
         flex-direction: column;
+        width: 80vw;
     }
     form{
-        width: 70vw;
+        width: 80vw;
     }
     .informations img{
-        width: 70vw;
+        width: 80vw;
         display: flex;
         /* align-items: center; */
         /* justify-content: center; */
