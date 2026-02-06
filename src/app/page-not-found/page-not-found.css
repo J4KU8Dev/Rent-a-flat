@@ -1,0 +1,74 @@
+.container{
+    width: 100vw;
+    height: 75vh;
+    background-image: url('/assets/images/pagenotfound.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 3rem;
+    width: 40rem;
+    height: auto;
+}
+.content h1{
+    font-size: 6rem;
+}
+.content p{
+    font-size: 3rem;
+}
+.content button{
+    padding: 2rem;
+    width: 20rem;
+    font-size: 2rem;
+    text-wrap: nowrap;
+    background-color: var(--carmel);
+    border-radius: 25px;
+    border: none;
+}
+@media (max-width: 44rem){
+    .content{
+        gap: 3rem;
+        padding: 2.5rem;
+        width: 30rem;
+        height: auto;
+    }
+    .content h1{
+        font-size: 4rem;
+    }
+    .content p{
+        font-size: 2rem;
+    }
+    .content button{
+        padding: 1.5rem;
+        width: 15rem;
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 30rem){
+    .content{
+        gap: 2rem;
+        padding: 2rem;
+        width: 20rem;
+        height: auto;
+    }
+    .content h1{
+        font-size: 3rem;
+    }
+    .content p{
+        font-size: 1.7rem;
+    }
+    .content button{
+        padding: 1rem;
+        width: 12rem;
+        font-size: 1rem;
+    }
+}

@@ -7,12 +7,11 @@ npm start
 
 To run Data from Api, in second terminal type: 
 ```bash
-npx json-server --watch db.json
+npx json-server --watch db.json -p 5000
 ```
 
 To do:
--repaird component apartament (rwd)
 -add lazy loading 
 -add panel admin ?
--create new routing path (page not found)
 -repair image slider in apartament component
+-add animations

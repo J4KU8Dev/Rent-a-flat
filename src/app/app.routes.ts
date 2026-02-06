@@ -6,6 +6,7 @@ import { Contact } from './contact/contact';
 import { Opinions } from './opinions/opinions';
 import { Attractions } from './attractions/attractions';
 import { Apartament } from './apartament/apartament';
+import { PageNotFound } from './page-not-found/page-not-found';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +17,6 @@ export const routes: Routes = [
     { path: 'attractions', component: Attractions },
     { path: 'opinions', component: Opinions },
     { path: 'contact', component: Contact },
-    // {path: '**', component: PageNotFoundComponent},
+    { path: '**', component: PageNotFound},
 
 ];
