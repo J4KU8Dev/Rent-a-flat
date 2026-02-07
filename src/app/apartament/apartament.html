@@ -132,7 +132,7 @@
     <div class="rest-from">
       <textarea
         [class.invalid]="signalRegisterForm.message().invalid() && signalRegisterForm.message().touched()"
-        [field]="signalRegisterForm.message"
+        [formField]="signalRegisterForm.message"
         [placeholder]="
           'I would like to know more details about the ad ' +
           apartament()?.details?.advertisement?.idAdvertisement
@@ -146,7 +146,7 @@
         [class.invalid]="signalRegisterForm.name().invalid() && signalRegisterForm.name().touched()"
         placeholder="Your name"
         class="element"
-        [field]="signalRegisterForm.name"
+        [formField]="signalRegisterForm.name"
       />
       @if (signalRegisterForm.name().invalid() && signalRegisterForm.name().touched()) {
         <span class="error">{{signalRegisterForm.name().errors()[0].message}}</span>
@@ -156,7 +156,7 @@
         [class.invalid]="signalRegisterForm.email().invalid() && signalRegisterForm.email().touched()"
         placeholder="Your email"
         class="element"
-        [field]="signalRegisterForm.email"
+        [formField]="signalRegisterForm.email"
       />
       @if (signalRegisterForm.email().invalid() && signalRegisterForm.email().touched()) {
         <span class="error">{{signalRegisterForm.email().errors()[0].message}}</span>
@@ -166,18 +166,18 @@
         [class.invalid]="signalRegisterForm.phoneNumber().invalid() && signalRegisterForm.phoneNumber().touched()"
         placeholder="Your phone number"
         class="element"
-        [field]="signalRegisterForm.phoneNumber"
+        [formField]="signalRegisterForm.phoneNumber"
       />
       @if (signalRegisterForm.phoneNumber().invalid() && signalRegisterForm.phoneNumber().touched()) {
         <span class="error">{{signalRegisterForm.phoneNumber().errors()[0].message}}</span>
       }
       <div class="checkboxes">
         <div class="checkbox-place">
-          <input type="checkbox" [field]="signalRegisterForm.news" />
+          <input type="checkbox" [formField]="signalRegisterForm.news" />
           <label>I want to be informed about promotions and services.</label>
         </div>
         <div class="checkbox-place">
-          <input type="checkbox" [field]="signalRegisterForm.loan" />
+          <input type="checkbox" [formField]="signalRegisterForm.loan" />
           <label for="second">I will need a loan.</label>
         </div>
       </div>

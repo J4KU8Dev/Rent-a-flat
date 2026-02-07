@@ -18,7 +18,7 @@
         type="text"
         placeholder="Name..."
         class="name"
-        [field]="contactForm.name"
+        [formField]="contactForm.name"
       />
       @if (contactForm.name().invalid() && contactForm.name().touched()) {
         <span class="errorMessage">{{ contactForm.name().errors()[0].message }}</span>
@@ -28,7 +28,7 @@
         type="email"
         placeholder="Email..."
         class="email"
-        [field]="contactForm.email"
+        [formField]="contactForm.email"
       />
       @if (contactForm.email().invalid() && contactForm.email().touched()) {
         <span class="errorMessage">{{ contactForm.email().errors()[0].message }}</span>
@@ -38,7 +38,7 @@
         type="text"
         placeholder="Phone..."
         class="number"
-        [field]="contactForm.number"
+        [formField]="contactForm.number"
       />
       @if (contactForm.number().invalid() && contactForm.number().touched()) {
         <span class="errorMessage">{{ contactForm.number().errors()[0].message }}</span>
@@ -48,7 +48,7 @@
         type="text"
         placeholder="Subject..."
         class="subject"
-        [field]="contactForm.subject"
+        [formField]="contactForm.subject"
       />
       @if (contactForm.subject().invalid() && contactForm.subject().touched()) {
         <span class="errorMessage">{{ contactForm.subject().errors()[0].message }}</span>
@@ -58,7 +58,7 @@
         type="text"
         placeholder="Your message goes here..."
         class="message"
-        [field]="contactForm.message"
+        [formField]="contactForm.message"
       ></textarea>
       @if (contactForm.message().invalid() && contactForm.message().touched()) {
         <span class="errorMessage">{{ contactForm.message().errors()[0].message }}</span>
@@ -84,7 +84,7 @@
   </div>
     </div>
     <div class="other">
-      <input type="checkbox" [field]="contactForm.check" />
+      <input type="checkbox" [formField]="contactForm.check" />
       <p>I consent to the storage of my data according to the Privacy Policy</p>
     </div>
     <button type="submit" [disabled]="contactForm().invalid()">

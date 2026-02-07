@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ContactService } from '../services/contact-service';
-import { email, form, pattern, required, Field } from '@angular/forms/signals';
+import { email, form, pattern, required, FormField } from '@angular/forms/signals';
 
 interface formData {
   name: string,
@@ -13,7 +13,7 @@ interface formData {
 
 @Component({
   selector: 'app-contact',
-  imports: [Field],
+  imports: [FormField],
   templateUrl: './contact.html',
   styleUrl: './contact.css',
 })

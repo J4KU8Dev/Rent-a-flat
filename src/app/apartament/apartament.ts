@@ -2,7 +2,7 @@ import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
-import { email, Field, form, pattern, required } from '@angular/forms/signals';
+import { email, FormField, form, pattern, required } from '@angular/forms/signals';
 import { ContactService } from '../services/contact-service';
 import { Subscription } from 'rxjs';
 
@@ -17,7 +17,7 @@ type RegisterModel = {
 
 @Component({
   selector: 'app-apartament',
-  imports: [Field],
+  imports: [FormField],
   templateUrl: './apartament.html',
   styleUrl: './apartament.css',
 })
