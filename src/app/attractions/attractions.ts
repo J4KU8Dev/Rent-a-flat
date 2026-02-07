@@ -12,6 +12,15 @@ export class Attractions implements OnInit{
   attractionsService = inject(AttractionsService);
   attractions = signal<attractionsModel[]>([]);
 
+  // cards = document.querySelectorAll('.card');
+  // observer = new IntersectionObserver((entries) => {
+  //   entries.forEach((entry) => {
+  //     if(entry.isIntersecting){
+  //       console.log(entry.target);
+  //     }
+  //   })
+  // }, {})
+  
   ngOnInit(): void {
     this.attractionsService.getAllAttractions().subscribe(data => {
       this.attractions.set(data);
