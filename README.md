@@ -11,7 +11,7 @@ npx json-server --watch db.json -p 5000
 ```
 
 To do:
--add lazy loading 
+-repair sending phone number form
 -add panel admin ?
 -repair image slider in apartament component
 -add animations

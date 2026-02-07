@@ -26,7 +26,7 @@ export class Apartament implements OnInit, OnDestroy {
   contactService = inject(ContactService);
   apartamentsService = inject(ApartamentsService);
   apartament = signal<ApartamentsModel | undefined>(undefined);
-  isShowed:boolean = false;
+  isShowed = signal<boolean>(false);
   dataSubscription: Subscription | undefined;
 
   ngOnInit(): void {
@@ -72,7 +72,7 @@ export class Apartament implements OnInit, OnDestroy {
 
 
   onCallBack() {
-    this.isShowed = !this.isShowed;
+    this.isShowed.update((show) => !show);
   }
 
   onSendCallBack(phoneNumber: number) {

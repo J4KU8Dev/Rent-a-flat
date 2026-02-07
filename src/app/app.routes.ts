@@ -11,7 +11,10 @@ import { PageNotFound } from './page-not-found/page-not-found';
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { path: 'home', component: Informations },
-    { path: 'apartaments', component: Apartaments },
+    { 
+        path: 'apartaments', 
+        loadComponent: () => import('./apartaments/apartaments').then((m) => m.Apartaments), 
+    },
     { path: 'apartaments/:id', component: Apartament },
     { path: 'gallery', component: Gallery },
     { path: 'attractions', component: Attractions },

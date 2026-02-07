@@ -120,10 +120,13 @@
   <div class="phone-function">
       <button (click)="onCallBack()">Wanna call?</button>
       <p>Give us your phone number. We will call you!</p>
-      <div style="display: none;" [style.display]="isShowed ? 'flex' : 'none' ">
-        <input type="number" class="callbackNumber" #phone placeholder="Phone number ...">
-        <button class="callbackButton" (click)="onSendCallBack(phone.valueAsNumber)">☎️</button>
+      @if (isShowed()) {
+        <div style="display: flex;" animate.enter="enter-animation">
+          <input type="number" class="callbackNumber" #phone placeholder="Phone number ...">
+          <button class="callbackButton" (click)="onSendCallBack(phone.valueAsNumber)">☎️</button>
       </div>
+      }
+     
     </div>
   <form (submit)="onSubmit($event)">
     <h2>Contact with us</h2>
