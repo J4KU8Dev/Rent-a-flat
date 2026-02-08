@@ -68,18 +68,15 @@
     font-weight: 300;
     margin: 2rem 0;
 }
-/* .image-slider{
-    width: 80vw;
+.image-slider{
+    width: 1920px;
+    height: 1080px;
     overflow: hidden;
     position: relative;
 }
 .wrapper{
     display: flex;
-    animation: slide 15s infinite;
-} */
- .wrapper img{
-    width: 80vw;
-    height: 1000px;
+    animation: slide 12s infinite;
 }
 .phone-function{
     margin: 1rem 0 .5;
