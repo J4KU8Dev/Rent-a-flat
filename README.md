@@ -13,5 +13,4 @@ npx json-server --watch db.json -p 5000
 To do:
 -repair sending phone number form
 -add panel admin ?
--repair image slider in apartament component
 -add animations

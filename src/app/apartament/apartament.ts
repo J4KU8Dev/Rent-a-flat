@@ -6,6 +6,11 @@ import { email, FormField, form, pattern, required } from '@angular/forms/signal
 import { ContactService } from '../services/contact-service';
 import { Subscription } from 'rxjs';
 
+type contact = {
+  number: string,
+  time: string,
+}
+
 type RegisterModel = {
   message: string,
   name: string,
@@ -28,7 +33,7 @@ export class Apartament implements OnInit, OnDestroy {
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed = signal<boolean>(false);
   dataSubscription: Subscription | undefined;
-
+  
   ngOnInit(): void {
     const id = signal(this.route.snapshot.params['id']);
     if(!id){
@@ -51,6 +56,20 @@ export class Apartament implements OnInit, OnDestroy {
     // console.log(this.signalRegisterModel())
     this.onResetForm();
   }
+  onContactCall(event: Event): void{
+    event.preventDefault();
+    // http request here
+    this.signalContact.update(f => ({
+      ...f,
+      time: this.onGetTime(),
+    }));
+    console.log(this.signalContact());
+  }
+
+  signalContact = signal<contact>({
+    number: '',
+    time: '',
+  })
 
   signalRegisterModel = signal<RegisterModel>({
     message: '',
@@ -64,21 +83,36 @@ export class Apartament implements OnInit, OnDestroy {
   signalRegisterForm = form(this.signalRegisterModel, (fieldPath) => {
     required(fieldPath.name, {message: 'Name is required'});
     required(fieldPath.message, {message: 'Message is required'});
-    pattern(fieldPath.phoneNumber, /^\d{3}-\d{3}-\d{3}$/, {message: 'Phone Number must be in format: 827-284-124'});
+    pattern(fieldPath.phoneNumber, /^\d{3}-\d{3}-\d{3}$/, {message: 'Phone Number must be in format: 123-456-789'});
     required(fieldPath.phoneNumber, {message: 'Phone Number is required'});
     email(fieldPath.email, {message: 'Enter a valid email'});
     required(fieldPath.email, {message: 'Email is required'});
   });
+  
+  signalContactForm = form(this.signalContact, (fieldPath) => {
+    required(fieldPath.number, {message: 'Phone number is required'});
+    pattern(fieldPath.number, /^\d{3}-\d{3}-\d{3}$/, {message: 'Phone Number must be in format: 123-456-789'});
+  })
 
 
   onCallBack() {
     this.isShowed.update((show) => !show);
   }
 
-  onSendCallBack(phoneNumber: number) {
-    console.log(phoneNumber)
-    return phoneNumber;
+  onGetTime(): string{
+    let currentDate = new Date()
+    let result = `${currentDate.getDate()}-${currentDate.getMonth() + 1}-${currentDate.getFullYear()}  ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+    return result;
   }
+
+  // onSendCallBack() {
+  //   this.signalContact.update(f => ({
+  //     ...f,
+  //     time: this.onGetTime(),
+  //   }));
+  //   console.log(this.signalContact());
+  //   // working -> apply http response
+  // }
   onResetForm() {
     this.signalRegisterModel.set({message: '', name: '', email: '', phoneNumber: '', loan: false, news: false});
     this.signalRegisterForm().reset();
