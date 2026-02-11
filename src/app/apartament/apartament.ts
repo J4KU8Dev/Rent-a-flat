@@ -58,12 +58,15 @@ export class Apartament implements OnInit, OnDestroy {
   }
   onContactCall(event: Event): void{
     event.preventDefault();
-    // http request here
     this.signalContact.update(f => ({
       ...f,
       time: this.onGetTime(),
     }));
-    console.log(this.signalContact());
+    this.contactService.needToCall(this.signalContact()).subscribe(
+      response => console.log('Message sent successfully.', response),
+    )
+    this.signalContact.set({number: '', time: ''});
+    this.signalContactForm().reset();
   }
 
   signalContact = signal<contact>({

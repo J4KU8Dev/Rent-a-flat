@@ -14,3 +14,7 @@ export interface contactAboutApartament {
     news: boolean,
     loan: boolean
 }
+export interface needACallModel{
+    number: string;
+    time: string;
+}

@@ -120,12 +120,11 @@
       <button (click)="onCallBack()">Wanna call?</button>
       <p>Give us your phone number. We will call you!</p>
       @if (isShowed()) {
-        <form style="display: flex;" animate.enter="enter-animation" (submit)="onContactCall($event)">
+        <form class="phoneForm" animate.enter="enter-animation" (submit)="onContactCall($event)">
           <input type="text" class="callbackNumber" #phone placeholder="Phone number ..." [formField]="signalContactForm.number">
           <button type="submit" [disabled]="signalContactForm().invalid()" class="callbackButton">📞</button>
           @if(signalContactForm.number().invalid() && signalContactForm.number().touched()){
             <span class="error">{{signalContactForm.number().errors()[0].message}}</span> 
-            <!-- change flex direction here -->
           }
         </form>
         
