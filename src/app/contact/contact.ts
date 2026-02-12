@@ -1,6 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { ContactService } from '../services/contact-service';
 import { email, form, pattern, required, FormField } from '@angular/forms/signals';
+import { PopUp } from '../pop-up/pop-up';
 
 interface formData {
   name: string,
@@ -19,7 +20,8 @@ interface formData {
 })
 export class Contact {
   public contactService = inject(ContactService);
-  
+  popUpService = inject(PopUp);
+  public nameComponent: string = 'Contact request'
   signalformModel = signal<formData>({
     name: '',
     email: '',
@@ -28,7 +30,6 @@ export class Contact {
     message: '',
     check: false,
   })
-
   contactForm = form(this.signalformModel, (fieldPath) => {
     required(fieldPath.name, {message: 'Name is required.'});
     required(fieldPath.email, {message: 'Email is required.'});
@@ -44,9 +45,9 @@ export class Contact {
     event.preventDefault();
     this.contactService.createMessage(this.signalformModel()).subscribe(
       response => console.log('Message sent successfully.', response),
-      // error => console.log('Error: ', error),
     );
     this.signalformModel.set({ name: '', email: '', number: '', subject: '', message: '', check: false,})
     this.contactForm().reset();
+    this.popUpService.showSuccess(this.nameComponent, 'Contact Message was sent succesfully. ')
   }
 }

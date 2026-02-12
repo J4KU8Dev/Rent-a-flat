@@ -31,7 +31,6 @@ export class Apartament implements OnInit, OnDestroy {
   route: ActivatedRoute = inject(ActivatedRoute);
   contactService = inject(ContactService);
   apartamentsService = inject(ApartamentsService);
-  toastr = inject(ToastrService);
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed = signal<boolean>(false);
   dataSubscription: Subscription | undefined;
@@ -69,8 +68,6 @@ export class Apartament implements OnInit, OnDestroy {
     )
     this.signalContact.set({number: '', time: ''});
     this.signalContactForm().reset();
-    // this.showSuccess();
-    this.showError();
   }
 
   signalContact = signal<contact>({
@@ -116,12 +113,5 @@ export class Apartament implements OnInit, OnDestroy {
   onResetForm() {
     this.signalRegisterModel.set({message: '', name: '', email: '', phoneNumber: '', loan: false, news: false});
     this.signalRegisterForm().reset();
-  }
-
-  showSuccess() {
-    this.toastr.success("Test", "Message works!")
-  }
-  showError(){
-    this.toastr.error("Test", "Error message!")
   }
 }

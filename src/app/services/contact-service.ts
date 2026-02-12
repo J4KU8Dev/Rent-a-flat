@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { catchError, Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { contactAboutApartament, contanctMessageModel, needACallModel } from '../contact-models';
+import { PopUp } from '../pop-up/pop-up';
 
 @Injectable({
   providedIn: 'root',
@@ -9,13 +10,16 @@ import { contactAboutApartament, contanctMessageModel, needACallModel } from '..
 export class ContactService {
   private http = inject(HttpClient);
   private apiUrl: string = 'http://localhost:5000';
-  
+  public popUpService = inject(PopUp);
+
   createMessage(data: contanctMessageModel): Observable<contanctMessageModel>{
     return this.http.post<contanctMessageModel>(`${this.apiUrl}/messages`, data)
     .pipe(
       catchError(error => {
         console.error('An error ocured: ', error);
-        throw error;
+        this.popUpService.showError('Failed to connect to Database. We are already fixing it. Sorry!','Database Error');
+        // prevent function showSuccess()
+        return throwError(() => error);
       })
     );
   }
@@ -34,6 +38,7 @@ export class ContactService {
       catchError(error => {
         console.error('An error ocured: ', error);
         throw error;
+
       })
     );
   }
