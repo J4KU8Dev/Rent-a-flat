@@ -5,6 +5,7 @@ import { ApartamentsModel } from '../apartaments.model';
 import { email, FormField, form, pattern, required } from '@angular/forms/signals';
 import { ContactService } from '../services/contact-service';
 import { Subscription } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 type contact = {
   number: string,
@@ -30,6 +31,7 @@ export class Apartament implements OnInit, OnDestroy {
   route: ActivatedRoute = inject(ActivatedRoute);
   contactService = inject(ContactService);
   apartamentsService = inject(ApartamentsService);
+  toastr = inject(ToastrService);
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed = signal<boolean>(false);
   dataSubscription: Subscription | undefined;
@@ -67,6 +69,8 @@ export class Apartament implements OnInit, OnDestroy {
     )
     this.signalContact.set({number: '', time: ''});
     this.signalContactForm().reset();
+    // this.showSuccess();
+    this.showError();
   }
 
   signalContact = signal<contact>({
@@ -95,6 +99,7 @@ export class Apartament implements OnInit, OnDestroy {
   signalContactForm = form(this.signalContact, (fieldPath) => {
     required(fieldPath.number, {message: 'Phone number is required'});
     pattern(fieldPath.number, /^\d{3}-\d{3}-\d{3}$/, {message: 'Phone Number must be in format: 123-456-789'});
+
   })
 
 
@@ -108,16 +113,15 @@ export class Apartament implements OnInit, OnDestroy {
     return result;
   }
 
-  // onSendCallBack() {
-  //   this.signalContact.update(f => ({
-  //     ...f,
-  //     time: this.onGetTime(),
-  //   }));
-  //   console.log(this.signalContact());
-  //   // working -> apply http response
-  // }
   onResetForm() {
     this.signalRegisterModel.set({message: '', name: '', email: '', phoneNumber: '', loan: false, news: false});
     this.signalRegisterForm().reset();
+  }
+
+  showSuccess() {
+    this.toastr.success("Test", "Message works!")
+  }
+  showError(){
+    this.toastr.error("Test", "Error message!")
   }
 }
