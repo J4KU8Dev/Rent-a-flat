@@ -6,6 +6,7 @@ import { email, FormField, form, pattern, required } from '@angular/forms/signal
 import { ContactService } from '../services/contact-service';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
+import { PopUp } from '../pop-up/pop-up';
 
 type contact = {
   number: string,
@@ -29,19 +30,27 @@ type RegisterModel = {
 })
 export class Apartament implements OnInit, OnDestroy {
   route: ActivatedRoute = inject(ActivatedRoute);
+  popUpService = inject(PopUp);
   contactService = inject(ContactService);
   apartamentsService = inject(ApartamentsService);
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed = signal<boolean>(false);
   dataSubscription: Subscription | undefined;
-  
+  submitted1 = signal<boolean>(false);
+  submitted2 = signal<boolean>(false);
   ngOnInit(): void {
     const id = signal(this.route.snapshot.params['id']);
     if(!id){
       return;
     }
-    this.dataSubscription = this.apartamentsService.getApartamentById(id()).subscribe(data => {
-      this.apartament.set(data);
+    this.dataSubscription = this.apartamentsService.getApartamentById(id()).subscribe({
+      next: (data) => {
+        this.apartament.set(data);
+      },
+      error: () => {
+        this.popUpService.showError('Cannot load data apartament site. Sorry, please try again later.', 'DataBase Error');
+      },
+      complete: () => {},
     })
   }
 
@@ -49,25 +58,49 @@ export class Apartament implements OnInit, OnDestroy {
     this.dataSubscription?.unsubscribe();
   }
 
-  onSubmit(event: Event): void{
+  onSubmit(event: Event): void {
     event.preventDefault();
-    this.contactService.contactAboutApartament(this.signalRegisterModel()).subscribe(
-      response => console.log('Message sent successfully.', response),
+    this.submitted1.set(true);
+    if(this.signalRegisterForm().invalid()){
+      this.popUpService.showWarning('Contact form contains errors. Please correct them.','Form Validation Error');
+      return
+    }
+    this.contactService.contactAboutApartament(this.signalRegisterModel()).subscribe({
+      next: () => {
+        this.popUpService.showSuccess(`Apartament contact message.`,`Contact message about apartament ${this.apartament()?.details?.advertisement?.idAdvertisement} was sent succesfully. `);
+        this.onResetForm();
+      },
+      error: () => {
+        this.popUpService.showError('Failed to connect to Database. We are already fixing it. Sorry!','Database Error');
+      },
+      complete: () => {},
+    }
     )
-    // console.log(this.signalRegisterModel())
-    this.onResetForm();
+    
+    
   }
   onContactCall(event: Event): void{
     event.preventDefault();
+    this.submitted2.set(true);
+    if(this.signalContactForm().invalid()){ //change it from form to one input value (just validate number phone, dont need to check time );
+      this.popUpService.showWarning('Invalid phone number. Please, type correct number.','Number Validation Error');
+      return
+    }
     this.signalContact.update(f => ({
-      ...f,
-      time: this.onGetTime(),
-    }));
-    this.contactService.needToCall(this.signalContact()).subscribe(
-      response => console.log('Message sent successfully.', response),
-    )
-    this.signalContact.set({number: '', time: ''});
-    this.signalContactForm().reset();
+        ...f,
+        time: this.onGetTime(),
+      }));
+    this.contactService.needToCall(this.signalContact()).subscribe({
+      next: () => {
+        this.popUpService.showSuccess('Phone Number Contact', 'Contact Message was sent succesfully. ');
+        this.onResetForm();
+      },
+      error: () => {
+        this.popUpService.showError('Failed to connect to Database. We are already fixing it. Sorry!','Database Error');
+      },
+      complete: () => {},
+    })
+    // not working, check and repair it!
   }
 
   signalContact = signal<contact>({
