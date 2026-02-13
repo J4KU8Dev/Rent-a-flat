@@ -22,6 +22,7 @@ export class Contact {
   public contactService = inject(ContactService);
   popUpService = inject(PopUp);
   public nameComponent: string = 'Contact request'
+  submitted = signal<boolean>(false);
   signalformModel = signal<formData>({
     name: '',
     email: '',
@@ -43,11 +44,27 @@ export class Contact {
   
   onSubmit(event: Event) {
     event.preventDefault();
-    this.contactService.createMessage(this.signalformModel()).subscribe(
-      response => console.log('Message sent successfully.', response),
-    );
+    this.submitted.set(true);
+    if(this.contactForm().invalid()){
+      // console.log('Form validation error')
+      this.popUpService.showWarning('Contact form contains errors. Please correct them.','Form Validation Error');
+      return
+    }
+    this.contactService.createMessage(this.signalformModel()).subscribe({
+      next: () => {
+        this.popUpService.showSuccess(this.nameComponent, 'Contact Message was sent succesfully. ');
+        this.onResetForm();
+      },
+      error: () => {
+        this.popUpService.showError('Failed to connect to Database. We are already fixing it. Sorry!','Database Error');
+      },
+      complete: () => {},
+    });
+    
+  }
+
+  onResetForm() {
     this.signalformModel.set({ name: '', email: '', number: '', subject: '', message: '', check: false,})
     this.contactForm().reset();
-    this.popUpService.showSuccess(this.nameComponent, 'Contact Message was sent succesfully. ')
   }
 }
