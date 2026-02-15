@@ -2,7 +2,7 @@ import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
-import { email, FormField, form, pattern, required } from '@angular/forms/signals';
+import { email, FormField, form, pattern, required, validate } from '@angular/forms/signals';
 import { ContactService } from '../services/contact-service';
 import { Subscription } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
@@ -60,8 +60,8 @@ export class Apartament implements OnInit, OnDestroy {
 
   onSubmit(event: Event): void {
     event.preventDefault();
-    this.submitted1.set(true);
     if(this.signalRegisterForm().invalid()){
+      console.log("chuj invalid")
       this.popUpService.showWarning('Contact form contains errors. Please correct them.','Form Validation Error');
       return
     }
@@ -76,16 +76,10 @@ export class Apartament implements OnInit, OnDestroy {
       complete: () => {},
     }
     )
-    
-    
   }
+
   onContactCall(event: Event): void{
     event.preventDefault();
-    this.submitted2.set(true);
-    if(this.signalContactForm().invalid()){ //change it from form to one input value (just validate number phone, dont need to check time );
-      this.popUpService.showWarning('Invalid phone number. Please, type correct number.','Number Validation Error');
-      return
-    }
     this.signalContact.update(f => ({
         ...f,
         time: this.onGetTime(),
@@ -93,14 +87,14 @@ export class Apartament implements OnInit, OnDestroy {
     this.contactService.needToCall(this.signalContact()).subscribe({
       next: () => {
         this.popUpService.showSuccess('Phone Number Contact', 'Contact Message was sent succesfully. ');
-        this.onResetForm();
+        this.signalContact.set({number: '', time: ''});
+        this.signalContactForm().reset();
       },
       error: () => {
         this.popUpService.showError('Failed to connect to Database. We are already fixing it. Sorry!','Database Error');
       },
       complete: () => {},
     })
-    // not working, check and repair it!
   }
 
   signalContact = signal<contact>({
@@ -129,7 +123,6 @@ export class Apartament implements OnInit, OnDestroy {
   signalContactForm = form(this.signalContact, (fieldPath) => {
     required(fieldPath.number, {message: 'Phone number is required'});
     pattern(fieldPath.number, /^\d{3}-\d{3}-\d{3}$/, {message: 'Phone Number must be in format: 123-456-789'});
-
   })
 
 

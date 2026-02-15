@@ -121,7 +121,7 @@
       <p>Give us your phone number. We will call you!</p>
       @if (isShowed()) {
         <form class="phoneForm" animate.enter="enter-animation" (submit)="onContactCall($event)">
-          <input type="text" class="callbackNumber" #phone placeholder="Phone number ..." [formField]="signalContactForm.number">
+          <input type="text" class="callbackNumber" #phone placeholder="Phone number ..." [formField]="signalContactForm.number" novalidate>
           <button type="submit" [disabled]="signalContactForm().invalid()" class="callbackButton">📞</button>
           @if(signalContactForm.number().invalid() && signalContactForm.number().touched()){
             <span class="error">{{signalContactForm.number().errors()[0].message}}</span> 
@@ -159,6 +159,7 @@
       }
       <input
         type="email"
+        novalidate
         [class.invalid]="signalRegisterForm.email().invalid() && signalRegisterForm.email().touched()"
         placeholder="Your email"
         class="element"
@@ -169,6 +170,7 @@
       }
       <input
         type="text"
+        novalidate  
         [class.invalid]="signalRegisterForm.phoneNumber().invalid() && signalRegisterForm.phoneNumber().touched()"
         placeholder="Your phone number"
         class="element"
