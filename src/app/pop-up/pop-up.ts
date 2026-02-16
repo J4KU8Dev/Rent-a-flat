@@ -14,15 +14,15 @@ import { ToastrService } from 'ngx-toastr';
 export class PopUp {
   toastr = inject(ToastrService);
 
-  showSuccess(title: string, content: string) {
+  showSuccess(content: string, title: string) {
     this.toastr.success(content, title);
   }
   
-  showError(title: string, content: string) {
-    this.toastr.error(title, content)
+  showError(content: string, title: string) {
+    this.toastr.error(content, title)
   }
 
-  showWarning(title: string, content: string) {
-    this.toastr.warning(title, content)
+  showWarning(content: string, title: string) {
+    this.toastr.warning(content, title)
   }
 }

@@ -120,18 +120,17 @@
       <button (click)="onCallBack()">Wanna call?</button>
       <p>Give us your phone number. We will call you!</p>
       @if (isShowed()) {
-        <form class="phoneForm" animate.enter="enter-animation" (submit)="onContactCall($event)">
-          <input type="text" class="callbackNumber" #phone placeholder="Phone number ..." [formField]="signalContactForm.number" novalidate>
-          <button type="submit" [disabled]="signalContactForm().invalid()" class="callbackButton">📞</button>
+        <form class="phoneForm" animate.enter="enter-animation" (submit)="onContactCall($event)" novalidate>
+          <input type="text" class="callbackNumber" #phone placeholder="Phone number ..." [formField]="signalContactForm.number">
+          <button type="submit" class="callbackButton">📞</button>
           @if(signalContactForm.number().invalid() && signalContactForm.number().touched()){
             <span class="error">{{signalContactForm.number().errors()[0].message}}</span> 
           }
         </form>
         
       }
-     
-    </div>
-  <form class="formSignal" (submit)="onSubmit($event)">
+  </div>
+  <form class="formSignal" (submit)="onSubmit($event)" novalidate>
     <h2>Contact with us</h2>
     <p class="phone-number">+48 123 456 789</p>
     <hr class="line" />
@@ -159,7 +158,6 @@
       }
       <input
         type="email"
-        novalidate
         [class.invalid]="signalRegisterForm.email().invalid() && signalRegisterForm.email().touched()"
         placeholder="Your email"
         class="element"
@@ -170,7 +168,6 @@
       }
       <input
         type="text"
-        novalidate  
         [class.invalid]="signalRegisterForm.phoneNumber().invalid() && signalRegisterForm.phoneNumber().touched()"
         placeholder="Your phone number"
         class="element"

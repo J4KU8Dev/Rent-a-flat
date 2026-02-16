@@ -11,6 +11,6 @@ npx json-server --watch db.json -p 5000
 ```
 
 To do:
--add confirm messages to forms
--add panel admin ?
--add animations
+-add panel admin ?;
+-add animations (maybe start doing it);
+-add to components more error handlings

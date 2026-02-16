@@ -36,8 +36,8 @@ export class Apartament implements OnInit, OnDestroy {
   apartament = signal<ApartamentsModel | undefined>(undefined);
   isShowed = signal<boolean>(false);
   dataSubscription: Subscription | undefined;
-  submitted1 = signal<boolean>(false);
-  submitted2 = signal<boolean>(false);
+  // submitted1 = signal<boolean>(false);
+  // submitted2 = signal<boolean>(false);
   ngOnInit(): void {
     const id = signal(this.route.snapshot.params['id']);
     if(!id){
@@ -61,13 +61,12 @@ export class Apartament implements OnInit, OnDestroy {
   onSubmit(event: Event): void {
     event.preventDefault();
     if(this.signalRegisterForm().invalid()){
-      console.log("chuj invalid")
       this.popUpService.showWarning('Contact form contains errors. Please correct them.','Form Validation Error');
       return
     }
     this.contactService.contactAboutApartament(this.signalRegisterModel()).subscribe({
       next: () => {
-        this.popUpService.showSuccess(`Apartament contact message.`,`Contact message about apartament ${this.apartament()?.details?.advertisement?.idAdvertisement} was sent succesfully. `);
+        this.popUpService.showSuccess(`Contact message about apartament ${this.apartament()?.details?.advertisement?.idAdvertisement} was sent succesfully. `, `Apartament contact message.`);
         this.onResetForm();
       },
       error: () => {
@@ -80,10 +79,15 @@ export class Apartament implements OnInit, OnDestroy {
 
   onContactCall(event: Event): void{
     event.preventDefault();
+    if(this.signalContactForm.number().invalid()){
+      this.popUpService.showWarning('Contact form contains errors. Please correct them.','Form Validation Error');
+      return
+    }
     this.signalContact.update(f => ({
         ...f,
         time: this.onGetTime(),
       }));
+    console.log(this.signalContact())
     this.contactService.needToCall(this.signalContact()).subscribe({
       next: () => {
         this.popUpService.showSuccess('Phone Number Contact', 'Contact Message was sent succesfully. ');
