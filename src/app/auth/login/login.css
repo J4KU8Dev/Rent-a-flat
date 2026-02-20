@@ -1,0 +1,48 @@
+.container{
+    width: 100vw;
+    height: 100%;
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--cream);
+}
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5rem; /* will be more because of bad height size of container */
+    margin: 5rem 0;
+    width: 70vw;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    gap: 3rem;
+
+}
+.content h2{
+    font-size: 4rem;
+    text-wrap: nowrap;
+    font-weight: 500;
+}
+.content form{
+    width: 45vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+.content form p{
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 2rem;
+}
+.content form input{
+    width: 25rem;
+    padding: 1.2rem;
+    font-size: 1.3rem;
+}
+/* continue => */
