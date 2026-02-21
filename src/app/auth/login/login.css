@@ -14,7 +14,7 @@
     background-color: white;
     border-radius: 20px;
     padding: 5rem; /* will be more because of bad height size of container */
-    margin: 5rem 0;
+    margin: 8rem 0;
     width: 70vw;
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
@@ -45,4 +45,28 @@
     padding: 1.2rem;
     font-size: 1.3rem;
 }
-/* continue => */
+.options{
+    width: 25rem;
+    display: flex;
+    justify-content: space-between;
+}
+.options a{
+    font-size: 1.3rem;
+    font-weight: 300;
+    cursor: pointer;
+}
+form button{
+    font-size: 1.5rem;
+    padding: 1.4rem;
+    width: 17rem;
+    border-radius: 15px;
+    border: none;
+    font-weight: 600;
+    background-color: #27b67c;
+    color: white;
+    transition: 0.2s ease-in-out;
+}
+form button:hover{
+    background-color: #01ffaa;
+    cursor: pointer;
+}
