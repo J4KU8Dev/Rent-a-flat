@@ -1,6 +1,9 @@
 import { Component, inject, signal } from '@angular/core';
 import { email, FieldTree, form, required, FormField } from '@angular/forms/signals';
 import { PopUp } from '../../pop-up/pop-up';
+import { AuthService } from '../../services/auth-service';
+import { Router } from '@angular/router';
+import { LoginModel } from '../../login-model';
 interface LoginData {
   email: string,
   password: string,
@@ -9,7 +12,7 @@ interface LoginData {
 const loginModel = signal<LoginData>({
     email: '',
     password: '',
-  })
+})
 
 @Component({
   selector: 'app-login',
@@ -19,10 +22,13 @@ const loginModel = signal<LoginData>({
 })
 export class Login {
   popUpService = inject(PopUp);
+  router = inject(Router);
+  authService = inject(AuthService);
   signalLoginModel = form(loginModel, (fieldPath) => {
     required(fieldPath.email, {message: 'Email is required.'}),
     required(fieldPath.password, {message: 'Password is required.'}),
     email(fieldPath.email, {message: 'Enter a valid email.'});
+    // available validation (i used popUp messages from popUp component)
   })
 
   onSubmit(event: Event) {
@@ -31,11 +37,23 @@ export class Login {
       this.popUpService.showWarning('incorrect username or password','Login failure');
       return;
     }
-    console.log(loginModel());
+    this.authService.login(loginModel().email, loginModel().password).subscribe({
+      next: (user) => {
+        this.popUpService.showSuccess(`You are logged as ${user.role} - ${user.firstName} ${user.lastName}.`,"Login Successful");
+        this.onResetForm();
+        this.router.navigateByUrl("/");
+      },
+      error: () => {
+        this.popUpService.showError("Incorrect email or password.", "Login Error");
+      },
+      complete: () => {},
+    })
     
-    // add here connection with service and api
-    // find a way or idea how to check validation with email and passwd
   }
 
+  onResetForm() {
+    loginModel.set({email: '', password: ''});
+    this.signalLoginModel().reset();
+  }
 
 }

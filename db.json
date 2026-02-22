@@ -1255,5 +1255,30 @@
       "time": "20-2-2026  17:0:34"
     }
   ],
-  "Users":[]
+  "users":[
+    {
+      "id": "1",
+      "firstName": "Jakub",
+      "lastName": "Rafalski",
+      "email": "jakub@test.com",
+      "password": "jakub",
+      "role": "Head Admin"
+    },
+    {
+      "id": "3",
+      "firstName": "Bartlomiej",
+      "lastName": "Nowak",
+      "email": "bartek@test.com",
+      "password": "bartek",
+      "role": "Admin"
+    },
+    {
+      "id": "2",
+      "firstName": "Jan",
+      "lastName": "Kowalski",
+      "email": "jan@test.com",
+      "password": "janek",
+      "role": "User"
+    }
+  ]
 }

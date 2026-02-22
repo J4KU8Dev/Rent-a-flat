@@ -18,6 +18,13 @@
         <p>Contact</p>
     </div>
     <div class="card" routerLink="/login">        
-        <p>Log in<img src="/assets/images/icons/log-in.png"></p>
+        @if(authService.currentUser()) {
+            <p>Welcome, {{authService.currentUser()?.firstName}} !</p>
+            <button (click)="authService.logOut()">Log out</button>
+        }
+        @else {
+            <p>Log in</p>
+        }
+        <!-- repair this -->
     </div>
 </div>
