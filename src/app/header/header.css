@@ -1,13 +1,15 @@
 .main{
     display: flex;
+    /* position: fixed; */
     column-gap: 5rem;
     background-color: var(--chocolate);
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 10rem;
+    width: 100%;
 }
 .card{
-    /* flex-grow: 1; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,9 +37,15 @@ p:hover{
 .last{
     flex-direction: row;
 }
-.side-bar{
-    display: flex;
-    flex-direction: column;
+.side-bar {
+    margin-left: 1rem;
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.side-bar.open {
+    transform: translateX(0);
+    opacity: 1;
 }
 @media (max-width: 87rem){
     .main{

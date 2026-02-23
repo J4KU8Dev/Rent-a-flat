@@ -35,6 +35,10 @@ export const routes: Routes = [
         loadComponent: () => import('./auth/login/login').then((m) => m.Login), 
     },
     { 
+        path: 'account', 
+        loadComponent: () => import('./account/account').then((m) => m.Account), 
+    },
+    { 
         path: '**', 
         loadComponent: () => import('./page-not-found/page-not-found').then((m) => m.PageNotFound), 
     },
