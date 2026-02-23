@@ -1,20 +1,25 @@
 <div class="container">
-    <div class="content">
-        <h2>Account login</h2>
-        <form novalidate (submit)="onSubmit($event)">
-            <p>E-mail address</p>
-            <input type="email" [formField]="signalLoginModel.email" placeholder="Type your email">
-            <p>Password</p>
-            <input type="password" [formField]="signalLoginModel.password" placeholder="Type your password">
-            <div class="options">
-                <div class="create-account-content">
-                    <a>Create account</a>
+    @if (this.authService.currentUser()) {
+        <p>You are logged as {{this.authService.currentUser()}}</p>
+    }
+    @else {
+        <div class="content">
+            <h2>Account login</h2>
+            <form novalidate (submit)="onSubmit($event)">
+                <p>E-mail address</p>
+                <input type="email" [formField]="signalLoginModel.email" placeholder="Type your email">
+                <p>Password</p>
+                <input type="password" [formField]="signalLoginModel.password" placeholder="Type your password">
+                <div class="options">
+                    <div class="create-account-content">
+                        <a>Create account</a>
+                    </div>
+                    <div class="forgot-password-container">
+                        <a>Reset password</a>
+                    </div>
                 </div>
-                <div class="forgot-password-container">
-                    <a>Reset password</a>
-                </div>
-            </div>
-            <button type="submit">Log in</button>
-        </form>
-    </div>
+                <button type="submit">Log in</button>
+            </form>
+        </div>
+    }
 </div>

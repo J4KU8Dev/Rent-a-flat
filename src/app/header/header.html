@@ -17,10 +17,24 @@
     <div class="card" routerLink="/contact">
         <p>Contact</p>
     </div>
-    <div class="card" routerLink="/login">        
+    <div class="card last" routerLink="/login">  
+              <!--change it, if we are logged in, dont navigate to login if we click on navbar  -->
+              <!-- style navbar -->
         @if(authService.currentUser()) {
-            <p>Welcome, {{authService.currentUser()?.firstName}} !</p>
-            <button (click)="authService.logOut()">Log out</button>
+            <p (click)="onToogle()">Welcome, {{authService.currentUser()?.firstName}} !</p>
+            @if (isShowed()) {
+                <div class="side-bar">
+                    <div class="option">
+                        <p>Account settings</p>
+                    </div>
+                    <div class="option">
+                        <p>My reservations</p>
+                    </div>
+                    <div class="option" (click)="this.authService.logOut()">
+                        <p>Log out</p>
+                    </div>
+                </div>
+            }
         }
         @else {
             <p>Log in</p>

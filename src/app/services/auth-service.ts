@@ -3,6 +3,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { catchError, find, map, Observable, throwError } from 'rxjs';
 import { LoginModel } from '../login-model';
 import { PopUp } from '../pop-up/pop-up';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:5000';
   popUpService = inject(PopUp);
+  router = inject(Router);
   private _currentUser = signal<LoginModel | null>(null);
   readonly currentUser = this._currentUser.asReadonly();
   login(email: string, password: string): Observable<LoginModel> {

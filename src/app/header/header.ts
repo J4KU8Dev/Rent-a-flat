@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { AuthService } from '../services/auth-service';
 
@@ -10,5 +10,9 @@ import { AuthService } from '../services/auth-service';
 })
 export class Header {
   authService = inject(AuthService);
-  
+  isShowed = signal<boolean>(false);
+
+  onToogle() {
+    this.isShowed.set(!this.isShowed());
+  }
 }
