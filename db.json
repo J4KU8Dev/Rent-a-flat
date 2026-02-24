@@ -1262,6 +1262,7 @@
       "lastName": "Rafalski",
       "email": "jakub@test.com",
       "password": "jakub",
+      "phone": "284294278",
       "role": "Head Admin"
     },
     {
@@ -1270,6 +1271,7 @@
       "lastName": "Nowak",
       "email": "bartek@test.com",
       "password": "bartek",
+      "phone": "876341091",
       "role": "Admin"
     },
     {
@@ -1278,6 +1280,7 @@
       "lastName": "Kowalski",
       "email": "jan@test.com",
       "password": "janek",
+      "phone": "888019222",
       "role": "User"
     }
   ]

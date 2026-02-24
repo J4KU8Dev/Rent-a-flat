@@ -36,10 +36,11 @@ export const routes: Routes = [
     },
     { 
         path: 'account', 
-        loadComponent: () => import('./account/account').then((m) => m.Account), 
+        loadComponent: () => import('./auth/account/account').then((m) => m.Account), 
     },
     { 
         path: '**', 
         loadComponent: () => import('./page-not-found/page-not-found').then((m) => m.PageNotFound), 
     },
+    // add here auth guard!!!
 ];

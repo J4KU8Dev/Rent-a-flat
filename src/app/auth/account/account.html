@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="wrapper">
+        <h1>Personal informations</h1>
+        <div class="profile-picture-wrapper">
+            <img src="/assets/images/user.png" alt="">
+            <div class="block">
+                <button>Change Profile Picture</button>
+                <p>Profile picture is not required. You can delete it whenever you want !</p>
+            </div>
+        </div>
+        <div class="profile">
+            <h2>First Name</h2>
+            <p>{{user()?.firstName}}</p>
+        </div>
+        <div class="profile">
+            <h2>Last Name</h2>
+            <p>{{user()?.lastName}}</p>
+        </div>
+        <div class="profile">
+            <h2>Email</h2>
+            <p>{{user()?.email}}</p>
+        </div>
+        <div class="profile">
+            <h2>Password</h2>
+            <input type="password" [value]="user()?.password">
+            <button>Change password</button>
+        </div>
+        <div class="profile">
+            <h2>Phone Number</h2>
+            <p>{{user()?.firstName}}</p>
+        </div>
+        <div class="profile">
+            <h2>Role</h2>
+            <p>{{user()?.role}}</p>
+        </div>
+        <!-- data like: last logged, account create date and something else -->
+    </div>
+</div>

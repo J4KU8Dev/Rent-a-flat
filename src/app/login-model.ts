@@ -4,5 +4,6 @@ export interface LoginModel {
     lastName: string,
     email: string,
     password: string,
+    phone: number,
     role: 'User' | 'Admin' | 'Head Admin',
 }

@@ -1,0 +1,17 @@
+.container{
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--cream);
+}
+.wrapper{
+    background-color: white;
+    border-radius: 20px;
+    padding: 9rem;
+    margin: 9rem;
+    width: 50vw;
+    -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+    box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+}
