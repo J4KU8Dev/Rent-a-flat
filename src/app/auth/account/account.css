@@ -15,3 +15,82 @@
     -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
 }
+.wrapper h1{
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+}
+.profile-picture-wrapper{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 5rem;
+}
+.profile-picture-wrapper .block p{
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4rem;
+}
+.profile{
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+    height: 4rem;
+}
+.profile h2{
+    font-size: 2.5rem;
+    width: 25rem;
+    font-weight: 500;
+}
+.profile p{
+    font-size: 1.5rem;
+}
+.element{
+    padding: 1rem;
+    width: 25rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+.text-role{
+    cursor: help;
+}
+.password{
+    cursor: not-allowed;
+    padding: 1rem;
+    width: 25rem;
+    font-size: 1.5rem;
+}
+button{
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 15rem;
+    text-wrap: nowrap;
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+button:hover{
+    background-color: red;
+}
+/* .parent{
+    position: relative;
+}
+.changing-password-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: yellow;
+    
+} */

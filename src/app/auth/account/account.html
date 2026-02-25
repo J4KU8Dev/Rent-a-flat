@@ -4,17 +4,17 @@
         <div class="profile-picture-wrapper">
             <img src="/assets/images/user.png" alt="">
             <div class="block">
-                <button>Change Profile Picture</button>
-                <p>Profile picture is not required. You can delete it whenever you want !</p>
+                <input type="file">
+                <p>Profile picture is not required. <br> You can delete it whenever you want !</p>
             </div>
         </div>
         <div class="profile">
             <h2>First Name</h2>
-            <p>{{user()?.firstName}}</p>
+            <input type="text" class="element" [value]="user()?.firstName">
         </div>
         <div class="profile">
             <h2>Last Name</h2>
-            <p>{{user()?.lastName}}</p>
+            <input type="text" class="element" [value]="user()?.lastName">
         </div>
         <div class="profile">
             <h2>Email</h2>
@@ -22,17 +22,39 @@
         </div>
         <div class="profile">
             <h2>Password</h2>
-            <input type="password" [value]="user()?.password">
-            <button>Change password</button>
+            <input type="password" class="password" [value]="user()?.password" disabled>
         </div>
         <div class="profile">
             <h2>Phone Number</h2>
-            <p>{{user()?.firstName}}</p>
+            <p>{{user()?.phone}}</p>
         </div>
         <div class="profile">
             <h2>Role</h2>
-            <p>{{user()?.role}}</p>
+            <p class="text-role">{{user()?.role}}</p>
         </div>
-        <!-- data like: last logged, account create date and something else -->
+        <button (click)="onOpenModal()">Change password</button>
+        
     </div>
-</div>
+</div> 
+        @if(clicked()) {
+            <div class="parent">
+                <div class="changing-password-container">
+                    <button class="closeModal">X</button>
+                    <div class="old-password">
+                        <label for="oldPasswd">Old Password</label>;
+                        <input type="text" id="oldPasswd">
+                        <label for="oldPasswdCheckbox">Show Password</label>
+                        <input type="checkbox" id="oldPasswdCheckbox">
+                    </div>
+                    <div class="new-password">
+                        <label for="newPasswd">New Password</label>;
+                        <input type="text" id="newPasswd">
+                        <label for="newPasswdCheckbox">Show Password</label>
+                        <input type="checkbox" id="newPasswdCheckbox">
+                    </div>
+                    <button class="confirm">Confirm</button>
+                </div>
+            </div>
+        }
+        <!-- data like: last logged, account create date and something else -->
+ 
