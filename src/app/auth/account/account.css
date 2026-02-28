@@ -68,7 +68,7 @@
     width: 25rem;
     font-size: 1.5rem;
 }
-button{
+.change-password-buton{
     padding: 1rem;
     font-size: 1.5rem;
     width: 15rem;
@@ -80,17 +80,74 @@ button{
     cursor: pointer;
     transition: .3s ease-in;
 }
-button:hover{
+.change-password-buton:hover{
     background-color: red;
 }
-/* .parent{
-    position: relative;
+.parent {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(5px);
 }
-.changing-password-container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: yellow;
-    
-} */
+
+.changing-password-container {
+    background-color: white;
+    padding: 3rem;
+    border-radius: 12px;
+    width: 30vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1.7rem;
+}
+.close-password-form{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    text-align: center;
+}
+.close-button-container{
+    width: 100%;
+    text-align: right;
+}
+.old-password, .new-password{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#oldPasswd, #newPasswd{
+    padding: .4rem;
+    width: 10vw;
+    font-size: 1.5rem;
+    margin-bottom: .3rem;
+}
+.div-checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: .3rem;
+}
+h3{
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+}
+button[class="confirm"]{
+    width: 15rem;
+    padding: 1rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    background-color: red;
+    color: white;
+    letter-spacing: .2rem;
+    border-radius: 15px;
+}

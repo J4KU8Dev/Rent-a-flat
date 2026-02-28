@@ -32,28 +32,33 @@
             <h2>Role</h2>
             <p class="text-role">{{user()?.role}}</p>
         </div>
-        <button (click)="onOpenModal()">Change password</button>
+        <button class="change-password-buton" (click)="onOpenModal()">Change password</button>
         
     </div>
-</div> 
+</div>  
         @if(clicked()) {
             <div class="parent">
-                <div class="changing-password-container">
-                    <button class="closeModal">X</button>
+                <form class="changing-password-container" (submit)="onSubmit($event)" novalidate>
+                    <div class="close-button-container">
+                        <button class="closeModal" (click)="onCloseModal()" class="close-password-form">❌</button>
+                    </div>
                     <div class="old-password">
-                        <label for="oldPasswd">Old Password</label>;
-                        <input type="text" id="oldPasswd">
-                        <label for="oldPasswdCheckbox">Show Password</label>
-                        <input type="checkbox" id="oldPasswdCheckbox">
+                        <h3>Old Password</h3>
+                        <input [type]="checked() ?  'text' : 'password'" id="oldPasswd" [formField]="changePasswordForm.oldPassword">
+                        <div class="div-checkbox">
+                        </div>
                     </div>
                     <div class="new-password">
-                        <label for="newPasswd">New Password</label>;
-                        <input type="text" id="newPasswd">
-                        <label for="newPasswdCheckbox">Show Password</label>
-                        <input type="checkbox" id="newPasswdCheckbox">
+                        <h3>New Password</h3>
+                        <input [type]="checked() ?  'text' : 'password'" id="newPasswd" [formField]="changePasswordForm.newPassword">
+                        <div class="div-checkbox">
+                            <input type="checkbox" id="newPasswdCheckbox">
+                            <label for="newPasswdCheckbox" (click)="onToggle()">Show Passwords</label>
+                        </div>
                     </div>
-                    <button class="confirm">Confirm</button>
-                </div>
+                    <a href="#">I don't remember my password</a>
+                    <button class="confirm" type="submit">Confirm</button>
+                </form>
             </div>
         }
         <!-- data like: last logged, account create date and something else -->
