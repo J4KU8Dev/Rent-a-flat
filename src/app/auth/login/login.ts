@@ -43,8 +43,8 @@ export class Login {
         this.onResetForm();
         this.router.navigateByUrl("/");
       },
-      error: () => {
-        this.popUpService.showError("Incorrect email or password.", "Login Error");
+      error: (error) => {
+        this.popUpService.showError(error.message, "Login Error");
       },
       complete: () => {},
     })

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { catchError, find, map, Observable, throwError } from 'rxjs';
+import { map, Observable, tap, throwError } from 'rxjs';
 import { LoginModel } from '../login-model';
 import { PopUp } from '../pop-up/pop-up';
 import { Router } from '@angular/router';
@@ -33,11 +33,31 @@ export class AuthService {
     this.popUpService.showSuccess("You have been loged out !","Log out Successsful");
   }
 
+  changePassword(oldPassword: string, newPassword: string) {
+    const user = this.currentUser();
+    if(!user){
+      return throwError(() => new Error("User is not logged."));
+    }
+    if(user.password !== oldPassword){
+      return throwError(() => new Error("Actual Password is incorrect."))
+      // tu powinno byc return ?
+    }
+    return this.http.patch<LoginModel>(`${this.apiUrl}/users/${this.currentUser()?.id}`, {
+      password: newPassword,
+    }).pipe(tap(updatedUser => {
+      this._currentUser.set(updatedUser);
+    }))
+  }
+
+  resetPassword(userId: string, newPassword: string) {
+  return this.http.patch(`${this.apiUrl}/users/${userId}`, {
+    password: newPassword,
+  })
+}
+
+
   createNewUser() {
 
   }
 
-  resetPassword() {
-    
-  }
 }
