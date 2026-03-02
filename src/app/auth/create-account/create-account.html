@@ -1,0 +1,49 @@
+<div class="container">
+    <!-- data to pass
+    id: generate
+    firstname
+    lastname
+    email
+    password
+    phonenumber
+    role: user 
+    -->
+     <!-- add here page icon ? -->
+    
+    <form novalidate (submit)="onSubmit($event)">
+        <h2>Creating account</h2>
+        <div class="inputs">
+            <div class="gender">
+                <p>Gender*</p>
+                <div class="option">
+                    <p>Male</p>
+                    <input type="radio" name="gen">
+                </div>
+                <div class="option">
+                    <p>Female</p>
+                    <input type="radio" name="gen">
+                </div>
+            </div>
+            <div class="name-details">
+                <div class="first">
+                    <p>First Name*</p>
+                    <input type="text">   
+                </div>
+                <div class="last">
+                    <p>Last Name*</p>
+                    <input type="text">  
+                </div>
+            </div>
+            <div class="rest-form">
+                <p>E-mail*</p>
+                <input type="text">
+                <p>Password*</p>
+                <input type="password">
+                <p>Phone number</p>
+                <input type="text">
+                <p>By using ModernVista Apartments you agree to the <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Coockie Policy</a> </p>
+                <button type="submit">Sign up</button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -3,6 +3,7 @@ import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
 import { ZlotyPipe } from '../zloty-pipe';
 import { RouterLink } from "@angular/router";
+import { PopUp } from '../pop-up/pop-up';
 
 @Component({
   selector: 'app-apartaments',
@@ -13,10 +14,16 @@ import { RouterLink } from "@angular/router";
 export class Apartaments implements OnInit {
   protected ApartamentsService = inject(ApartamentsService);
   apartaments = signal<ApartamentsModel[]>([]);
-
+  popUpService = inject(PopUp);
   ngOnInit(): void {
-    this.ApartamentsService.getAllApartaments().subscribe(data => {
-      this.apartaments.set(data);
+    this.ApartamentsService.getAllApartaments().subscribe({
+      next: (data) => {
+        this.apartaments.set(data);
+      },
+      error: (error) => {
+        this.popUpService.showError(error.message, error.name);
+      },
+      complete: () => {},      
     })
   }
   

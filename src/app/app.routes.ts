@@ -39,6 +39,10 @@ export const routes: Routes = [
         loadComponent: () => import('./auth/account/account').then((m) => m.Account), 
     },
     { 
+        path: 'createAccount', 
+        loadComponent: () => import('./auth/create-account/create-account').then((m) => m.CreateAccount), 
+    },
+    { 
         path: '**', 
         loadComponent: () => import('./page-not-found/page-not-found').then((m) => m.PageNotFound), 
     },

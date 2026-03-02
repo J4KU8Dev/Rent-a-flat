@@ -4,6 +4,7 @@ import { opinionsModel } from '../opinions.model';
 import { ApartamentsService } from '../services/apartaments-service';
 import { ApartamentsModel } from '../apartaments.model';
 import { ActivatedRoute } from '@angular/router';
+import { PopUp } from '../pop-up/pop-up';
 
 @Component({
   selector: 'app-opinion-window',
@@ -14,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 export class OpinionWindow implements OnChanges {
   protected ApartamentsService = inject(ApartamentsService);
   protected OpinionsService = inject(OpinionsService);
+  popUpService = inject(PopUp);
   route = inject(ActivatedRoute);
   customerId = input<string>('');
   
@@ -40,8 +42,14 @@ export class OpinionWindow implements OnChanges {
   }
 
   updateApartamentImage(id: string){
-    this.ApartamentsService.getApartamentById(this.apartamentId()).subscribe(data => {
-      this.apartamentImage.set(data);
+    this.ApartamentsService.getApartamentById(this.apartamentId()).subscribe({
+      next:(data) => {
+        this.apartamentImage.set(data);
+      },
+      error:(error) => {
+        this.popUpService.showError(error.messsage, error.name);
+      },
+      complete:() => {}
     })
   }
   

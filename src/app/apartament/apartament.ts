@@ -47,8 +47,8 @@ export class Apartament implements OnInit, OnDestroy {
       next: (data) => {
         this.apartament.set(data);
       },
-      error: () => {
-        this.popUpService.showError('Cannot load data apartament site. Sorry, please try again later.', 'DataBase Error');
+      error: (error) => {
+        this.popUpService.showError(error.message, error.name);
       },
       complete: () => {},
     })

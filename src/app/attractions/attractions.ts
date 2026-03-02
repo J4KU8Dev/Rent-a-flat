@@ -19,8 +19,8 @@ export class Attractions implements OnInit{
       next:(data) => {
         this.attractions.set(data);
       },
-      error:() => {
-        this.popUpService.showError('Refused to connect with Database.','Database Error')
+      error:(error) => {
+        this.popUpService.showError(error.message, error.name);
       },
       complete:() => {}
     })

@@ -2,8 +2,9 @@ import { Component, inject, signal } from '@angular/core';
 import { email, FieldTree, form, required, FormField } from '@angular/forms/signals';
 import { PopUp } from '../../pop-up/pop-up';
 import { AuthService } from '../../services/auth-service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { LoginModel } from '../../login-model';
+
 interface LoginData {
   email: string,
   password: string,
@@ -16,7 +17,7 @@ const loginModel = signal<LoginData>({
 
 @Component({
   selector: 'app-login',
-  imports: [FormField],
+  imports: [FormField, RouterLink],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })

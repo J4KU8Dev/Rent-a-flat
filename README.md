@@ -10,3 +10,10 @@ To run Data from Api, in second terminal type:
 npx json-server --watch db.json -p 5000
 ```
 
+To do:
+{
+    Create place (like component) for managing other account, only for head admin
+    hierarchy account:
+    headAdmin <- admin <- user
+}
+finish creating account component
