@@ -1,47 +1,42 @@
 <div class="container">
-    <!-- data to pass
-    id: generate
-    firstname
-    lastname
-    email
-    password
-    phonenumber
-    role: user 
-    -->
      <!-- add here page icon ? -->
-    
+    <!-- add pending (spinner ? with overlay) -->
     <form novalidate (submit)="onSubmit($event)">
         <h2>Creating account</h2>
         <div class="inputs">
-            <div class="gender">
-                <p>Gender*</p>
+            <p class="gender-text">Gender*</p>
+            <div class="gender">    
                 <div class="option">
-                    <p>Male</p>
-                    <input type="radio" name="gen">
+                    <p class="input-name">Male</p>
+                    <input type="radio" value="Male" [formField]="signUpForm.gender">
                 </div>
                 <div class="option">
-                    <p>Female</p>
-                    <input type="radio" name="gen">
+                    <p class="input-name">Female</p>
+                    <input type="radio" value="Female" [formField]="signUpForm.gender">
                 </div>
             </div>
             <div class="name-details">
-                <div class="first">
-                    <p>First Name*</p>
-                    <input type="text">   
+                <div class="card">
+                    <p class="input-name">First Name*</p>
+                    <input type="text" [formField]="signUpForm.firstName">   
                 </div>
-                <div class="last">
-                    <p>Last Name*</p>
-                    <input type="text">  
+                <div class="card">
+                    <p class="input-name">Last Name*</p>
+                    <input type="text" [formField]="signUpForm.lastName">  
                 </div>
-            </div>
-            <div class="rest-form">
-                <p>E-mail*</p>
-                <input type="text">
-                <p>Password*</p>
-                <input type="password">
-                <p>Phone number</p>
-                <input type="text">
-                <p>By using ModernVista Apartments you agree to the <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Coockie Policy</a> </p>
+                <div class="card">
+                    <p class="input-name">E-mail*</p>
+                    <input type="text" [formField]="signUpForm.email">
+                </div>
+                <div class="card">
+                    <p class="input-name">Password*</p>
+                    <input type="password" [formField]="signUpForm.password">
+                </div>
+                <div class="card">
+                    <p class="input-name">Phone number</p>
+                    <input type="text" [formField]="signUpForm.phone">
+                </div>
+                <p class="rules">By using ModernVista Apartments you agree to the <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Coockie Policy</a> </p>
                 <button type="submit">Sign up</button>
             </div>
         </div>

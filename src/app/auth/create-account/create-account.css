@@ -26,3 +26,63 @@ form h2{
     text-wrap: nowrap;
     font-weight: 500;
 }
+form .inputs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+form .inputs .gender{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    gap: 2rem;
+}
+form .inputs .gender-text{
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 300;
+}
+.input-name{
+    font-size: 2rem;
+    margin: 1rem 0;
+    font-weight: 300;
+}
+form input[type="text"], form input[type="password"]{
+    padding: .7rem;
+    width: 30rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    background-color: lightgray;
+    border: none;
+    transition: 0.3s ease-in-out;
+}
+form input[type="text"]:focus, form input[type="password"]:focus{
+    background-color: ghostwhite;
+    border: none;
+}
+form .name-details{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.rules{
+    font-size: 1.3rem;
+}
+button[type="submit"]{
+    width: 15rem;
+    padding: .8rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    color: white;
+    background-color: darkblue;
+    border-radius: 20px;
+    transition: 0.3s ease-in-out;
+    border: none;
+}
+button[type="submit"]:hover{
+    background-color: blue;
+    font-size: 1.6rem;
+}

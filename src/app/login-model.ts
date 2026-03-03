@@ -1,6 +1,6 @@
 export interface LoginModel {
     id: string,
-    gender: 'male' | 'female',
+    gender: 'male' | 'female' | 'unknown',
     firstName: string,
     lastName: string,
     email: string,
