@@ -1285,6 +1285,36 @@
       "password": "janek",
       "phone": "888019222",
       "role": "User"
+    },
+    {
+      "id": "mmde2uk9izlveyam2x",
+      "gender": "Male",
+      "firstName": "Dawid",
+      "lastName": "Nowak",
+      "email": "nowakowsy@test.com",
+      "password": "12345",
+      "phone": "",
+      "role": "User"
+    },
+    {
+      "id": "mmdebf6xjkxectoyen",
+      "gender": "Female",
+      "firstName": "Ola",
+      "lastName": "asd",
+      "email": "ola@test.com",
+      "password": "olaola123",
+      "phone": "123-123-123",
+      "role": "User"
+    },
+    {
+      "id": "mmdekcyqzisutevazs",
+      "gender": "unknown",
+      "firstName": "123",
+      "lastName": "123",
+      "email": "123@gmail.com",
+      "password": "123123",
+      "phone": "123-123-123",
+      "role": "User"
     }
   ]
 }

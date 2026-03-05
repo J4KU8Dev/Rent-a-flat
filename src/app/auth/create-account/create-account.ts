@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
 import { PopUp } from '../../pop-up/pop-up';
 import type { LoginModel } from '../../login-model';
-import { debounce, form, FormField, required } from '@angular/forms/signals';
+import { debounce, email, form, FormField, minLength, pattern, required } from '@angular/forms/signals';
+import { AuthService } from '../../services/auth-service';
+import { Router } from '@angular/router';
 
 
 
@@ -14,7 +16,8 @@ import { debounce, form, FormField, required } from '@angular/forms/signals';
 })
 export class CreateAccount {
   popUpService = inject(PopUp);
-  
+  authService = inject(AuthService);
+  router = inject(Router);
   signUpData = signal<LoginModel>({
     id: this.onCreateUniqueId(),
     gender: 'unknown', 
@@ -28,19 +31,43 @@ export class CreateAccount {
   
   signUpForm = form(this.signUpData,(fieldPath) => {
     debounce(fieldPath.email, 500);
-    required(fieldPath.firstName, {});
-    required(fieldPath.lastName, {});
-    required(fieldPath.email, {});
-    required(fieldPath.password, {});
+    required(fieldPath.firstName, {message: 'First name is required'});
+    required(fieldPath.lastName, {message: 'Last name is required'});
+    required(fieldPath.email, {message: 'Email is required'});
+    required(fieldPath.password, {message: 'Password is required'});
+    email(fieldPath.email, {message: 'Please enter a valid email address'});
+    minLength(fieldPath.password,5 , { message: 'Your password needs at least 5 characters'});
+    pattern(fieldPath.phone, /^\d{3}-\d{3}-\d{3}$/,{ message: 'Phone number must be in format: 123-456-789'})
   });
 
   onSubmit(event: Event){
     event.preventDefault();
-    console.log(this.signUpData())
+    if(this.signUpForm().invalid()){
+      this.popUpService.showWarning('Please check and correct your informations','Creating account failure');
+      return;
+    }
+    this.authService.createNewUser(this.signUpData()).subscribe({
+      next:() => {
+        this.popUpService.showSuccess('Your account has been created!', 'Creating accoutn success');
+        this.onResetForm();
+        this.router.navigateByUrl("/login");
+        console.log(this.signUpData());
+      },
+      error:(error) => {
+        this.popUpService.showError(error.message,'Creating accout failure');
+      },
+      complete:() => {},
+    })
+    
   }
   onCreateUniqueId() {
     const dateString = Date.now().toString(36);
     const randomness = Math.random().toString(36).substr(2);
     return dateString + randomness;
   };
+
+  onResetForm() {
+    this.signUpData.set({id: '',gender: 'unknown', firstName: '', lastName: '', email: '', password: '', phone: '', role: 'User'});
+    this.signUpForm().reset();
+  }
 }

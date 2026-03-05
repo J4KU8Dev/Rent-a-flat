@@ -16,4 +16,6 @@ To do:
     hierarchy account:
     headAdmin <- admin <- user
 }
-finish creating account component
+customize errors in create account component
+delete input phone in account settings if user doesn't have it(its empty blank)
+user can create account without choosing gender!!!

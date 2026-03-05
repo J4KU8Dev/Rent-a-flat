@@ -18,25 +18,60 @@
             <div class="name-details">
                 <div class="card">
                     <p class="input-name">First Name*</p>
-                    <input type="text" [formField]="signUpForm.firstName">   
+                    <input type="text" [formField]="signUpForm.firstName">
+                    @if (signUpForm.firstName().touched() && signUpForm.firstName().invalid()) {
+                        <ul class="error-list">
+                            @for (error of signUpForm.firstName().errors(); track error) {
+                               <li class="error-message">{{error.message}}</li> 
+                            }
+                        </ul>
+                    }
                 </div>
                 <div class="card">
                     <p class="input-name">Last Name*</p>
                     <input type="text" [formField]="signUpForm.lastName">  
+                    @if (signUpForm.lastName().touched() && signUpForm.lastName().invalid()) {
+                        <ul class="error-list">
+                            @for (error of signUpForm.lastName().errors(); track error) {
+                               <li class="error-message">{{error.message}}</li> 
+                            }
+                        </ul>
+                    }
                 </div>
                 <div class="card">
                     <p class="input-name">E-mail*</p>
                     <input type="text" [formField]="signUpForm.email">
+                    @if (signUpForm.email().touched() && signUpForm.email().invalid()) {
+                        <ul class="error-list">
+                            @for (error of signUpForm.email().errors(); track error) {
+                               <li class="error-message">{{error.message}}</li> 
+                            }
+                        </ul>
+                    }
                 </div>
                 <div class="card">
                     <p class="input-name">Password*</p>
                     <input type="password" [formField]="signUpForm.password">
+                    @if (signUpForm.password().touched() && signUpForm.password().invalid()) {
+                        <ul class="error-list">
+                            @for (error of signUpForm.password().errors(); track error) {
+                               <li class="error-message">{{error.message}}</li> 
+                            }
+                        </ul>
+                    }
                 </div>
                 <div class="card">
                     <p class="input-name">Phone number</p>
                     <input type="text" [formField]="signUpForm.phone">
+                    @if (signUpForm.phone().touched() && signUpForm.phone().invalid()) {
+                        <ul class="error-list">
+                            @for (error of signUpForm.phone().errors(); track error.kind) {
+                               <li class="error-message">{{error.message}}</li> 
+                            }
+                        </ul>
+                    }
                 </div>
-                <p class="rules">By using ModernVista Apartments you agree to the <a href="#">Terms of Service</a>, <a href="#">Privacy Policy</a> and <a href="#">Coockie Policy</a> </p>
+                <p class="rules">By using ModernVista Apartments you agree to the <a href="https://github.com/J4KU8Dev">Terms of Service</a>, <a href="https://github.com/J4KU8Dev">Privacy Policy</a> and <a href="https://github.com/J4KU8Dev">Coockie Policy</a> </p>
                 <button type="submit">Sign up</button>
             </div>
         </div>

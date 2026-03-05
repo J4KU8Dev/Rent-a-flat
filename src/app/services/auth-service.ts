@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable, signal } from '@angular/core';
-import { map, Observable, tap, throwError } from 'rxjs';
+import { map, Observable, switchMap, tap, throwError } from 'rxjs';
 import { LoginModel } from '../login-model';
 import { PopUp } from '../pop-up/pop-up';
 import { Router } from '@angular/router';
@@ -56,8 +56,15 @@ export class AuthService {
 }
 
 
-  createNewUser() {
-
+  createNewUser(newUser: LoginModel): Observable<LoginModel>{
+    return this.http.get<LoginModel[]>(`${this.apiUrl}/users?email=${newUser.email}`)
+    .pipe(switchMap(users => {
+      if(users.length > 0){
+        throw new Error('Account with this email already exist. Please enter another email.');
+      }
+      return this.http.post<LoginModel>(`${this.apiUrl}/users`,newUser);
+    }))
   }
+  
 
 }
