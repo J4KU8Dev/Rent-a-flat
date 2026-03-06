@@ -1315,6 +1315,26 @@
       "password": "123123",
       "phone": "123-123-123",
       "role": "User"
+    },
+    {
+      "id": "mmeprfeqy9wlv07vgeb",
+      "gender": "unknown",
+      "firstName": "123123",
+      "lastName": "asd",
+      "email": "asd@asdsad.com",
+      "password": "asdasdasd",
+      "phone": "123-123-123",
+      "role": "User"
+    },
+    {
+      "id": "mmeqfaj8ysg22hgn18",
+      "gender": "Male",
+      "firstName": "Kacper",
+      "lastName": "Abecadlo",
+      "email": "kacpeerek123@test.com",
+      "password": "testowehaslo123",
+      "phone": "467-991-092",
+      "role": "User"
     }
   ]
 }

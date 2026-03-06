@@ -26,11 +26,28 @@
         </div>
         <div class="profile">
             <h2>Phone Number</h2>
-            <p>{{user()?.phone}}</p>
+            @if (user()?.phone === '') {
+                <p>User didn't type phone number</p>
+            }
+            @else {
+                <p>{{user()?.phone}}</p>
+            }
+            
         </div>
         <div class="profile">
             <h2>Role</h2>
-            <p class="text-role">{{user()?.role}}</p>
+            <p class="text-role">{{user()?.role}}</p><p class="icon">ⓘ
+                @if(user()?.role ==='User'){
+                    <p class="text-role-hover">Standard account for booking and managing reservations.</p>
+                }
+                @if(user()?.role ==='Admin'){
+                    <p class="text-role-hover">Administrator with permissions to manage apartments and reservations.</p>
+                }
+                @if(user()?.role ==='Head Admin'){
+                    <p class="text-role-hover">Full system administrator with complete platform control.</p>
+                } 
+            </p>
+           
         </div>
         <button class="change-password-buton" (click)="onOpenModal()">Change password</button>
         

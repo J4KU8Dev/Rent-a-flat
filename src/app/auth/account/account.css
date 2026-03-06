@@ -59,9 +59,7 @@
     font-size: 1.5rem;
     cursor: pointer;
 }
-.text-role{
-    cursor: help;
-}
+
 .password{
     cursor: not-allowed;
     padding: 1rem;
@@ -150,4 +148,15 @@ button[class="confirm"]{
     color: white;
     letter-spacing: .2rem;
     border-radius: 15px;
+}
+.icon{
+    cursor: help;
+    display: flex;
+}
+.text-role-hover{
+    display: none;
+}
+.icon:hover .text-role-hover{
+    display: block;
+    
 }

@@ -20,7 +20,7 @@ export class CreateAccount {
   router = inject(Router);
   signUpData = signal<LoginModel>({
     id: this.onCreateUniqueId(),
-    gender: 'unknown', 
+    gender: '', 
     firstName: '',
     lastName: '',
     email: '',
@@ -31,6 +31,7 @@ export class CreateAccount {
   
   signUpForm = form(this.signUpData,(fieldPath) => {
     debounce(fieldPath.email, 500);
+    required(fieldPath.gender, {message:'Gender is required' })
     required(fieldPath.firstName, {message: 'First name is required'});
     required(fieldPath.lastName, {message: 'Last name is required'});
     required(fieldPath.email, {message: 'Email is required'});
@@ -67,7 +68,7 @@ export class CreateAccount {
   };
 
   onResetForm() {
-    this.signUpData.set({id: '',gender: 'unknown', firstName: '', lastName: '', email: '', password: '', phone: '', role: 'User'});
+    this.signUpData.set({id: '',gender: '', firstName: '', lastName: '', email: '', password: '', phone: '', role: 'User'});
     this.signUpForm().reset();
   }
 }

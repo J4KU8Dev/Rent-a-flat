@@ -46,6 +46,7 @@ export class Login {
       },
       error: (error) => {
         this.popUpService.showError(error.message, "Login Error");
+        this.onResetForm();
       },
       complete: () => {},
     })

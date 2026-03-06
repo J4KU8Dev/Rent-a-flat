@@ -16,6 +16,4 @@ To do:
     hierarchy account:
     headAdmin <- admin <- user
 }
-customize errors in create account component
-delete input phone in account settings if user doesn't have it(its empty blank)
-user can create account without choosing gender!!!
+add message in account settings when user hover on its role (repair layout)
