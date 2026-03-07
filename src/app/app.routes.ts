@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { AuthService } from './services/auth-service';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -40,7 +41,11 @@ export const routes: Routes = [
     },
     { 
         path: 'createAccount', 
-        loadComponent: () => import('./auth/create-account/create-account').then((m) => m.CreateAccount), 
+        loadComponent: () => import('./auth/create-account/create-account').then((m) => m.CreateAccount),
+    },
+    { 
+        path: 'userManagement',
+        loadComponent: () => import('./user-management/user-management').then((m) => m.UserManagement),
     },
     { 
         path: '**', 

@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="header">
+        <div class="left">
+            <h2>User Management System: Logged as {{this.authService.currentUser()?.role}}</h2>
+        </div>
+        <div class="right">
+            <button>Add user <img src="/assets/images/icons/add-user.png" alt="add-user-icon"></button>
+        </div>
+    </div>
+    <!-- filter bar ? -->
+    <table>
+        <tr>
+            <th>#</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th>Action</th>
+        </tr>
+        @for (user of users(); track user.id; let idx = $index) {
+            <tr>
+                <td>{{idx+1}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.role}}</td>
+                <td>
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
+            </tr>
+        }
+    </table>
+</div>

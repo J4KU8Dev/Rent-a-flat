@@ -151,12 +151,22 @@ button[class="confirm"]{
 }
 .icon{
     cursor: help;
-    display: flex;
+    position: relative;
 }
 .text-role-hover{
-    display: none;
+    display: block;
+    position: absolute;
+    background: gray;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    top: -20px;
+    left: 50px;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: translateY(10px);
 }
 .icon:hover .text-role-hover{
-    display: block;
-    
+    opacity: 1;
+    transform: translateY(0px);
 }
