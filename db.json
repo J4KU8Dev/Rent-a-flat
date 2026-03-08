@@ -1293,7 +1293,7 @@
       "lastName": "Nowak",
       "email": "nowakowsy@test.com",
       "password": "12345",
-      "phone": "",
+      "phone": "243-980-247",
       "role": "User"
     },
     {
@@ -1335,6 +1335,66 @@
       "password": "testowehaslo123",
       "phone": "467-991-092",
       "role": "User"
+    },
+    {
+      "id": "mmeqfaj8ysg22hgn19",
+      "gender": "Female",
+      "firstName": "Anna",
+      "lastName": "Kowalska",
+      "email": "anna.kowalska@test.com",
+      "password": "haslo12345",
+      "phone": "512-443-221",
+      "role": "User"
+    },
+    {
+      "id": "mmeqfaj8ysg22hgn20",
+      "gender": "Male",
+      "firstName": "Piotr",
+      "lastName": "Nowak",
+      "email": "piotr.nowak@test.com",
+      "password": "test123456",
+      "phone": "600-123-456",
+      "role": "Admin"
+    },
+    {
+      "id": "mmeqfaj8ysg22hgn21",
+      "gender": "Male",
+      "firstName": "Michał",
+      "lastName": "Wiśniewski",
+      "email": "michal.w@test.com",
+      "password": "mojehaslo321",
+      "phone": "733-221-987",
+      "role": "User"
+    },
+    {
+      "id": "mmeqfaj8ysg22hgn22",
+      "gender": "Female",
+      "firstName": "Katarzyna",
+      "lastName": "Zielińska",
+      "email": "katarzyna.z@test.com",
+      "password": "zielona123",
+      "phone": "501-778-332",
+      "role": "User"
+    },
+    {
+      "id": "mmeqfaj8ysg22hgn23",
+      "gender": "Male",
+      "firstName": "Tomasz",
+      "lastName": "Mazur",
+      "email": "tomasz.mazur@test.com",
+      "password": "tomekpass123",
+      "phone": "721-654-111",
+      "role": "User"
+    },
+    {
+      "id": "mmeqfaj8ysg22hgn24",
+      "gender": "Female",
+      "firstName": "Magdalena",
+      "lastName": "Kaczmarek",
+      "email": "magda.k@test.com",
+      "password": "magda456pass",
+      "phone": "664-212-555",
+      "role": "Admin"
     }
   ]
 }

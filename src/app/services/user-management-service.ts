@@ -13,6 +13,10 @@ export class UserManagementService {
     return this.http.get<LoginModel[]>(`${this.apiUrl}/users`);
   }
 
+  addUser(newUser: LoginModel): Observable<LoginModel>{
+    return this.http.post<LoginModel>(`${this.apiUrl}/users`,newUser);
+  }
+
   deleteUser() {
     // this.http.delete
   }

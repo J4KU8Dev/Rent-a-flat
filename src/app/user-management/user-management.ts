@@ -15,7 +15,7 @@ export class UserManagement implements OnInit{
   authService = inject(AuthService);
   popUpService = inject(PopUp);
   users = signal<LoginModel[]>([]);
-  
+  modal = signal<boolean>(false);
   ngOnInit(): void {
     this.userManagementService.getAllUsers().subscribe({
       next:(data) => {
@@ -26,6 +26,12 @@ export class UserManagement implements OnInit{
       // add error hanlding and popUp messages
     })
   }
+
+  switchModal() {
+    console.log(this.modal());
+    this.modal.set(!this.modal());
+  }
+
 
   
 }

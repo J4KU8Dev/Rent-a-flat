@@ -40,7 +40,6 @@ export class AuthService {
     }
     if(user.password !== oldPassword){
       return throwError(() => new Error("Actual Password is incorrect."))
-      // tu powinno byc return ?
     }
     return this.http.patch<LoginModel>(`${this.apiUrl}/users/${this.currentUser()?.id}`, {
       password: newPassword,
