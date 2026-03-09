@@ -64,6 +64,12 @@ export class AuthService {
       return this.http.post<LoginModel>(`${this.apiUrl}/users`,newUser);
     }))
   }
+
+  onCreateUniqueId() {
+    const dateString = Date.now().toString(36);
+    const randomness = Math.random().toString(36).substr(2);
+    return dateString + randomness;
+  };
   
 
 }

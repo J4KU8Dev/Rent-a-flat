@@ -6,48 +6,48 @@
         <div class="right">
             <button (click)="switchModal()">Add user <img src="/assets/images/icons/add-user.png" alt="add-user-icon"></button>
             <div class="creatingUser" [style.display]="modal() ? 'flex' : 'none'">
-                <form novalidate>
+                <form novalidate (submit)="onCreateNewUser($event)">
                     <h2>New User</h2>
                     <div class="pole-gender">
                         <p>Gender</p>
-                        <div class="option">
-                            <input type="radio" name="gen"><label>Male</label>
+                        <div class="option" >
+                            <input type="radio" value="Male" [formField]="signUpForm.gender"><label>Male</label>
                         </div>
                         <div class="option">
-                           <input type="radio" name="gen"><label>Female</label> 
+                           <input type="radio" value="Female" [formField]="signUpForm.gender"><label>Female</label> 
                         </div>
                         
                     </div>
                     <div class="pole">
                         <p>First Name</p>
-                        <input type="text">
+                        <input type="text" [formField]="signUpForm.firstName">
                     </div>
                     <div class="pole">
                         <p>Last Name</p>
-                        <input type="text">
+                        <input type="text" [formField]="signUpForm.lastName">
                     </div>
                     <div class="pole">
                         <p>Email</p>
-                        <input type="email">
+                        <input type="email" [formField]="signUpForm.email">
                     </div>
                     <div class="pole">
                         <p>Password</p>
-                        <input type="password">
+                        <input type="password" [formField]="signUpForm.password">
                     </div>
                     <div class="pole">
                         <p>Phone</p>
-                        <input type="text">
+                        <input type="text" [formField]="signUpForm.phone">
                     </div>
                     <div class="pole">
                         <p>Role</p>
-                        <select name="" id="">
+                        <select [formField]="signUpForm.role">
                             <option value="User">User</option>
                             <option value="Admin">Admin</option>
                             <option value="Head Admin" [disabled]="authService.currentUser()?.role==='Admin'">Head Admin</option>
                         </select>
                     </div>
                     <div class="actions">
-                        <button type="submit" class="save">Create</button>
+                        <button type="submit" class="save" (click)="onCreateNewUser($event)">Create</button>
                         <button type="button" class="cancel" (click)="switchModal()">Cancel</button>
                     </div>
                 </form>
@@ -74,7 +74,7 @@
                 <td>{{user.role}}</td>
                 <td>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button (click)="onDeleteUser(user.id)">Delete</button>
                 </td>
             </tr>
         }

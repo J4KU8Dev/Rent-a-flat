@@ -1307,16 +1307,6 @@
       "role": "User"
     },
     {
-      "id": "mmdekcyqzisutevazs",
-      "gender": "unknown",
-      "firstName": "123",
-      "lastName": "123",
-      "email": "123@gmail.com",
-      "password": "123123",
-      "phone": "123-123-123",
-      "role": "User"
-    },
-    {
       "id": "mmeprfeqy9wlv07vgeb",
       "gender": "unknown",
       "firstName": "123123",
@@ -1367,14 +1357,14 @@
       "role": "User"
     },
     {
-      "id": "mmeqfaj8ysg22hgn22",
+      "id": "mmeqfaj8ysg22hgn24",
       "gender": "Female",
-      "firstName": "Katarzyna",
-      "lastName": "Zielińska",
-      "email": "katarzyna.z@test.com",
-      "password": "zielona123",
-      "phone": "501-778-332",
-      "role": "User"
+      "firstName": "Magdalena",
+      "lastName": "Kaczmarek",
+      "email": "magda.k@test.com",
+      "password": "magda456pass",
+      "phone": "664-212-555",
+      "role": "Admin"
     },
     {
       "id": "mmeqfaj8ysg22hgn23",
@@ -1385,16 +1375,6 @@
       "password": "tomekpass123",
       "phone": "721-654-111",
       "role": "User"
-    },
-    {
-      "id": "mmeqfaj8ysg22hgn24",
-      "gender": "Female",
-      "firstName": "Magdalena",
-      "lastName": "Kaczmarek",
-      "email": "magda.k@test.com",
-      "password": "magda456pass",
-      "phone": "664-212-555",
-      "role": "Admin"
     }
   ]
 }

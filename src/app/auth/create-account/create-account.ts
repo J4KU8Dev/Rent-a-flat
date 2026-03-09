@@ -19,7 +19,7 @@ export class CreateAccount {
   authService = inject(AuthService);
   router = inject(Router);
   signUpData = signal<LoginModel>({
-    id: this.onCreateUniqueId(),
+    id: this.authService.onCreateUniqueId(),
     gender: '', 
     firstName: '',
     lastName: '',
@@ -49,23 +49,19 @@ export class CreateAccount {
     }
     this.authService.createNewUser(this.signUpData()).subscribe({
       next:() => {
-        this.popUpService.showSuccess('Your account has been created!', 'Creating accoutn success');
+        this.popUpService.showSuccess('Your account has been created!', 'Creating account success');
         this.onResetForm();
         this.router.navigateByUrl("/login");
         console.log(this.signUpData());
       },
       error:(error) => {
-        this.popUpService.showError(error.message,'Creating accout failure');
+        this.popUpService.showError(error.message,'Creating account failure');
       },
       complete:() => {},
     })
     
   }
-  onCreateUniqueId() {
-    const dateString = Date.now().toString(36);
-    const randomness = Math.random().toString(36).substr(2);
-    return dateString + randomness;
-  };
+  
 
   onResetForm() {
     this.signUpData.set({id: '',gender: '', firstName: '', lastName: '', email: '', password: '', phone: '', role: 'User'});
