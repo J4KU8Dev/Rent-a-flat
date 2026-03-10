@@ -4,19 +4,18 @@
             <h2>User Management System: Logged as {{this.authService.currentUser()?.role}}</h2>
         </div>
         <div class="right">
-            <button (click)="switchModal()">Add user <img src="/assets/images/icons/add-user.png" alt="add-user-icon"></button>
+            <button (click)="onCreateUser()" >Add user <img src="/assets/images/icons/add-user.png" alt="add-user-icon"></button>
             <div class="creatingUser" [style.display]="modal() ? 'flex' : 'none'">
-                <form novalidate (submit)="onCreateNewUser($event)">
-                    <h2>New User</h2>
+                <form novalidate (submit)="onSubmit($event)">
+                    <h2>{{formMode() === 'create' ? 'New user' : 'Edit user'}}</h2>
                     <div class="pole-gender">
                         <p>Gender</p>
-                        <div class="option" >
+                        <div class="option">
                             <input type="radio" value="Male" [formField]="signUpForm.gender"><label>Male</label>
                         </div>
                         <div class="option">
                            <input type="radio" value="Female" [formField]="signUpForm.gender"><label>Female</label> 
                         </div>
-                        
                     </div>
                     <div class="pole">
                         <p>First Name</p>
@@ -47,11 +46,12 @@
                         </select>
                     </div>
                     <div class="actions">
-                        <button type="submit" class="save" (click)="onCreateNewUser($event)">Create</button>
+                        <button type="submit" class="save" (click)="onSubmit($event)">{{formMode() === 'create' ? 'Create user' : 'Edit user'}}</button>
                         <button type="button" class="cancel" (click)="switchModal()">Cancel</button>
                     </div>
                 </form>
             </div>
+            
         </div>
     </div>
     <table>
@@ -73,7 +73,7 @@
                 <td>{{user.phone}}</td>
                 <td>{{user.role}}</td>
                 <td>
-                    <button>Edit</button>
+                    <button (click)="onEditUser(user)">Edit</button>
                     <button (click)="onDeleteUser(user.id)">Delete</button>
                 </td>
             </tr>

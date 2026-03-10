@@ -10,4 +10,4 @@ To run Data from Api, in second terminal type:
 npx json-server --watch db.json -p 5000
 ```
 
-Now im buliding user Management Service
+Repair template for editing/creating user

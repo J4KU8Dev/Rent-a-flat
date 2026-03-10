@@ -18,6 +18,7 @@ export class UserManagement implements OnInit{
   popUpService = inject(PopUp);
   users = signal<LoginModel[]>([]);
   modal = signal<boolean>(false);
+  formMode = signal<'create' | 'edit'>('create');
 
   signUpData = signal<LoginModel>({
     id: this.authService.onCreateUniqueId(),
@@ -53,38 +54,44 @@ export class UserManagement implements OnInit{
       },
       complete:() => {},
     })
+    // instead of it, create refresh function ?
   }
 
   switchModal() {
     this.modal.set(!this.modal());
   }
   
-  onCreateNewUser(event: Event) {
+  onSubmit(event: Event) {
     event.preventDefault();
+    
     if(this.signUpForm().invalid()){
-      this.popUpService.showWarning('Please check and correct your informations','Creating account failure');
+      this.popUpService.showWarning('Please check and correct your informations','Creating/update account failure');
       return;
     }
     //add switch map to check if email exist in database!
-    this.userManagementService.createUser(this.signUpData()).subscribe({
-      next:() => {
-        this.popUpService.showSuccess('New user has been created', 'Adding new user success');
-        this.userManagementService.getAllUsers().subscribe({
-          next:(data) => {
-            this.users.set(data);
-          },
-        })
-        this.switchModal();
-        // clear creating user form!
-      },
-      error:(error) => {
-        this.popUpService.showError(error.message,'Creating account failure');
-      },
-      complete:() => {},
-    })
-
-    console.log(this.signUpData())
-
+    if(this.formMode()==='create') {
+      console.log('new user data: ',this.signUpData())
+      this.userManagementService.createUser(this.signUpData()).subscribe({
+        next:() => {
+          this.popUpService.showSuccess('New user has been created', 'Adding new user success');
+          this.userManagementService.getAllUsers().subscribe({
+            next:(data) => {
+              this.users.set(data);
+            },
+          })
+          this.switchModal();
+          this.onResetForm();
+        },
+        error:(error) => {
+          this.popUpService.showError(error.message,'Creating account failure');
+        },
+        complete:() => {},
+      })
+    }
+    if(this.formMode()==='edit') {
+      
+    }
+    
   }
 
   onDeleteUser(userId: string){
@@ -101,9 +108,33 @@ export class UserManagement implements OnInit{
         this.popUpService.showError('An error ocured', 'Deleting user error');
       }
     })
-   
-  
   }
 
+  onResetForm() {
+    this.signUpData.set({id: '',gender: '', firstName: '', lastName: '', email: '', password: '', phone: '', role: 'User'});
+    this.signUpForm().reset();
+  }
+
+  onEditUser(userData: LoginModel) {
+    this.formMode.set('edit');
+    this.signUpData.set(userData);
+    this.switchModal();
+    
+  }
+
+  onCreateUser() {
+    this.formMode.set('create');
+    this.signUpData = signal<LoginModel>({
+      id: this.authService.onCreateUniqueId(),
+      gender: '', 
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      phone: '',
+      role: 'User',
+    })
+    this.switchModal();
+  }
   
 }
