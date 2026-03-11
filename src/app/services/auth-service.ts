@@ -51,6 +51,7 @@ export class AuthService {
   resetPassword(userId: string, newPassword: string) {
   return this.http.patch(`${this.apiUrl}/users/${userId}`, {
     password: newPassword,
+    
   })
 }
 

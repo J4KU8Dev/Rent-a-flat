@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { map, Observable } from 'rxjs';
+import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
 import { LoginModel } from '../login-model';
 import { Login } from '../auth/login/login';
 
@@ -13,23 +13,37 @@ export class UserManagementService {
   getAllUsers(): Observable<LoginModel[]> {
     return this.http.get<LoginModel[]>(`${this.apiUrl}/users`)
     .pipe(map(users => {
-      if(users.length == 0){
-        throw new Error('Returned 0 users. Please restart database');
+      if (!users.length) {
+        throw new Error('No users found in database');
       }
       return users;
-    }))
+    }),
+    catchError(() => throwError(() => new Error('Failed to fetch users from server'))
+    )
+  );
   }
 
   createUser(newUser: LoginModel): Observable<LoginModel>{
-    return this.http.post<LoginModel>(`${this.apiUrl}/users`,newUser);
+    return this.http.get<LoginModel[]>(`${this.apiUrl}/users?email=${newUser.email}`)
+      .pipe(switchMap(users => {
+        if(users.length > 0){
+          throw new Error('Account with this email already exist. Please enter another email.');
+        }
+        return this.http.post<LoginModel>(`${this.apiUrl}/users`,newUser);
+      }))
   }
 
-  deleteUser(userId: string) {
+  deleteUser(userId: string): Observable<LoginModel>{
     return this.http.delete<LoginModel>(`${this.apiUrl}/users/${userId}`);
   }
 
-  editUser() {
-    
+  editUser(updatedProfile: LoginModel): Observable<LoginModel> {
+    return this.http.get<LoginModel[]>(`${this.apiUrl}/users?email=${updatedProfile.email}`)
+      .pipe(switchMap(users => {
+        if(users.length > 0){
+          throw new Error('Account with this email already exist. Please enter another email.');
+        }
+        return this.http.patch<LoginModel>(`${this.apiUrl}/users/${updatedProfile.id}`, updatedProfile);
+      }))
   }
-  // add error handling
 }

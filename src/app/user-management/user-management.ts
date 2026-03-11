@@ -20,6 +20,18 @@ export class UserManagement implements OnInit{
   modal = signal<boolean>(false);
   formMode = signal<'create' | 'edit'>('create');
 
+  onRefresh() {
+    this.userManagementService.getAllUsers().subscribe({
+      next:(data) => {
+        this.users.set(data);
+      },
+      error:(err) => {
+        this.popUpService.showError(err.message, 'Database fetch error');
+      },
+      complete:() => {},
+    })
+  }
+
   signUpData = signal<LoginModel>({
     id: this.authService.onCreateUniqueId(),
     gender: '', 
@@ -44,17 +56,7 @@ export class UserManagement implements OnInit{
   });
 
   ngOnInit(): void {
-    this.userManagementService.getAllUsers().subscribe({
-      next:(data) => {
-        this.users.set(data);
-      },
-      error:(error) => {
-        this.popUpService.showError('Returned 0 users. Please restart database', 'Database fetch error');
-        
-      },
-      complete:() => {},
-    })
-    // instead of it, create refresh function ?
+    this.onRefresh();
   }
 
   switchModal() {
@@ -68,17 +70,12 @@ export class UserManagement implements OnInit{
       this.popUpService.showWarning('Please check and correct your informations','Creating/update account failure');
       return;
     }
-    //add switch map to check if email exist in database!
     if(this.formMode()==='create') {
       console.log('new user data: ',this.signUpData())
       this.userManagementService.createUser(this.signUpData()).subscribe({
         next:() => {
           this.popUpService.showSuccess('New user has been created', 'Adding new user success');
-          this.userManagementService.getAllUsers().subscribe({
-            next:(data) => {
-              this.users.set(data);
-            },
-          })
+          this.onRefresh();
           this.switchModal();
           this.onResetForm();
         },
@@ -89,6 +86,18 @@ export class UserManagement implements OnInit{
       })
     }
     if(this.formMode()==='edit') {
+      this.userManagementService.editUser(this.signUpData()).subscribe({
+        next:() => {
+          this.popUpService.showSuccess('User data updated successfully', `User ${this.signUpData().firstName} updated`);
+          this.onRefresh();
+          this.switchModal();
+        },
+        error:(error) => {
+          this.popUpService.showError(error.message, 'Updating user failure');
+        },
+        complete:() => {},
+      })
+      
       
     }
     
@@ -98,42 +107,31 @@ export class UserManagement implements OnInit{
     this.userManagementService.deleteUser(userId).subscribe({
       next:() => {
         this.popUpService.showSuccess('User deleted successfully', 'Deleting user ');
-        this.userManagementService.getAllUsers().subscribe({
-          next:(data) => {
-            this.users.set(data);
-          },
-        })
+        this.onRefresh();
       },
       error:() => {
         this.popUpService.showError('An error ocured', 'Deleting user error');
-      }
+      },
+      complete:() => {},
     })
+    
   }
 
   onResetForm() {
-    this.signUpData.set({id: '',gender: '', firstName: '', lastName: '', email: '', password: '', phone: '', role: 'User'});
+    this.signUpData.set({id: this.authService.onCreateUniqueId(), gender: '', firstName: '', lastName: '', email: '', password: '', phone: '', role: 'User'});
     this.signUpForm().reset();
   }
 
   onEditUser(userData: LoginModel) {
     this.formMode.set('edit');
     this.signUpData.set(userData);
+    console.log(this.signUpData());
     this.switchModal();
-    
   }
 
   onCreateUser() {
+    this.onResetForm();
     this.formMode.set('create');
-    this.signUpData = signal<LoginModel>({
-      id: this.authService.onCreateUniqueId(),
-      gender: '', 
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      phone: '',
-      role: 'User',
-    })
     this.switchModal();
   }
   
