@@ -65,18 +65,20 @@
             <th>Action</th>
         </tr>
         @for (user of users(); track user.id; let idx = $index) {
-            <tr>
-                <td>{{idx+1}}</td>
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.phone}}</td>
-                <td>{{user.role}}</td>
-                <td>
-                    <button (click)="onEditUser(user)">Edit</button>
-                    <button (click)="onDeleteUser(user.id)">Delete</button>
-                </td>
-            </tr>
+            @if(user.id !== this.authService.currentUser()?.id){
+                <tr>
+                    <td>{{idx+1}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.role}}</td>
+                    <td>
+                        <button [disabled]="user.role==='Head Admin' && authService.currentUser()?.role==='Admin'" (click)="onEditUser(user)">Edit</button>
+                        <button [disabled]="user.role==='Head Admin' && authService.currentUser()?.role==='Admin'" (click)="onDeleteUser(user.id)">Delete</button>
+                    </td>
+                </tr>
+            }
         }
     </table>
 </div>

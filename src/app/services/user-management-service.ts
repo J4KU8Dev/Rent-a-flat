@@ -40,9 +40,11 @@ export class UserManagementService {
   editUser(updatedProfile: LoginModel): Observable<LoginModel> {
     return this.http.get<LoginModel[]>(`${this.apiUrl}/users?email=${updatedProfile.email}`)
       .pipe(switchMap(users => {
-        if(users.length > 0){
+        const emailTaken = users.find(u => u.id !== updatedProfile.id);
+        if(emailTaken){
           throw new Error('Account with this email already exist. Please enter another email.');
         }
+        
         return this.http.patch<LoginModel>(`${this.apiUrl}/users/${updatedProfile.id}`, updatedProfile);
       }))
   }
