@@ -12,7 +12,7 @@ export class Header {
   authService = inject(AuthService);
   isShowed = signal<boolean>(false);
 
-  onToogle() {
+  onToggle() {
     this.isShowed.set(!this.isShowed());
   }
 }

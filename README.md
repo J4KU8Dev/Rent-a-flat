@@ -9,5 +9,5 @@ To run Data from Api, in second terminal type:
 ```bash
 npx json-server --watch db.json -p 5000
 ```
-
-create auth guard -> change options for admin in user management    
+repair rwd in some components (probably all auth folder)
+finish auth guard -> change options for admin in user management    

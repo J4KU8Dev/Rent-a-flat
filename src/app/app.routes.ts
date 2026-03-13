@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 import { AuthService } from './services/auth-service';
-
+import { authGuard } from './services/auth-guard-guard';
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { 
@@ -37,7 +37,8 @@ export const routes: Routes = [
     },
     { 
         path: 'account', 
-        loadComponent: () => import('./auth/account/account').then((m) => m.Account), 
+        loadComponent: () => import('./auth/account/account').then((m) => m.Account),
+        canActivate:[authGuard],
     },
     { 
         path: 'createAccount', 

@@ -19,8 +19,8 @@
     </div>
     <div class="card last">  
         @if(authService.currentUser()) {
-            <p (click)="onToogle()">&#9776;Welcome, {{authService.currentUser()?.firstName}} !</p>
-                <div class="side-bar" [class.open]="isShowed()">
+            <p class="menu-text"  [class.closed]="!isShowed()" (click)="onToggle()" [textContent]="isShowed() ? 'Welcome, '+authService.currentUser()?.firstName+'!' : '☰'"></p>    
+            <div class="side-bar" [class.open]="isShowed()">
                     <div class="option" routerLink="/account">
                         <p>Account</p>
                     </div>
