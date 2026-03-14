@@ -81,4 +81,7 @@
             }
         }
     </table>
+    @if(showConfirm()) {
+        <app-confirm-modal title="Delete user" message="Are you sure?" (confirm)="onDeleteUser()" (cancel)="cancelDelete()"></app-confirm-modal>
+    }
 </div>

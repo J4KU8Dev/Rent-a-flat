@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { AuthService } from './services/auth-service';
-import { authGuard } from './services/auth-guard-guard';
+import { authGuard } from './services/auth-guard';
+import { roleGuard } from './services/role-guard';
 export const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
     { 
@@ -47,6 +48,8 @@ export const routes: Routes = [
     { 
         path: 'userManagement',
         loadComponent: () => import('./user-management/user-management').then((m) => m.UserManagement),
+        canActivate:[authGuard, roleGuard],
+        data:{ roles: ['Admin', 'Head Admin'] },
     },
     { 
         path: '**', 

@@ -4,11 +4,12 @@ import { UserManagementService } from '../services/user-management-service';
 import { PopUp } from '../pop-up/pop-up';
 import { AuthService } from '../services/auth-service';
 import { email, form, minLength, pattern, required, debounce, FormField } from '@angular/forms/signals';
+import { ConfirmModal } from "../shared/confirm-modal/confirm-modal";
 
 
 @Component({
   selector: 'app-user-management',
-  imports: [FormField],
+  imports: [FormField, ConfirmModal],
   templateUrl: './user-management.html',
   styleUrl: './user-management.css',
 })
@@ -19,6 +20,17 @@ export class UserManagement implements OnInit{
   users = signal<LoginModel[]>([]);
   modal = signal<boolean>(false);
   formMode = signal<'create' | 'edit'>('create');
+  showConfirm = signal<boolean>(false);
+  selectedUserId = signal<string | null>(null);
+
+  onDeleteClick(userId: string) {
+    this.selectedUserId.set(userId);
+    this.showConfirm.set(true);
+  }
+
+  cancelDelete(){
+    this.showConfirm.set(false);
+  }
 
   onRefresh() {
     this.userManagementService.getAllUsers().subscribe({
@@ -104,6 +116,9 @@ export class UserManagement implements OnInit{
   }
 
   onDeleteUser(userId: string){
+    if(!userId){
+      return;
+    }
     this.userManagementService.deleteUser(userId).subscribe({
       next:() => {
         this.popUpService.showSuccess('User deleted successfully', 'Deleting user ');
@@ -113,7 +128,8 @@ export class UserManagement implements OnInit{
         this.popUpService.showError('An error ocured', 'Deleting user error');
       },
       complete:() => {},
-    })
+    });
+    this.showConfirm.set(false);
     
   }
 
