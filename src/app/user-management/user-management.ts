@@ -23,15 +23,6 @@ export class UserManagement implements OnInit{
   showConfirm = signal<boolean>(false);
   selectedUserId = signal<string | null>(null);
 
-  onDeleteClick(userId: string) {
-    this.selectedUserId.set(userId);
-    this.showConfirm.set(true);
-  }
-
-  cancelDelete(){
-    this.showConfirm.set(false);
-  }
-
   onRefresh() {
     this.userManagementService.getAllUsers().subscribe({
       next:(data) => {
@@ -116,21 +107,8 @@ export class UserManagement implements OnInit{
   }
 
   onDeleteUser(userId: string){
-    if(!userId){
-      return;
-    }
-    this.userManagementService.deleteUser(userId).subscribe({
-      next:() => {
-        this.popUpService.showSuccess('User deleted successfully', 'Deleting user ');
-        this.onRefresh();
-      },
-      error:() => {
-        this.popUpService.showError('An error ocured', 'Deleting user error');
-      },
-      complete:() => {},
-    });
-    this.showConfirm.set(false);
-    
+    this.selectedUserId.set(userId);
+    this.showConfirm.set(true);    
   }
 
   onResetForm() {
@@ -151,4 +129,31 @@ export class UserManagement implements OnInit{
     this.switchModal();
   }
   
+  confirmDelete() {
+    const id = this.selectedUserId();
+    if(!id){
+      return
+    };
+    this.userManagementService.deleteUser(id).subscribe({
+      next:() => {
+        this.popUpService.showSuccess(`User deleted successfully`, 'Deleting user ');
+        this.onRefresh();
+      },
+      error:() => {
+        this.popUpService.showError('An error ocured', 'Deleting user error');
+      },
+      complete:() => {},
+    });
+    this.showConfirm.set(false);
+    
+  }
+
+  onDeleteClick(userId: string) {
+    this.selectedUserId.set(userId);
+    this.showConfirm.set(true);
+  }
+
+  cancelDelete(){
+    this.showConfirm.set(false);
+  }
 }

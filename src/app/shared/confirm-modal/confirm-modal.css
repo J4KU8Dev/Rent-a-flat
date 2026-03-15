@@ -1,31 +1,56 @@
-.container{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  z-index:3000;
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0,0,0,0.5);
+
+  display: grid;
+  place-items: center;
+
+  z-index: 9999;
 }
 
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+
+  width: 300px;
+  text-align: center;
+}
+
+.buttons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.danger {
+  background: red;
+  color: white;
+}
 .modal{
-  background:white;
-  padding:2rem;
-  border-radius:10px;
-  width:320px;
-  text-align:center;
+  animation: popup 0.2s ease;
 }
 
-button{
-  display:flex;
-  justify-content:space-between;
-  margin-top:1rem;
-}
-
-.danger{
-  background:red;
-  color:white;
+@keyframes popup{
+  from{
+    transform: scale(0.8);
+    opacity:0;
+  }
+  to{
+    transform: scale(1);
+    opacity:1;
+  }
 }

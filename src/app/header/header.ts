@@ -1,10 +1,11 @@
 import { Component, inject, signal } from '@angular/core';
 import { RouterLink } from "@angular/router";
 import { AuthService } from '../services/auth-service';
+import { ClickOutside } from '../shared/click-outside';
 
 @Component({
   selector: 'app-header',
-  imports: [RouterLink],
+  imports: [RouterLink, ClickOutside],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
@@ -14,5 +15,8 @@ export class Header {
 
   onToggle() {
     this.isShowed.set(!this.isShowed());
+  }
+  onClose() {
+    this.isShowed.set(false);
   }
 }

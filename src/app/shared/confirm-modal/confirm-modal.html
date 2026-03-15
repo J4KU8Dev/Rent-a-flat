@@ -1,8 +1,10 @@
-<div class="container">
+<div class="modal-overlay">
     <div class="modal">
-        <h2>{{title}}</h2>
-        <p>{{message}}</p>
+        <h2>{{ title }}</h2>
+        <p>{{ message }}</p>
+    <div class="buttons">
+        <button (click)="cancel.emit()">Cancel</button>
+        <button class="danger" (click)="confirm.emit()">Confirm</button>
     </div>
-    <button (click)="cancel.emit()">Cancel</button>
-    <button class="danger" (click)="confirm.emit()"></button>
+  </div>
 </div>
