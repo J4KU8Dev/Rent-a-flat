@@ -54,18 +54,44 @@
             
         </div>
     </div>
-    
+    <input type="text" placeholder="Filter users" (input)="filterText.set($any($event.target).value)">
     <table>
         <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Role</th>
+            <th (click)="onSortBy('firstName')">
+                First Name
+                @if(sortColumn() === 'firstName'){
+                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                }
+            </th>
+            <th (click)="onSortBy('lastName')">
+                Last Name
+                @if(sortColumn() === 'lastName'){
+                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                }
+            </th>
+            <th (click)="onSortBy('email')">
+                Email
+                @if(sortColumn() === 'email'){
+                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                }
+            </th>
+            <th (click)="onSortBy('phone')">
+                Phone
+                @if(sortColumn() === 'phone'){
+                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                }
+            </th>
+            <th (click)="onSortBy('role')">
+                Role
+                @if(sortColumn() === 'role'){
+                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                }
+            </th>
             <th>Action</th>
         </tr>
-        @for (user of users(); track user.id; let idx = $index) {
+        <!-- @for (user of users(); track user.id; let idx = $index) { -->
+        @for (user of filteredUsers(); track user.id; let idx = $index) {
             @if(user.id !== this.authService.currentUser()?.id){
                 <tr>
                     <td>{{idx+1}}</td>

@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { LoginModel } from '../login-model';
 import { UserManagementService } from '../services/user-management-service';
 import { PopUp } from '../pop-up/pop-up';
@@ -17,11 +17,16 @@ export class UserManagement implements OnInit{
   userManagementService = inject(UserManagementService);
   authService = inject(AuthService);
   popUpService = inject(PopUp);
+
   users = signal<LoginModel[]>([]);
   modal = signal<boolean>(false);
   formMode = signal<'create' | 'edit'>('create');
   showConfirm = signal<boolean>(false);
   selectedUserId = signal<string | null>(null);
+
+  sortColumn = signal<keyof LoginModel | null>(null);
+  sortDirection = signal<'asc' | 'desc'>('asc');
+  filterText = signal<string>('');
 
   onRefresh() {
     this.userManagementService.getAllUsers().subscribe({
@@ -100,10 +105,7 @@ export class UserManagement implements OnInit{
         },
         complete:() => {},
       })
-      
-      
     }
-    
   }
 
   onDeleteUser(userId: string){
@@ -156,4 +158,49 @@ export class UserManagement implements OnInit{
   cancelDelete(){
     this.showConfirm.set(false);
   }
+  
+  onSortBy(column: keyof LoginModel) {
+    if(this.sortColumn() === column) {
+      this.sortDirection.set(this.sortDirection() === 'asc' ? 'desc' : 'asc');
+    }
+    else{
+      this.sortColumn.set(column);
+      this.sortDirection.set('asc');
+    }
+  }
+
+  filteredUsers = computed(() => {
+    const users = [...this.users()];
+    const search = this.filterText();
+    const column = this.sortColumn();
+    const direction = this.sortDirection();
+    
+    let result = users;
+
+    if(search) {
+      result = result.filter(user =>
+        user.firstName.toLocaleLowerCase().includes(search)) ||
+        user.firstName.toLocaleLowerCase().includes(search) ||
+        user.firstName.toLocaleLowerCase().includes(search) ||
+        user.firstName.toLocaleLowerCase().includes(search) ||
+        user.firstName.toLocaleLowerCase().includes(search) ||
+    }
+
+    if(column){
+      result = result.sort((a,b) => {
+        const valueA = a[column];
+        const valueB = b[column];
+
+        if(valueA < valueB){
+          return direction === 'asc' ? -1 : 1;
+        }
+        if(valueA > valueB){ 
+          return direction === 'asc' ? 1 : -1;
+        }
+        return 0;
+      })
+    }
+    return result
+  })
+  
 }

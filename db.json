@@ -1375,6 +1375,16 @@
       "password": "tomekpass123",
       "phone": "721-654-111",
       "role": "User"
+    },
+    {
+      "id": "mmtr8w26fg7e7neoipt",
+      "gender": "Female",
+      "firstName": "test",
+      "lastName": "aftersorting",
+      "email": "afterSort@test.comn",
+      "password": "123123123",
+      "phone": "123-123-123",
+      "role": "User"
     }
   ]
 }
