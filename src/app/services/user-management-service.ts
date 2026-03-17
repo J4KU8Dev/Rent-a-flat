@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { catchError, map, Observable, switchMap, throwError } from 'rxjs';
 import { LoginModel } from '../login-model';
 import { Login } from '../auth/login/login';
+import { AuthService } from './auth-service';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,8 @@ import { Login } from '../auth/login/login';
 export class UserManagementService {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:5000';
+  authService = inject(AuthService);
+
   getAllUsers(): Observable<LoginModel[]> {
     return this.http.get<LoginModel[]>(`${this.apiUrl}/users`)
     .pipe(map(users => {
@@ -34,8 +37,12 @@ export class UserManagementService {
   }
 
   deleteUser(userId: string): Observable<LoginModel>{
-    return this.http.delete<LoginModel>(`${this.apiUrl}/users/${userId}`);
-  }
+    if(userId === this.authService.currentUser()?.id) {
+      console.error('You cannot modify your own account');
+      throw new Error('You cannot modify your own account');
+    }
+    return this.http.delete<LoginModel>(`${this.apiUrl}/users/${userId}`) 
+  }  
 
   editUser(updatedProfile: LoginModel): Observable<LoginModel> {
     return this.http.get<LoginModel[]>(`${this.apiUrl}/users?email=${updatedProfile.email}`)

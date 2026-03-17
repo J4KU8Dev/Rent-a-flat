@@ -3,9 +3,8 @@ import { LoginModel } from '../login-model';
 import { UserManagementService } from '../services/user-management-service';
 import { PopUp } from '../pop-up/pop-up';
 import { AuthService } from '../services/auth-service';
-import { email, form, minLength, pattern, required, debounce, FormField } from '@angular/forms/signals';
+import { email, form, minLength, pattern, required, debounce, FormField, disabled } from '@angular/forms/signals';
 import { ConfirmModal } from "../shared/confirm-modal/confirm-modal";
-
 
 @Component({
   selector: 'app-user-management',
@@ -61,6 +60,7 @@ export class UserManagement implements OnInit{
     email(fieldPath.email, {message: 'Please enter a valid email address'});
     minLength(fieldPath.password,5 , { message: 'Your password needs at least 5 characters'});
     pattern(fieldPath.phone, /^\d{3}-\d{3}-\d{3}$/,{ message: 'Phone number must be in format: 123-456-789'})
+    disabled(fieldPath.role, () => this.isEditingSelf())
   });
 
   ngOnInit(): void {
@@ -141,8 +141,8 @@ export class UserManagement implements OnInit{
         this.popUpService.showSuccess(`User deleted successfully`, 'Deleting user ');
         this.onRefresh();
       },
-      error:() => {
-        this.popUpService.showError('An error ocured', 'Deleting user error');
+      error:(err) => {
+        this.popUpService.showError(err.message, 'Deleting user error');
       },
       complete:() => {},
     });
@@ -179,11 +179,11 @@ export class UserManagement implements OnInit{
 
     if(search) {
       result = result.filter(user =>
-        user.firstName.toLocaleLowerCase().includes(search)) ||
         user.firstName.toLocaleLowerCase().includes(search) ||
-        user.firstName.toLocaleLowerCase().includes(search) ||
-        user.firstName.toLocaleLowerCase().includes(search) ||
-        user.firstName.toLocaleLowerCase().includes(search) ||
+        user.lastName.toLocaleLowerCase().includes(search) ||
+        user.email.toLocaleLowerCase().includes(search) ||
+        user.phone.toLocaleLowerCase().includes(search) ||
+        user.role.toLocaleLowerCase().includes(search))
     }
 
     if(column){
@@ -202,5 +202,10 @@ export class UserManagement implements OnInit{
     }
     return result
   })
-  
+
+  isCurrentUser(user: LoginModel):boolean {
+    return user.id === this.authService.currentUser()?.id;
+  }
+
+  isEditingSelf = computed(() => this.selectedUserId() === this.authService.currentUser()?.id);
 }

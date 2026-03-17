@@ -54,35 +54,35 @@
             
         </div>
     </div>
-    <input type="text" placeholder="Filter users" (input)="filterText.set($any($event.target).value)">
+    <input type="text" class="filter-input" placeholder="Filter users" (input)="filterText.set($any($event.target).value)">
     <table>
         <tr>
             <th>#</th>
-            <th (click)="onSortBy('firstName')">
+            <th [class.highlighted]="sortColumn() === 'firstName'" (click)="onSortBy('firstName')">
                 First Name
                 @if(sortColumn() === 'firstName'){
                     {{ sortDirection() === 'asc' ? '↑' : '↓' }}
                 }
             </th>
-            <th (click)="onSortBy('lastName')">
+            <th [class.highlighted]="sortColumn() === 'lastName'" (click)="onSortBy('lastName')">
                 Last Name
                 @if(sortColumn() === 'lastName'){
                     {{ sortDirection() === 'asc' ? '↑' : '↓' }}
                 }
             </th>
-            <th (click)="onSortBy('email')">
+            <th [class.highlighted]="sortColumn() === 'email'" (click)="onSortBy('email')">
                 Email
                 @if(sortColumn() === 'email'){
                     {{ sortDirection() === 'asc' ? '↑' : '↓' }}
                 }
             </th>
-            <th (click)="onSortBy('phone')">
+            <th [class.highlighted]="sortColumn() === 'phone'" (click)="onSortBy('phone')">
                 Phone
                 @if(sortColumn() === 'phone'){
                     {{ sortDirection() === 'asc' ? '↑' : '↓' }}
                 }
             </th>
-            <th (click)="onSortBy('role')">
+            <th [class.highlighted]="sortColumn() === 'role'" (click)="onSortBy('role')">
                 Role
                 @if(sortColumn() === 'role'){
                     {{ sortDirection() === 'asc' ? '↑' : '↓' }}
@@ -92,20 +92,18 @@
         </tr>
         <!-- @for (user of users(); track user.id; let idx = $index) { -->
         @for (user of filteredUsers(); track user.id; let idx = $index) {
-            @if(user.id !== this.authService.currentUser()?.id){
-                <tr>
-                    <td>{{idx+1}}</td>
-                    <td>{{user.firstName}}</td>
-                    <td>{{user.lastName}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.phone}}</td>
-                    <td>{{user.role}}</td>
-                    <td>
-                        <button [disabled]="user.role==='Head Admin' && authService.currentUser()?.role==='Admin'" (click)="onEditUser(user)">Edit</button>
-                        <button [disabled]="user.role==='Head Admin' && authService.currentUser()?.role==='Admin'" (click)="onDeleteUser(user.id)">Delete</button>
-                    </td>
-                </tr>
-            }
+            <tr [class.current-user]="isCurrentUser(user)" >
+                <td>{{idx+1}}</td>
+                <td>{{user.firstName}}</td>
+                <td>{{user.lastName}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
+                <td>{{user.role}}</td>
+                <td>
+                    <button [disabled]="user.role==='Head Admin' && authService.currentUser()?.role==='Admin'" (click)="onEditUser(user)">Edit</button>
+                    <button [disabled]="(user.role==='Head Admin' && authService.currentUser()?.role==='Admin') || isCurrentUser(user)" (click)="onDeleteUser(user.id)">Delete</button>
+                </td>
+            </tr>
         }
     </table>
     @if(showConfirm()) {
