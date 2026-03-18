@@ -234,3 +234,7 @@ td button:last-child:hover {
 .current-user:hover{
     background-color: rgb(233, 198, 90);
 }
+button:disabled{
+    background-color: grey !important;
+    cursor: not-allowed !important;
+}

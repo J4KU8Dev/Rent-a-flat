@@ -5,10 +5,11 @@ import { PopUp } from '../pop-up/pop-up';
 import { AuthService } from '../services/auth-service';
 import { email, form, minLength, pattern, required, debounce, FormField, disabled } from '@angular/forms/signals';
 import { ConfirmModal } from "../shared/confirm-modal/confirm-modal";
+import { ClickOutside } from "../shared/click-outside";
 
 @Component({
   selector: 'app-user-management',
-  imports: [FormField, ConfirmModal],
+  imports: [FormField, ConfirmModal, ClickOutside],
   templateUrl: './user-management.html',
   styleUrl: './user-management.css',
 })
@@ -27,10 +28,14 @@ export class UserManagement implements OnInit{
   sortDirection = signal<'asc' | 'desc'>('asc');
   filterText = signal<string>('');
 
+  currentPage = signal<number>(1);
+  pageSize = 5;
+
   onRefresh() {
     this.userManagementService.getAllUsers().subscribe({
       next:(data) => {
         this.users.set(data);
+        
       },
       error:(err) => {
         this.popUpService.showError(err.message, 'Database fetch error');
@@ -207,5 +212,16 @@ export class UserManagement implements OnInit{
     return user.id === this.authService.currentUser()?.id;
   }
 
-  isEditingSelf = computed(() => this.selectedUserId() === this.authService.currentUser()?.id);
+  isEditingSelf = computed(() => this.signUpData().id === this.authService.currentUser()?.id);
+
+  totalPages = computed(() => {
+    return Math.ceil(this.filteredUsers().length / this.pageSize);
+  });
+
+  paginatedUsers = computed(() => {
+    const users = this.filteredUsers();
+    const start = (this.currentPage() - 1) * this.pageSize;
+    const end = start + this.pageSize;
+    return users.slice(start, end);
+  })
 }

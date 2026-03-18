@@ -91,7 +91,7 @@
             <th>Action</th>
         </tr>
         <!-- @for (user of users(); track user.id; let idx = $index) { -->
-        @for (user of filteredUsers(); track user.id; let idx = $index) {
+        @for (user of paginatedUsers(); track user.id; let idx = $index) {
             <tr [class.current-user]="isCurrentUser(user)" >
                 <td>{{idx+1}}</td>
                 <td>{{user.firstName}}</td>
@@ -105,7 +105,17 @@
                 </td>
             </tr>
         }
+        
     </table>
+    <div class="pagination">
+        <button (click)="currentPage.set(currentPage() - 1)" [disabled]="currentPage() === 1">Prev</button>;
+        <span>Page {{currentPage()}} / {{totalPages()}}</span>
+        <button (click)="currentPage.set(currentPage() + 1)" [disabled]="currentPage() === totalPages()">Next</button>;
+
+    </div>
+    @if(filteredUsers().length === 0) {
+        <h2 style="text-align: center; font-size: 3rem; margin: 5rem 0;">No users found</h2>
+    }
     @if(showConfirm()) {
         <app-confirm-modal title="Delete user" message="Are you sure?" (confirm)="confirmDelete()" (cancel)="cancelDelete()"></app-confirm-modal>
     }
