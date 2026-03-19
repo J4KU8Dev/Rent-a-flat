@@ -54,7 +54,8 @@
             
         </div>
     </div>
-    <input type="text" class="filter-input" placeholder="Filter users" (input)="filterText.set($any($event.target).value)">
+    <!-- <input type="text" class="filter-input" placeholder="Filter users" (input)="filterText.set($any($event.target).value)"> -->
+    <input type="text" class="filter-input" placeholder="Filter users" #searchInput (input)="onSearch(searchInput.value)">
     <table>
         <tr>
             <th>#</th>
@@ -108,9 +109,12 @@
         
     </table>
     <div class="pagination">
-        <button (click)="currentPage.set(currentPage() - 1)" [disabled]="currentPage() === 1">Prev</button>;
-        <span>Page {{currentPage()}} / {{totalPages()}}</span>
-        <button (click)="currentPage.set(currentPage() + 1)" [disabled]="currentPage() === totalPages()">Next</button>;
+        <button (click)="currentPage.set(currentPage() - 1)" [disabled]="currentPage() === 1">Prev</button>
+        <!-- <span>Page {{currentPage()}} / {{totalPages()}}</span> -->
+        @for (page of totalPagesArray(totalPages()); track page) {
+            <a class="navi-paginator" [class.active]="currentPage() === page" (click)="currentPage.set(page)">{{page}}</a>
+        }
+        <button (click)="currentPage.set(currentPage() + 1)" [disabled]="currentPage() === totalPages()">Next</button>
 
     </div>
     @if(filteredUsers().length === 0) {

@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, signal } from '@angular/core';
 import { LoginModel } from '../login-model';
 import { UserManagementService } from '../services/user-management-service';
 import { PopUp } from '../pop-up/pop-up';
@@ -6,6 +6,8 @@ import { AuthService } from '../services/auth-service';
 import { email, form, minLength, pattern, required, debounce, FormField, disabled } from '@angular/forms/signals';
 import { ConfirmModal } from "../shared/confirm-modal/confirm-modal";
 import { ClickOutside } from "../shared/click-outside";
+import { CdkObserveContent } from "@angular/cdk/observers";
+import { CdkAriaLive } from "../../../node_modules/@angular/cdk/types/_a11y-module-chunk";
 
 @Component({
   selector: 'app-user-management',
@@ -29,7 +31,7 @@ export class UserManagement implements OnInit{
   filterText = signal<string>('');
 
   currentPage = signal<number>(1);
-  pageSize = 5;
+  pageSize = 10;
 
   onRefresh() {
     this.userManagementService.getAllUsers().subscribe({
@@ -174,15 +176,27 @@ export class UserManagement implements OnInit{
     }
   }
 
-  filteredUsers = computed(() => {
+  onSearch(phrase: string) {
+    this.filterText.set(phrase);
+    this.currentPage.set(1);
+    effect(() => {
+      const total = this.totalPages();
+      const current = this.currentPage();
+      if(current > total){
+        this.currentPage.set(total || 1);
+      }
+    });
+  }
+
+  filteredUsers = computed(() => { 
     const users = [...this.users()];
     const search = this.filterText();
     const column = this.sortColumn();
-    const direction = this.sortDirection();
-    
+    const direction = this.sortDirection();    
     let result = users;
 
     if(search) {
+      
       result = result.filter(user =>
         user.firstName.toLocaleLowerCase().includes(search) ||
         user.lastName.toLocaleLowerCase().includes(search) ||
@@ -224,4 +238,14 @@ export class UserManagement implements OnInit{
     const end = start + this.pageSize;
     return users.slice(start, end);
   })
+
+  totalPagesArray(pages: number) {
+    const array = [];
+    for(let i=1;i<=pages;i++) {
+      array.push(i);
+    }
+    return array;
+  }
+
+
 }

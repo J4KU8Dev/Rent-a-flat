@@ -1385,6 +1385,106 @@
       "password": "123123123",
       "phone": "123-123-123",
       "role": "User"
+    },
+    {
+      "id": "u1a8s7d6f5g4h3j2k1",
+      "gender": "Female",
+      "firstName": "Anna",
+      "lastName": "Kowalska",
+      "email": "anna.kowalska@test.com",
+      "password": "anna123",
+      "phone": "500-123-456",
+      "role": "User"
+    },
+      {
+      "id": "u2b9s8d7f6g5h4j3k2",
+      "gender": "Male",
+      "firstName": "Piotr",
+      "lastName": "Nowak",
+      "email": "piotr.nowak@test.com",
+      "password": "piotr123",
+      "phone": "501-234-567",
+      "role": "Admin"
+    },
+    {
+      "id": "u3c0s9d8f7g6h5j4k3",
+      "gender": "Male",
+      "firstName": "Kamil",
+      "lastName": "Zieliński",
+      "email": "kamil.zielinski@test.com",
+      "password": "kamil123",
+      "phone": "502-345-678",
+      "role": "User"
+    },
+    {
+      "id": "u4d1s0d9f8g7h6j5k4",
+      "gender": "Female",
+      "firstName": "Magda",
+      "lastName": "Lis",
+      "email": "magda.lis@test.com",
+      "password": "magda123",
+      "phone": "503-456-789",
+      "role": "User"
+    },
+    {
+      "id": "u5e2s1d0f9g8h7j6k5",
+      "gender": "Male",
+      "firstName": "Adam",
+      "lastName": "Wójcik",
+      "email": "adam.wojcik@test.com",
+      "password": "adam123",
+      "phone": "504-567-890",
+      "role": "Admin"
+    },
+    {
+      "id": "u6f3s2d1f0g9h8j7k6",
+      "gender": "Female",
+      "firstName": "Kasia",
+      "lastName": "Kamińska",
+      "email": "kasia.kaminska@test.com",
+      "password": "kasia123",
+      "phone": "505-678-901",
+      "role": "User"
+    },
+    {
+      "id": "u7g4s3d2f1g0h9j8k7",
+      "gender": "Male",
+      "firstName": "Michał",
+      "lastName": "Lewandowski",
+      "email": "michal.lewandowski@test.com",
+      "password": "michal123",
+      "phone": "506-789-012",
+      "role": "User"
+    },
+    {
+      "id": "u8h5s4d3f2g1h0j9k8",
+      "gender": "Female",
+      "firstName": "Natalia",
+      "lastName": "Kaczmarek",
+      "email": "natalia.kaczmarek@test.com",
+      "password": "natalia123",
+      "phone": "507-890-123",
+      "role": "User"
+    },
+    {
+      "id": "u9i6s5d4f3g2h1j0k9",
+      "gender": "Male",
+      "firstName": "Paweł",
+      "lastName": "Piotrowski",
+      "email": "pawel.piotrowski@test.com",
+      "password": "pawel123",
+      "phone": "508-901-234",
+      "role": "Admin"
+    },
+    {
+      "id": "u10j7s6d5f4g3h2j1k0",
+      "gender": "Female",
+      "firstName": "Ola",
+      "lastName": "Dąbrowska",
+      "email": "ola.dabrowska@test.com",
+      "password": "ola123",
+      "phone": "509-012-345",
+      "role": "User"
     }
   ]
 }
