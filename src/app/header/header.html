@@ -29,11 +29,6 @@
                             <p>User Management System</p>
                         </div>
                     }
-                    @else {
-                        <div class="option" routerLink="/">
-                            <p>My reservations</p>
-                        </div>
-                    }
                     <div class="option" (click)="this.authService.logOut()" routerLink="/login">
                         <p>Log out</p>
                     </div>

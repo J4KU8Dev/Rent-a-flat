@@ -6,8 +6,6 @@ import { AuthService } from '../services/auth-service';
 import { email, form, minLength, pattern, required, debounce, FormField, disabled } from '@angular/forms/signals';
 import { ConfirmModal } from "../shared/confirm-modal/confirm-modal";
 import { ClickOutside } from "../shared/click-outside";
-import { CdkObserveContent } from "@angular/cdk/observers";
-import { CdkAriaLive } from "../../../node_modules/@angular/cdk/types/_a11y-module-chunk";
 
 @Component({
   selector: 'app-user-management',
@@ -16,6 +14,16 @@ import { CdkAriaLive } from "../../../node_modules/@angular/cdk/types/_a11y-modu
   styleUrl: './user-management.css',
 })
 export class UserManagement implements OnInit{
+  constructor() {
+    effect(() => {
+      const total = this.totalPages();
+      const current = this.currentPage();
+      if (current > total) {
+        this.currentPage.set(total || 1);
+      }
+    });
+  }
+  
   userManagementService = inject(UserManagementService);
   authService = inject(AuthService);
   popUpService = inject(PopUp);
@@ -179,13 +187,6 @@ export class UserManagement implements OnInit{
   onSearch(phrase: string) {
     this.filterText.set(phrase);
     this.currentPage.set(1);
-    effect(() => {
-      const total = this.totalPages();
-      const current = this.currentPage();
-      if(current > total){
-        this.currentPage.set(total || 1);
-      }
-    });
   }
 
   filteredUsers = computed(() => { 

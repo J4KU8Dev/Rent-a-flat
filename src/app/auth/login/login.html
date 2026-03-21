@@ -15,11 +15,28 @@
                         <a routerLink="/createAccount">Create account</a>
                     </div>
                     <div class="forgot-password-container">
-                        <a>Reset password</a>
+                        <a (click)="openModal()">Reset password</a>
                     </div>
                 </div>
                 <button type="submit">Log in</button>
             </form>
         </div>
+        @if(isOpen()) {
+            <div class="resetPasswordModal">
+                <div class="reset-function">
+                    @if(userToReset()){
+                        <p>Enter new password</p>
+                        <input type="password" placeholder="New password" #newPass>
+                        <button (click)="resetPassword(newPass.value)">Set new password</button>
+                    }
+                    @else {
+                        <span>Please enter valid email</span>
+                        <input [disabled]="userToReset()" type="email" #emailInput>
+                        <button [disabled]="userToReset()" (click)="validateEmail(emailInput.value)">Check email</button>
+                    }
+                    <button (click)="closeModal()">Cancel</button> 
+                </div>
+            </div>
+        }
     }
 </div>

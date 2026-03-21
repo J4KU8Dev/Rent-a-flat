@@ -60,7 +60,6 @@ export class AuthService {
   resetPassword(userId: string, newPassword: string) {
   return this.http.patch(`${this.apiUrl}/users/${userId}`, {
     password: newPassword,
-    
   })
 }
 
@@ -81,5 +80,14 @@ export class AuthService {
     return dateString + randomness;
   };
   
+  onCheckEmail(email: string): Observable<LoginModel> {
+    return this.http.get<LoginModel[]>(`${this.apiUrl}/users?email=${email}`)
+    .pipe(map(users => {
+      if(users.length === 0){
+        throw new Error('Account with entered email does not exist');
+      }
+    return users[0]
+    }))
+  }
 
 }

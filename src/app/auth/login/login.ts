@@ -25,6 +25,9 @@ export class Login {
   popUpService = inject(PopUp);
   router = inject(Router);
   authService = inject(AuthService);
+  isOpen = signal<boolean>(false);
+  userToReset = signal<LoginModel | null>(null);
+
   signalLoginModel = form(loginModel, (fieldPath) => {
     required(fieldPath.email, {message: 'Email is required.'}),
     required(fieldPath.password, {message: 'Password is required.'}),
@@ -56,6 +59,51 @@ export class Login {
   onResetForm() {
     loginModel.set({email: '', password: ''});
     this.signalLoginModel().reset();
+  }
+
+  openModal() {
+    this.isOpen.set(true);
+  }
+
+  closeModal() {
+    this.isOpen.set(false);
+  }
+
+  resetPassword(newPassword: string) {
+    if(newPassword.length < 5) {
+      this.popUpService.showWarning("Password must be at least 5 characters","Password Validation Error");
+      return
+    }
+
+    const user = this.userToReset();
+    if(!user){
+      return;
+    }
+    this.authService.resetPassword(user.id, newPassword).subscribe({
+      next: () => {
+        this.popUpService.showSuccess("Password updated successfully","Reset Password Success");
+        this.closeModal();
+      },
+      error: (err) => {
+        this.popUpService.showError(err.message, "Email Validation Error");
+      },
+      complete: () => {},
+    })
+
+
+  }
+
+  validateEmail(email: string) {
+    this.authService.onCheckEmail(email).subscribe({
+      next: (user) => {
+        this.popUpService.showSuccess("You typed valid email","Email Validation Success");
+        this.userToReset.set(user);
+      },
+      error: (err) => {
+        this.popUpService.showError(err.message, "Email Validation Error");
+      },
+      complete: () => {},
+    })
   }
 
 }

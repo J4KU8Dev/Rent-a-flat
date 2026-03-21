@@ -260,3 +260,11 @@ button:disabled{
     color: #1d4ed8;
     /* background-color: red; */
 }
+.pagination button {
+    background-color: #2563eb;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 1.3rem;
+    font-size: 1.3rem;
+}
