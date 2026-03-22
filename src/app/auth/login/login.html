@@ -23,11 +23,11 @@
         </div>
         @if(isOpen()) {
             <div class="resetPasswordModal">
-                <div class="reset-function">
+                <form class="reset-function" novalidate (submit)="resetPassword($event)">
                     @if(userToReset()){
                         <p>Enter new password</p>
-                        <input type="password" placeholder="New password" #newPass>
-                        <button (click)="resetPassword(newPass.value)">Set new password</button>
+                        <input type="password" placeholder="New password" [formField]="signalresetPassword.password">
+                        <button type="submit">Set new password</button>
                     }
                     @else {
                         <span>Please enter valid email</span>
@@ -35,7 +35,7 @@
                         <button [disabled]="userToReset()" (click)="validateEmail(emailInput.value)">Check email</button>
                     }
                     <button (click)="closeModal()">Cancel</button> 
-                </div>
+                </form>
             </div>
         }
     }

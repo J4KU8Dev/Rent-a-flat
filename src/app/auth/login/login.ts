@@ -1,5 +1,5 @@
 import { Component, inject, signal } from '@angular/core';
-import { email, FieldTree, form, required, FormField } from '@angular/forms/signals';
+import { email, FieldTree, form, required, FormField, minLength } from '@angular/forms/signals';
 import { PopUp } from '../../pop-up/pop-up';
 import { AuthService } from '../../services/auth-service';
 import { Router, RouterLink } from '@angular/router';
@@ -14,6 +14,14 @@ const loginModel = signal<LoginData>({
     email: '',
     password: '',
 })
+
+interface resetPasswordData {
+  password: string,
+}
+
+const resetPassword = signal<resetPasswordData>({
+  password: '',
+});
 
 @Component({
   selector: 'app-login',
@@ -33,6 +41,11 @@ export class Login {
     required(fieldPath.password, {message: 'Password is required.'}),
     email(fieldPath.email, {message: 'Enter a valid email.'});
     // available validation (i used popUp messages from popUp component)
+  })
+
+  signalresetPassword = form(resetPassword, (fieldPath) => {
+    required(fieldPath.password, {message: 'Password cannot be empty'});
+    minLength(fieldPath.password, 5, {message:'Password must be at least 5 characters'});
   })
 
   onSubmit(event: Event) {
@@ -69,20 +82,28 @@ export class Login {
     this.isOpen.set(false);
   }
 
-  resetPassword(newPassword: string) {
-    if(newPassword.length < 5) {
-      this.popUpService.showWarning("Password must be at least 5 characters","Password Validation Error");
-      return
+  resetPassword(event: Event) {
+    event.preventDefault();
+     if(this.signalresetPassword().invalid()){
+      this.popUpService.showWarning('Incorrect Password','Reset password failure');
+      return;
     }
+    // if(newPassword.length < 5) {
+    //   this.popUpService.showWarning("Password must be at least 5 characters","Password Validation Error");
+    //   return
+    // }
 
     const user = this.userToReset();
     if(!user){
       return;
     }
-    this.authService.resetPassword(user.id, newPassword).subscribe({
+    this.authService.resetPassword(user.id, resetPassword().password).subscribe({
       next: () => {
         this.popUpService.showSuccess("Password updated successfully","Reset Password Success");
         this.closeModal();
+        this.userToReset.set(null);
+        resetPassword.set({password: ''});
+        this.signalresetPassword().reset();
       },
       error: (err) => {
         this.popUpService.showError(err.message, "Email Validation Error");

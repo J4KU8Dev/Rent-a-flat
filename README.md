@@ -9,9 +9,7 @@ To run Data from Api, in second terminal type:
 ```bash
 npx json-server --watch db.json -p 5000
 ```
+to do:
 repair rwd in some components (probably all auth folder)
-
-repair changing role as admin
-repair pagination and add styles to it
 add min-height to containers in some components if database is shut down (important in rwd)
-repair reseting password(change styles and maybe error handler or add full form signal)
+repair reseting password(change styles and add full form signal)
