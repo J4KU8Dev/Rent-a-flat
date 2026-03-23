@@ -79,37 +79,42 @@ export class Login {
   }
 
   closeModal() {
+    if(this.userToReset()) {
+      resetPassword.set({password: ''});
+      this.signalresetPassword().reset();
+      this.userToReset.set(null);
+    }
     this.isOpen.set(false);
   }
 
   resetPassword(event: Event) {
     event.preventDefault();
-     if(this.signalresetPassword().invalid()){
-      this.popUpService.showWarning('Incorrect Password','Reset password failure');
-      return;
-    }
-    // if(newPassword.length < 5) {
-    //   this.popUpService.showWarning("Password must be at least 5 characters","Password Validation Error");
-    //   return
-    // }
 
     const user = this.userToReset();
-    if(!user){
+        if(!user){
+          return;
+        }
+
+    if(resetPassword().password.length < 5){
+      this.popUpService.showWarning('Incorrect Password','Reset password failure');
+      resetPassword.set({password: ''});
       return;
     }
-    this.authService.resetPassword(user.id, resetPassword().password).subscribe({
-      next: () => {
-        this.popUpService.showSuccess("Password updated successfully","Reset Password Success");
-        this.closeModal();
-        this.userToReset.set(null);
-        resetPassword.set({password: ''});
-        this.signalresetPassword().reset();
-      },
-      error: (err) => {
-        this.popUpService.showError(err.message, "Email Validation Error");
-      },
-      complete: () => {},
-    })
+    else {
+      this.authService.resetPassword(user.id, resetPassword().password).subscribe({
+        next: () => {
+          this.popUpService.showSuccess("Password updated successfully","Reset Password Success");
+          this.closeModal();
+          this.userToReset.set(null);
+          resetPassword.set({password: ''});
+          this.signalresetPassword().reset();
+        },
+        error: (err) => {
+          this.popUpService.showError(err.message, "Email Validation Error");
+        },
+        complete: () => {},
+      })
+    }
 
 
   }

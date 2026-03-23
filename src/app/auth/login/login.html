@@ -5,7 +5,7 @@
     @else {
         <div class="content">
             <h2>Account login</h2>
-            <form novalidate (submit)="onSubmit($event)">
+            <form novalidate class="login" (submit)="onSubmit($event)">
                 <p>E-mail address</p>
                 <input type="email" [formField]="signalLoginModel.email" placeholder="Type your email">
                 <p>Password</p>
@@ -23,19 +23,22 @@
         </div>
         @if(isOpen()) {
             <div class="resetPasswordModal">
-                <form class="reset-function" novalidate (submit)="resetPassword($event)">
-                    @if(userToReset()){
-                        <p>Enter new password</p>
+                 @if(userToReset()){
+                    <form class="reset-function" novalidate (submit)="resetPassword($event)">
+                        <span>Enter new password</span>
                         <input type="password" placeholder="New password" [formField]="signalresetPassword.password">
-                        <button type="submit">Set new password</button>
-                    }
-                    @else {
+                        <button class="sub" type="submit">Set new password</button>
+                        <button class="canc" (click)="closeModal()">Cancel</button>
+                    </form>
+                }
+                @else {
+                    <div class="reset-function">
                         <span>Please enter valid email</span>
                         <input [disabled]="userToReset()" type="email" #emailInput>
-                        <button [disabled]="userToReset()" (click)="validateEmail(emailInput.value)">Check email</button>
-                    }
-                    <button (click)="closeModal()">Cancel</button> 
-                </form>
+                        <button class="sub" [disabled]="userToReset()" (click)="validateEmail(emailInput.value)">Check email</button>
+                        <button class="canc" (click)="closeModal()">Cancel</button>
+                    </div>
+                }
             </div>
         }
     }

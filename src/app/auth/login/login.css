@@ -52,10 +52,12 @@
 }
 .options a{
     font-size: 1.3rem;
-    font-weight: 300;
+    font-weight: 400;
     cursor: pointer;
+    text-decoration: none;
+    color: black;
 }
-form button{
+.login button{
     font-size: 1.5rem;
     padding: 1.4rem;
     width: 17rem;
@@ -66,10 +68,12 @@ form button{
     color: white;
     transition: 0.2s ease-in-out;
 }
-form button:hover{
+.login button:hover{
     background-color: #01ffaa;
     cursor: pointer;
 }
+/* reset password styles */
+
 .resetPasswordModal {
   position: fixed;
   top: 0;
@@ -118,32 +122,92 @@ form button:hover{
   border-color: var(--chocolate);
 }
 
-.reset-function button {
+.reset-function .sub, .reset-function .canc {
   padding: 0.6rem;
-  border: none;
+  border: none;   
   border-radius: 6px;
   cursor: pointer;
   transition: 0.2s;
 }
 
-.reset-function button:first-of-type {
+.sub {
   background-color: #27b67c;
   color: white;
 }
 
-.reset-function button:first-of-type:hover {
+.sub:hover {
   opacity: 0.9;
   background-color: #208764;
 }
 
-.reset-function button:last-of-type {
-  background-color: brown;
+.canc {
+  background-color: brown !important;
   color: white;
 }
 
-.reset-function button:last-of-type:hover {
-  background-color: red;
+.canc:hover {
+  background-color: red !important;
 }
 button:disabled {
     background-color: #ccc !important;
 }
+/* rwd */
+
+@media (max-width: 690px) {
+  .content{
+    margin: 5rem 0;
+  }
+  .content h2{
+    font-size: 3rem;
+  }
+  .content form p{
+    font-size: 1.3rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+  }
+  .content form input{
+    width: 51vw;
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .options{
+    width: 51vw;
+  }
+  .options a{
+    font-size: 1rem;
+  }
+  .login button{
+    font-size: 1rem;
+    padding: 1rem;
+    width: 51vw;
+    font-weight: 600;
+  }
+}
+/* breakpoint */
+@media (max-width: 430px) {
+  .content{
+    margin: 2rem 0;
+    padding: 4rem;
+  }
+  .content h2{
+    font-size: 2rem;
+  }
+  .content form p{
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.1rem;
+  }
+  .options{
+    width: 51vw;
+    text-align: center;
+  }
+  .options a{
+    font-size: .8rem;
+  }
+  .content form input{
+    width: 51vw;
+    padding: .6rem;
+    font-size: 1rem;
+  }
+}
+/* finished here, repair creating account form rwd */
