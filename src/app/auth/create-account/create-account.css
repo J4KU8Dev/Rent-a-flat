@@ -70,6 +70,7 @@ form .name-details{
 }
 .rules{
     font-size: 1.3rem;
+    text-align: center;
 }
 button[type="submit"]{
     width: 15rem;
@@ -96,3 +97,76 @@ button[type="submit"]:hover{
 .error-list .error-message {
   margin: 0;
 }
+
+/* rwd */
+
+@media (max-width: 830px) {
+    form{
+        padding: 4rem; 
+        margin: 4rem 0;
+        gap: 2rem;
+    }
+    form h2{
+        font-size: 3rem;
+    }
+    form .input-name{
+        font-size: 1.5rem;
+        margin: 1rem 0;
+    }
+    form .inputs .gender-text{
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    form input[type="text"], form input[type="password"]{
+        padding: .5rem;
+        width: 53vw;
+        font-size: 1.1rem;
+    }
+    form .name-details{
+        gap: .7rem;
+    }
+    form .rules{
+        font-size: 1rem;
+    }
+    button[type="submit"]{
+        width: 33vw;
+        padding: .6rem;
+        height: 2.9rem;
+        font-size: 1.1rem;
+    }
+}
+@media (max-width: 550px) {
+    form{
+        padding: 2.8rem; 
+        margin: 2.8rem 0;
+        gap: 1.5rem;
+    }
+    form h2{
+        font-size: 2rem;
+    }
+    form .input-name{
+        font-size: 1.1rem;
+        margin: .7rem 0;
+    }
+    form .inputs .gender-text{
+        font-size: 1.4rem;
+        margin-bottom: .5rem;
+    }
+    form input[type="text"], form input[type="password"]{
+        padding: .3rem;
+        font-size: 1rem;
+    }
+    form .name-details{
+        gap: .3rem;
+    }
+    form .rules{
+        font-size: .8rem;
+    }
+    button[type="submit"]{
+        width: 33vw;
+        padding: .5rem;
+        height: 2.8rem;
+        font-size: 1rem;
+    }
+}
+

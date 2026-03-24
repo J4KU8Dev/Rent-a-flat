@@ -1191,6 +1191,15 @@
       "phoneNumber": "123-023-123",
       "news": true,
       "loan": true
+    },
+    {
+      "id": "b51b",
+      "message": "Just test message ",
+      "name": "Test message",
+      "email": "jakub@test.com",
+      "phoneNumber": "123-123-123",
+      "news": true,
+      "loan": true
     }
   ],
   "PhoneNumbersToCall": [

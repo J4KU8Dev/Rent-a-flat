@@ -1,7 +1,7 @@
 <div class="container">
     <div class="header">
         <div class="left">
-            <h2>User Management System: Logged as {{this.authService.currentUser()?.role}}</h2>
+            <h2>User Management System: Logged as <i style="color: orange;"> {{this.authService.currentUser()?.role}}</i></h2>
         </div>
         <div class="right">
             <button (click)="onCreateUser()" >Add user <img src="/assets/images/icons/add-user.png" alt="add-user-icon"></button>
@@ -55,59 +55,64 @@
         </div>
     </div>
     <!-- <input type="text" class="filter-input" placeholder="Filter users" (input)="filterText.set($any($event.target).value)"> -->
-    <input type="text" class="filter-input" placeholder="Filter users" #searchInput (input)="onSearch(searchInput.value)">
-    <table>
-        <tr>
-            <th>#</th>
-            <th [class.highlighted]="sortColumn() === 'firstName'" (click)="onSortBy('firstName')">
-                First Name
-                @if(sortColumn() === 'firstName'){
-                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
-                }
-            </th>
-            <th [class.highlighted]="sortColumn() === 'lastName'" (click)="onSortBy('lastName')">
-                Last Name
-                @if(sortColumn() === 'lastName'){
-                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
-                }
-            </th>
-            <th [class.highlighted]="sortColumn() === 'email'" (click)="onSortBy('email')">
-                Email
-                @if(sortColumn() === 'email'){
-                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
-                }
-            </th>
-            <th [class.highlighted]="sortColumn() === 'phone'" (click)="onSortBy('phone')">
-                Phone
-                @if(sortColumn() === 'phone'){
-                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
-                }
-            </th>
-            <th [class.highlighted]="sortColumn() === 'role'" (click)="onSortBy('role')">
-                Role
-                @if(sortColumn() === 'role'){
-                    {{ sortDirection() === 'asc' ? '↑' : '↓' }}
-                }
-            </th>
-            <th>Action</th>
-        </tr>
-        <!-- @for (user of users(); track user.id; let idx = $index) { -->
-        @for (user of paginatedUsers(); track user.id; let idx = $index) {
-            <tr [class.current-user]="isCurrentUser(user)" >
-                <td>{{idx+1}}</td>
-                <td>{{user.firstName}}</td>
-                <td>{{user.lastName}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.phone}}</td>
-                <td>{{user.role}}</td>
-                <td>
-                    <button [disabled]="user.role==='Head Admin' && authService.currentUser()?.role==='Admin'" (click)="onEditUser(user)">Edit</button>
-                    <button [disabled]="(user.role==='Head Admin' && authService.currentUser()?.role==='Admin') || isCurrentUser(user)" (click)="onDeleteUser(user.id)">Delete</button>
-                </td>
+    <div class="container-input">
+        <input type="text" class="filter-input" placeholder="Filter users" #searchInput (input)="onSearch(searchInput.value)">
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>#</th>
+                <th [class.highlighted]="sortColumn() === 'firstName'" (click)="onSortBy('firstName')">
+                    First Name
+                    @if(sortColumn() === 'firstName'){
+                        {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                    }
+                </th>
+                <th [class.highlighted]="sortColumn() === 'lastName'" (click)="onSortBy('lastName')">
+                    Last Name
+                    @if(sortColumn() === 'lastName'){
+                        {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                    }
+                </th>
+                <th [class.highlighted]="sortColumn() === 'email'" (click)="onSortBy('email')">
+                    Email
+                    @if(sortColumn() === 'email'){
+                        {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                    }
+                </th>
+                <th [class.highlighted]="sortColumn() === 'phone'" (click)="onSortBy('phone')">
+                    Phone
+                    @if(sortColumn() === 'phone'){
+                        {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                    }
+                </th>
+                <th [class.highlighted]="sortColumn() === 'role'" (click)="onSortBy('role')">
+                    Role
+                    @if(sortColumn() === 'role'){
+                        {{ sortDirection() === 'asc' ? '↑' : '↓' }}
+                    }
+                </th>
+                <th>Action</th>
             </tr>
-        }
-        
-    </table>
+            <!-- @for (user of users(); track user.id; let idx = $index) { -->
+            @for (user of paginatedUsers(); track user.id; let idx = $index) {
+                <tr [class.current-user]="isCurrentUser(user)" >
+                    <td>{{idx+1}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.role}}</td>
+                    <td>
+                        <button [disabled]="user.role==='Head Admin' && authService.currentUser()?.role==='Admin'" (click)="onEditUser(user)">Edit</button>
+                        <button [disabled]="(user.role==='Head Admin' && authService.currentUser()?.role==='Admin') || isCurrentUser(user)" (click)="onDeleteUser(user.id)">Delete</button>
+                    </td>
+                </tr>
+            }
+            
+        </table>
+    </div>
+
     <div class="pagination">
         <button (click)="currentPage.set(currentPage() - 1)" [disabled]="currentPage() === 1">Prev</button>
         <!-- <span>Page {{currentPage()}} / {{totalPages()}}</span> -->

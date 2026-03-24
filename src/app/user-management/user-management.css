@@ -4,6 +4,11 @@
     padding: 20px;
     font-family: Arial, Helvetica, sans-serif;
     min-height: 800px;
+    
+}
+.table-wrapper{
+    width: 100%;
+    overflow-x: auto;
 }
 
 .header {
@@ -32,6 +37,7 @@
     cursor: pointer;
     font-weight: 500;
     transition: background 0.2s ease;
+    text-wrap: nowrap;
 }
 
 .header .right button:hover {
@@ -40,10 +46,11 @@
 
 table {
     width: 100%;
+    min-width: 1000px;
     border-collapse: collapse;
     background: white;
     border-radius: 8px;
-    overflow: hidden;
+    border-collapse: collapse;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
 }
 
@@ -63,7 +70,7 @@ td {
 }
 
 tr:hover {
-    background-color: #f9fafb;
+    background-color: #f5f5f5;
 }
 
 td button {
@@ -227,9 +234,9 @@ td button:last-child:hover {
     border-radius: 10px;
 }
 .current-user {
-  background-color: #ffeeba;
-  font-weight: 500;
-  border-left: 4px solid orange;
+    background-color: #ffeeba;
+    font-weight: 500;
+    border-left: 4px solid orange;
 }
 .current-user:hover{
     background-color: rgb(233, 198, 90);
@@ -239,11 +246,11 @@ button:disabled{
     cursor: not-allowed !important;
 }
 .pagination{
-  margin-top: 1rem;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  justify-content: center;
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
 }
 .pagination button {
     padding: .6rem;
@@ -258,7 +265,6 @@ button:disabled{
 }
 .active {
     color: #1d4ed8;
-    /* background-color: red; */
 }
 .pagination button {
     background-color: #2563eb;
@@ -267,4 +273,49 @@ button:disabled{
     border-radius: 10px;
     padding: 1.3rem;
     font-size: 1.3rem;
+}
+
+/* rwd */
+
+@media (max-width: 1020px) {
+    .container{
+        margin: 2rem auto;
+    }
+    .header h2{
+        line-height: 2.5rem;
+    }
+}
+@media (max-width: 650px) {
+    .header h2{
+        font-size: 25px;
+        color: #333;
+        text-wrap: balance;
+    }
+}
+@media (max-width: 500px) {
+    .header h2{
+        text-align: center;
+    }
+    .header{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .pagination{
+        margin-top: 1rem;
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: center;
+    }
+    .pagination button {
+        padding: .6rem;
+        font-size: 1rem;
+    }
+    .container-input{
+        display: flex;
+        justify-content: center;
+    }
 }
