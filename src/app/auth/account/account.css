@@ -2,15 +2,21 @@
     width: 100vw;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     background-color: var(--cream);
 }
 .wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 4rem;
     background-color: white;
     border-radius: 20px;
     padding: 9rem;
     margin: 9rem;
-    width: 50vw;
+    width: 1030px;
     -webkit-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     -moz-box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
     box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
@@ -31,13 +37,6 @@
     line-height: 3rem;
 }
 
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 4rem;
-}
 .profile{
     display: flex;
     flex-direction: row;
@@ -165,8 +164,179 @@ button[class="confirm"]{
     opacity: 0;
     transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
     transform: translateY(10px);
+    line-height: 2rem;
 }
 .icon:hover .text-role-hover{
     opacity: 1;
     transform: translateY(0px);
+}
+
+/* rwd */
+
+@media (max-width: 1400px) {
+    .wrapper{
+        gap: 3rem;
+        padding: 6rem;
+        margin: 6rem;
+    }
+    .wrapper h1{
+        font-size: 2.3rem;
+    }
+    .profile h2{
+        font-size: 1.8rem;
+    }
+    .profile-picture-wrapper .block p{
+        font-size: 1.3rem;
+    }
+} 
+@media (max-width: 1100px) {
+    .wrapper{
+        width: 45rem;
+        gap: 2rem;
+        padding: 4rem;
+        margin: 4rem;
+    }
+    .wrapper h1{
+        font-size: 1.8rem;
+    }
+    .profile{
+        gap: .7rem;
+    }
+    .profile h2{
+        font-size: 1.3rem;
+        width: 18rem;
+    }
+    .profile-picture-wrapper .block p{
+        font-size: 1rem;
+    }
+    .profile p{
+        font-size: 1.2rem;
+    }
+    .element{
+        padding: 1rem;
+        width: 20rem;
+        font-size: 1.2rem;
+    }
+    .password{
+        padding: 1rem;
+        width: 20rem;
+        font-size: 1.2rem;
+    }
+} 
+@media (max-width: 740px) {
+    .wrapper{
+        width: 30rem;
+        gap: 2rem;
+        padding: 3rem;
+        margin: 3rem;
+    }
+    .wrapper h1{
+        font-size: 1.3rem;
+    }
+    .profile{
+        gap: .5rem;
+    }
+    .profile h2{
+        font-size: 1rem;
+        width: 10rem;
+    }
+    .profile-picture-wrapper .block p{
+        font-size: .8rem;
+    }
+    .profile p{
+        font-size: 1rem;
+    }
+    .element{
+        padding: 1rem;
+        width: 15rem;
+        font-size: 1rem;
+    }
+    .password{
+        padding: 1rem;
+        width: 15rem;
+        font-size: 1.2rem;
+    }
+    button[class="change-password-buton"]{
+        width: 10rem;
+        padding: .7rem;
+        font-size: .8rem;
+        letter-spacing: 0rem;
+        border-radius: 15px;
+    }
+    .profile-picture-wrapper{
+        gap: 1rem;
+    }
+    img{
+        width: 150px;
+        height: 150px;
+    }
+    .text-role-hover{
+        font-size: 1rem;
+        padding: 5px;
+        top: -20px;
+        left: 30px;
+        line-height: 1rem;
+    }
+    .block input{
+        font-size: .8rem;
+    }
+}
+@media (max-width: 530px) {
+    .wrapper{
+        width: 20rem;
+        gap: 1rem;
+        padding: 3rem;
+        margin: 3rem;
+    }
+    .profile-picture-wrapper{
+        flex-direction: column;
+        text-align: center;
+    }
+    .wrapper h1{
+        font-size: 1rem;
+    }
+    .profile{
+        gap: .5rem;
+    }
+    .profile h2{
+        font-size: .8rem;
+        width: 6rem;
+    }
+    .profile-picture-wrapper .block p{
+        font-size: .8rem;
+    }
+    .profile p{
+        font-size: 1rem;
+    }
+    .element{
+        padding: .7rem;
+        width: 8rem;
+        font-size: .8rem;
+    }
+    .password{
+        padding: .7rem;
+        width: 8rem;
+        font-size: .8rem;
+    }
+    button[class="change-password-buton"]{
+        width: 10rem;
+        padding: .7rem;
+        font-size: .8rem;
+        letter-spacing: 0rem;
+        border-radius: 15px;
+    }
+    .profile-picture-wrapper{
+        gap: 1rem;
+    }
+    img{
+        width: 90px;
+        height: 90px;
+    }
+    .text-role-hover{
+        font-size: .5rem;
+        padding: 5px;
+        top: 20px;
+        left: -40px;
+        line-height: 1rem;
+    }
 }
