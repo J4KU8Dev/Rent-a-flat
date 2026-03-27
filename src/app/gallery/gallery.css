@@ -1,5 +1,6 @@
 .container{
     margin-bottom: 2rem;
+    min-height: 809px;
 }
 .container h2{
     text-align: center;

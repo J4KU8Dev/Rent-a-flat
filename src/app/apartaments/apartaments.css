@@ -4,6 +4,7 @@
     align-items: center;
     margin-bottom: 4rem;
     gap: 3rem;
+    min-height: 809px;
 }
 .container .count{
     font-size: 3rem;
