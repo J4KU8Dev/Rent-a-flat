@@ -6,20 +6,19 @@ This is a frontend web application built with Angular that allows users to brows
 The application includes authentication, role-based access, and a responsive user interface.
 
 ## 🚀 Features
-User authentication (login / logout)
-Role-based access control
-User management (CRUD operations)
-Filtering, sorting, and pagination of users
-Responsive layout (desktop & mobile)
-Image slider for apartment previews
-Error handling and loading states
-
+- User authentication (login / logout)
+- Role-based access control
+- User management (CRUD operations)
+- Filtering, sorting, and pagination of users
+- Responsive layout (desktop & mobile)
+- Image slider for apartment previews
+- Error handling and loading states
 
 ## 🛠 Technologies
-Angular (Signals, routing, guards)
-TypeScript
-CSS (Flexbox, responsive design)
-JSON Server (mock REST API)
+- Angular (Signals, routing, guards)
+- TypeScript
+- CSS (Flexbox, responsive design)
+- JSON Server (mock REST API)
 
 ## ▶️ Getting Started
 
@@ -51,7 +50,7 @@ npx json-server --watch db.json -p 5000
 ![Slider](./screens/apartment-site.gif)
 
 ## 🔮 Future Improvements
-Backend integration (real API)
-JWT authentication
-Improved form validation
-Better UI/UX polish
+- Backend integration (real API)
+- JWT authentication
+- Improved form validation
+- Better UI/UX polish
