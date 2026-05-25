@@ -54,3 +54,10 @@ npx json-server --watch db.json -p 5000
 - JWT authentication
 - Improved form validation
 - Better UI/UX polish
+
+### Stack
+- Node.js
+- Express
+- Prisma
+- PostgreSQL
+- JWT (auth)
