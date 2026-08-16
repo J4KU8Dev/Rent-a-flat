@@ -4,5 +4,88 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+}
+
+model Apartment {
+  id             String   @id @default(cuid())
+  imagePath      String
+  name           String
+  city           String
+  street         String
+  rentalFee      Int
+  apartmentSize  Int
+  rooms          Int
+  description    String
+  floor          String
+  elevator       String
+  parkingSpace   String
+  available      String
+  fullDescription String
+
+  // "details.flat"
+  kitchenType         String?
+  bathroomWithToilet   String?
+  balcony              String?
+  terrace              String?
+  market               String?
+
+  // "details.buidling"
+  buildingType     String?
+  buildingMaterial String?
+  dateBuilding     String?
+
+  // "details.advertisement"
+  addedDate       String?
+  lastUpdate      String?
+  idAdvertisement String?
+  views           Int?     @default(0)
+
+  opinions Opinion[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Opinion {
+  id             String   @id @default(cuid())
+  customerId     String
+  gender         String
+  firstName      String
+  lastName       String
+  opinionDate    String
+  opinionContent String
+  rating         Int
+
+  apartmentId String
+  apartment   Apartment @relation(fields: [apartmentId], references: [id])
+
+  createdAt DateTime @default(now())
+}
+
+model Attraction {
+  id  String @id @default(cuid())
+  text String
+  img  String
+}
+
+model GalleryImage {
+  id          String @id @default(cuid())
+  imgPath     String
+  description String
+}
+
+model User {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String
+  firstName    String?
+  lastName     String?
+  role         Role     @default(USER)
+
+  createdAt DateTime @default(now())
+}
+
+enum Role {
+  USER
+  ADMIN
 }
