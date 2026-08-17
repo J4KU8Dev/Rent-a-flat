@@ -7,38 +7,35 @@ datasource db {
 }
 
 model Apartment {
-  id             String   @id @default(cuid())
-  imagePath      String
-  name           String
-  city           String
-  street         String
-  rentalFee      Int
-  apartmentSize  Int
-  rooms          Int
-  description    String
-  floor          String
-  elevator       String
-  parkingSpace   String
-  available      String
+  id              String @id @default(cuid())
+  imagePath       String
+  name            String
+  city            String
+  street          String
+  rentalFee       Int
+  apartmentSize   Int
+  rooms           Int
+  description     String
+  floor           String
+  elevator        String
+  parkingSpace    String
+  available       String
   fullDescription String
 
-  // "details.flat"
-  kitchenType         String?
-  bathroomWithToilet   String?
-  balcony              String?
-  terrace              String?
-  market               String?
+  kitchenType        String?
+  bathroomWithToilet String?
+  balcony            String?
+  terrace            String?
+  market             String?
 
-  // "details.buidling"
   buildingType     String?
   buildingMaterial String?
   dateBuilding     String?
 
-  // "details.advertisement"
   addedDate       String?
   lastUpdate      String?
   idAdvertisement String?
-  views           Int?     @default(0)
+  views           Int?    @default(0)
 
   opinions Opinion[]
 
@@ -47,7 +44,7 @@ model Apartment {
 }
 
 model Opinion {
-  id             String   @id @default(cuid())
+  id             String @id @default(cuid())
   customerId     String
   gender         String
   firstName      String
@@ -63,7 +60,7 @@ model Opinion {
 }
 
 model Attraction {
-  id  String @id @default(cuid())
+  id   String @id @default(cuid())
   text String
   img  String
 }
@@ -78,8 +75,10 @@ model User {
   id           String   @id @default(cuid())
   email        String   @unique
   passwordHash String
+  gender       String?
   firstName    String?
   lastName     String?
+  phone        String?
   role         Role     @default(USER)
 
   createdAt DateTime @default(now())
@@ -88,4 +87,37 @@ model User {
 enum Role {
   USER
   ADMIN
+  HEAD_ADMIN
+}
+
+model Message {
+  id      String  @id @default(cuid())
+  name    String
+  email   String
+  number  String
+  subject String
+  message String
+  check   Boolean @default(false)
+
+  createdAt DateTime @default(now())
+}
+
+model ContactRequest {
+  id          String  @id @default(cuid())
+  message     String
+  name        String
+  email       String
+  phoneNumber String
+  news        Boolean @default(false)
+  loan        Boolean @default(false)
+
+  createdAt DateTime @default(now())
+}
+
+model PhoneCallRequest {
+  id     String @id @default(cuid())
+  number String
+  time   String
+
+  createdAt DateTime @default(now())
 }
