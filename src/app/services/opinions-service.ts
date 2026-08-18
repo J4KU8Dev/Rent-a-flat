@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class OpinionsService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'http://localhost:3000';
   opinions = signal<opinionsModel[]>([]);
   customerId = signal<string>('');
 

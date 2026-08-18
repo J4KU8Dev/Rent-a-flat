@@ -18,13 +18,13 @@ export class Opinions {
   constructor(){
     this.opinionService.getAllOpinions().subscribe((opinions: opinionsModel[]) => {
       this.opinions.set(opinions);
-      console.log(opinions);
+      // console.log(opinions);
     })
   }
 
   onSelectedCustomer(id: string){
     this.selectedCustomer.set(id);
-    console.log(this.selectedCustomer());
+    // console.log(this.selectedCustomer());
     this.selectedCustomerOutput.emit(this.selectedCustomer());
   }
 }

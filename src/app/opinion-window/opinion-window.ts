@@ -24,7 +24,7 @@ export class OpinionWindow implements OnChanges {
   // apartamentId = signal<string>('');
   apartamentId = signal<string>('');
   ngOnChanges(changes: SimpleChanges){
-    console.log(changes);
+    // console.log(changes);
 
     this.OpinionsService.getOpinionById(this.customerId()).subscribe(data => {
       const opinion = data[0];
@@ -32,11 +32,11 @@ export class OpinionWindow implements OnChanges {
 });
     
     this.OpinionsService.getOpinionById(this.customerId()).subscribe(data => {
-      const apartament = data[0].apartamentId;
+      const apartament = data[0].apartmentId;
       this.apartamentId.set(apartament);
 
       
-      console.log(this.apartamentId());
+      // console.log(this.apartamentId()); printing the same id!!!
       this.updateApartamentImage(this.apartamentId())
     })
   }

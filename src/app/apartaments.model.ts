@@ -13,24 +13,19 @@ export interface ApartamentsModel {
     parkingSpace: 'Yes' | 'No',
     available: 'Yes' | 'No',
     fullDescription: string,
-    details: {
-        flat: {
-            kitchenType: string,
-            bathroomWithToilet: 'Yes' | 'No',
-            balcony: 'Yes' | 'No',
-            terrace: 'Yes' | 'No',
-            market: 'Secondary' | 'Primary',
-        }
-        buidling: {
-            buildingType: string,
-            buildingMaterial: string,
-            dateBuilding: string,
-        }
-        advertisement: {
-            addedDate: string,
-            lastUpdate: string,
-            idAdvertisement: string,
-            views: number,
-        }
-    }
+
+    kitchenType: string | null,
+    bathroomWithToilet: 'Yes' | 'No' | null,
+    balcony: 'Yes' | 'No' | null,
+    terrace: 'Yes' | 'No' | null,
+    market: 'Secondary' | 'Primary' | null,
+
+    buildingType: string | null,
+    buildingMaterial: string | null,
+    dateBuilding: string | null,
+
+    addedDate: string | null,
+    lastUpdate: string | null,
+    idAdvertisement: string | null,
+    views: number | null,
 }

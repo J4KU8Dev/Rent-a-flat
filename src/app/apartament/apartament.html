@@ -57,7 +57,7 @@
           <h2>Building type</h2>
         </div>
         <div class="right">
-          <p>{{ apartament()?.details?.buidling?.buildingType }}</p>
+          <p>{{ apartament()?.buildingType }}</p>
         </div>
       </div>
       <div class="detail">
@@ -65,7 +65,7 @@
           <h2>Building Material</h2>
         </div>
         <div class="right">
-          <p>{{ apartament()?.details?.buidling?.buildingMaterial }}</p>
+          <p>{{ apartament()?.buildingMaterial }}</p>
         </div>
       </div>
       <div class="detail">
@@ -73,7 +73,7 @@
           <h2>Date building</h2>
         </div>
         <div class="right">
-          <p>{{ apartament()?.details?.buidling?.dateBuilding }}</p>
+          <p>{{ apartament()?.dateBuilding }}</p>
         </div>
       </div>
     </div>
@@ -84,7 +84,7 @@
           <h2>Added</h2>
         </div>
         <div class="right">
-          <p>{{ apartament()?.details?.advertisement?.addedDate }}</p>
+          <p>{{ apartament()?.addedDate }}</p>
         </div>
       </div>
       <div class="detail">
@@ -92,7 +92,7 @@
           <h2>Last update</h2>
         </div>
         <div class="right">
-          <p>{{ apartament()?.details?.advertisement?.lastUpdate }}</p>
+          <p>{{ apartament()?.lastUpdate }}</p>
         </div>
       </div>
       <div class="detail">
@@ -100,7 +100,7 @@
           <h2>Advertisement number</h2>
         </div>
         <div class="right">
-          <p>{{ apartament()?.details?.advertisement?.idAdvertisement }}</p>
+          <p>{{ apartament()?.idAdvertisement }}</p>
         </div>
       </div>
       <div class="detail">
@@ -108,7 +108,7 @@
           <h2>Views</h2>
         </div>
         <div class="right">
-          <p>{{ apartament()?.details?.advertisement?.views }}</p>
+          <p>{{ apartament()?.views }}</p>
         </div>
       </div>
     </div>
@@ -137,7 +137,7 @@
         [formField]="signalRegisterForm.message"
         [placeholder]="
           'I would like to know more details about the ad ' +
-          apartament()?.details?.advertisement?.idAdvertisement
+          apartament()?.idAdvertisement
         "
       ></textarea>
       @if (signalRegisterForm.message().invalid() && signalRegisterForm.message().touched()) {

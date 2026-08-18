@@ -66,7 +66,7 @@ export class Apartament implements OnInit, OnDestroy {
     }
     this.contactService.contactAboutApartament(this.signalRegisterModel()).subscribe({
       next: () => {
-        this.popUpService.showSuccess(`Contact message about apartament ${this.apartament()?.details?.advertisement?.idAdvertisement} was sent succesfully. `, `Apartament contact message.`);
+        this.popUpService.showSuccess(`Contact message about apartament ${this.apartament()?.idAdvertisement} was sent succesfully. `, `Apartament contact message.`);
         this.onResetForm();
       },
       error: () => {

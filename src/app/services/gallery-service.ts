@@ -8,7 +8,7 @@ import { imagesInterface } from '../images.model';
 })
 export class GalleryService {
   private http = inject(HttpClient);
-  private apiUrl: string = 'http://localhost:5000';
+  private apiUrl: string = 'http://localhost:3000';
 
   getAllImages(): Observable<imagesInterface[]>{
     return this.http.get<imagesInterface[]>(`${this.apiUrl}/gallery`)

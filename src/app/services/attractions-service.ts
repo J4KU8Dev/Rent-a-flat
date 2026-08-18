@@ -8,7 +8,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 })
 export class AttractionsService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'http://localhost:3000';
 
   getAllAttractions(): Observable<attractionsModel[]> {
     return this.http.get<attractionsModel[]>(`${this.apiUrl}/attractions`)

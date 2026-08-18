@@ -1,5 +1,5 @@
 export interface imagesInterface {
     id: string,
-    img_Path: string,
+    imgPath: string,
     description: string,
 }
