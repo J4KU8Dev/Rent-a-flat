@@ -35,8 +35,7 @@ export class OpinionWindow implements OnChanges {
       const apartament = data[0].apartmentId;
       this.apartamentId.set(apartament);
 
-      
-      // console.log(this.apartamentId()); printing the same id!!!
+      // console.log(this.apartamentId()); 
       this.updateApartamentImage(this.apartamentId())
     })
   }

@@ -11,7 +11,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "exactOptionalPropertyTypes": true,
+    "exactOptionalPropertyTypes": false,
   },
   "exclude": ["prisma.config.ts"]
 }

@@ -17,7 +17,7 @@ export class AuthService {
     }
   }
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'http://localhost:3000';
   popUpService = inject(PopUp);
   router = inject(Router);
   private _currentUser = signal<LoginModel | null>(null);

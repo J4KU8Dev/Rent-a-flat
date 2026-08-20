@@ -10,7 +10,7 @@ import { AuthService } from './auth-service';
 })
 export class UserManagementService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:5000';
+  private apiUrl = 'http://localhost:3000';
   authService = inject(AuthService);
 
   getAllUsers(): Observable<LoginModel[]> {

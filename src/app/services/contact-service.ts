@@ -8,7 +8,7 @@ import { contactAboutApartament, contanctMessageModel, needACallModel } from '..
 })
 export class ContactService {
   private http = inject(HttpClient);
-  private apiUrl: string = 'http://localhost:5000';
+  private apiUrl: string = 'http://localhost:3000';
 
   createMessage(data: contanctMessageModel): Observable<contanctMessageModel>{
     return this.http.post<contanctMessageModel>(`${this.apiUrl}/messages`, data)

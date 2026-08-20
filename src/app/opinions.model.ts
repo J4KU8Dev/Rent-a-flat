@@ -1,5 +1,5 @@
 export interface opinionsModel {
-    id: string,
+    customerId: string,
     gender: 'male' | 'female',
     firstName: string,
     lastName: string,

@@ -2,7 +2,7 @@
     <div class="menu">
         <h2>Our customers</h2>
         @for (opinion of opinions(); track $index) {
-            <div class="card" (click)="onSelectedCustomer(opinion.id)" [class.active]="opinion.id === selectedCustomer()">
+            <div class="card" (click)="onSelectedCustomer(opinion.customerId)" [class.active]="opinion.customerId === selectedCustomer()">
                 <img [src]="'/assets/images/icons/' + opinion.gender + '.png'" [alt]="opinion.gender">
                 <p>{{opinion.firstName}} {{opinion.lastName}}</p>
             </div>

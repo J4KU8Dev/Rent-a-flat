@@ -3,10 +3,13 @@ import { prisma } from '../prisma';
 
 const router = Router();
 
-// GET /opinions — list all
-router.get('/', async (_req, res, next) => {
+// GET /opinions — list all, or filter by customer via ?CustomerId=xyz
+router.get('/', async (req, res, next) => {
   try {
+    const customerId = (req.query.CustomerId ?? req.query.customerId) as string | undefined;
+
     const opinions = await prisma.opinion.findMany({
+      where: customerId ? { customerId } : undefined,
       orderBy: { createdAt: 'desc' },
     });
     res.json(opinions);
